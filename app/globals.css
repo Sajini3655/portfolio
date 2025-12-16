@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background:
+    radial-gradient(900px 520px at 18% 10%, rgba(99, 102, 241, 0.14), transparent 55%),
+    radial-gradient(820px 500px at 85% 18%, rgba(34, 211, 238, 0.10), transparent 58%),
+    #0b0b0b;
+  color: #e5e5e5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: rgba(99, 102, 241, 0.35);
+}
+
+@layer components {
+  .muted {
+    @apply text-neutral-400;
+  }
+  .section-title {
+    @apply text-2xl md:text-3xl font-semibold tracking-tight text-white;
+  }
+  .card {
+    @apply rounded-2xl border border-neutral-800 bg-neutral-950/60;
+    box-shadow: 0 20px 70px -55px rgba(0, 0, 0, 0.9);
+  }
+  .card-hover {
+    @apply transition hover:bg-neutral-900/60 hover:border-neutral-700;
+  }
+  .chip {
+    @apply rounded-full border border-neutral-800 bg-neutral-950/60 px-3 py-1 text-xs text-neutral-200;
+  }
+}
