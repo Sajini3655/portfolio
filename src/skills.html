@@ -1,0 +1,705 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sajini Tharushika — Skills</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#050817;
+      --fg:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.65);
+      --stroke:rgba(255,255,255,.12);
+      --panel:rgba(0,0,0,.26);
+      --accent:#38bdf8;
+      --accent2:#a855f7;
+      --ease:cubic-bezier(.16,1,.3,1);
+      --shadow:0 24px 100px rgba(0,0,0,.45);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter,system-ui;
+      background:linear-gradient(180deg,#050817,#060a14);
+      color:var(--fg);
+      overflow-x:hidden;
+    }
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1120px;margin:auto;padding:0 22px}
+
+    /* NAV */
+    header{
+      position:sticky;top:0;z-index:30;
+      backdrop-filter:blur(14px);
+      background:rgba(5,8,23,.72);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .nav{
+      height:70px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+    }
+    .brand{display:flex;gap:12px;align-items:center;font-weight:800}
+    .logo{
+      width:38px;height:38px;border-radius:14px;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,.22), transparent 55%),
+        linear-gradient(135deg,var(--accent),var(--accent2));
+      box-shadow:0 0 28px rgba(56,189,248,.14);
+    }
+    nav a{
+      margin-left:18px;font-size:13px;color:rgba(255,255,255,.75);
+      padding:8px 10px;border-radius:12px;
+      transition:background .2s var(--ease), transform .2s var(--ease), color .2s var(--ease);
+    }
+    nav a:hover{background:rgba(255,255,255,.06); transform:translateY(-1px); color:white;}
+    nav a.active{color:white;background:rgba(255,255,255,.06);}
+    @media(max-width:980px){ nav{display:none} }
+
+    /* --- Mobile Nav --- */
+.menuBtn{
+  height:44px;width:44px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(255,255,255,.06);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  transition:transform .18s var(--ease), border-color .18s var(--ease), background .18s var(--ease);
+  -webkit-tap-highlight-color: transparent;
+}
+.menuBtn:hover{transform:translateY(-1px); background:rgba(255,255,255,.08); border-color:rgba(56,189,248,.22);}
+.menuBtn svg{width:20px;height:20px;opacity:.9}
+
+/* drawer backdrop */
+.drawerBack{
+  position:fixed; inset:0;
+  background:rgba(0,0,0,.55);
+  backdrop-filter:blur(10px);
+  z-index:60;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .25s var(--ease);
+}
+.drawerBack.open{opacity:1; pointer-events:auto;}
+
+/* drawer */
+.drawer{
+  position:fixed;
+  right:14px; top:82px;
+  width:min(360px, calc(100vw - 28px));
+  border-radius:20px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(5,8,23,.88);
+  box-shadow:0 24px 100px rgba(0,0,0,.55);
+  z-index:70;
+  transform:translateY(-8px) scale(.98);
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .25s var(--ease), transform .25s var(--ease);
+}
+.drawer.open{
+  opacity:1;
+  pointer-events:auto;
+  transform:translateY(0) scale(1);
+}
+.drawerHeader{
+  padding:14px 14px 10px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.drawerTitle{
+  font-weight:800;
+  font-size:13px;
+  color:rgba(255,255,255,.88);
+  letter-spacing:.01em;
+}
+.closeBtn{
+  height:38px;width:38px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.06);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  transition:transform .18s var(--ease), border-color .18s var(--ease), background .18s var(--ease);
+}
+.closeBtn:hover{transform:translateY(-1px); background:rgba(255,255,255,.08); border-color:rgba(168,85,247,.22);}
+.closeBtn svg{width:18px;height:18px;opacity:.9}
+
+.drawerNav{
+  padding:12px;
+  display:grid;
+  gap:10px;
+}
+.drawerNav a{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:12px 12px;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(255,255,255,.05);
+  color:rgba(255,255,255,.82);
+  font-size:13px;
+  font-weight:700;
+  transition:transform .18s var(--ease), border-color .18s var(--ease), background .18s var(--ease);
+}
+.drawerNav a:hover{
+  transform:translateY(-1px);
+  background:rgba(255,255,255,.07);
+  border-color:rgba(56,189,248,.22);
+  color:white;
+}
+.drawerNav a.active{
+  border-color:rgba(56,189,248,.40);
+  background:rgba(56,189,248,.12);
+  color:white;
+}
+.drawerNav small{
+  font-weight:700;
+  color:rgba(255,255,255,.55);
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(0,0,0,.20);
+  padding:6px 10px;
+  border-radius:999px;
+}
+
+/* only show hamburger on mobile */
+@media(max-width:980px){
+  .menuBtn{display:flex;}
+}
+
+    /* PAGE */
+    .page{
+      padding:28px 0 70px;
+      position:relative;
+    }
+    .bg{
+      position:absolute; inset:0;
+      background:
+        radial-gradient(900px 520px at 18% 10%, rgba(56,189,248,.10), transparent 62%),
+        radial-gradient(980px 600px at 86% 18%, rgba(168,85,247,.10), transparent 65%),
+        linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
+      background-size:auto, auto, 64px 64px, 64px 64px;
+      opacity:.34;
+      mask-image:radial-gradient(ellipse at 42% 14%, rgba(0,0,0,1) 22%, rgba(0,0,0,.85) 45%, rgba(0,0,0,0) 78%);
+      pointer-events:none;
+    }
+
+    .top{
+      position:relative;
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:18px;
+      flex-wrap:wrap;
+      margin-bottom:22px;
+    }
+    h1{
+      margin:0;
+      font-size:clamp(34px,4.8vw,54px);
+      letter-spacing:-.03em;
+      line-height:1.08;
+    }
+    .grad{
+      background:linear-gradient(90deg,var(--accent),var(--accent2));
+      -webkit-background-clip:text;color:transparent;
+    }
+    .lead{
+      margin:10px 0 0;
+      color:var(--muted);
+      line-height:1.9;
+      font-size:15px;
+      max-width:78ch;
+    }
+
+    .pillRow{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-start}
+    .pill{
+      font-size:12px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.05);
+      color:rgba(255,255,255,.78);
+      white-space:nowrap;
+    }
+
+    /* Premium skill groups */
+    .grid{
+      position:relative;
+      display:grid;
+      grid-template-columns: repeat(12, minmax(0,1fr));
+      gap:16px;
+    }
+    .card{
+      position:relative;
+      border-radius:22px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(0,0,0,.26);
+      padding:18px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      opacity:0;
+      transform:translateY(10px);
+      transition:opacity 700ms var(--ease), transform 700ms var(--ease), border-color 200ms var(--ease), background 200ms var(--ease);
+    }
+    .card.in{opacity:1; transform:translateY(0);}
+    .card:hover{background:rgba(255,255,255,.06); border-color:rgba(56,189,248,.22);}
+
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:-35%;
+      background:
+        radial-gradient(640px circle at 25% 20%, rgba(56,189,248,.12), transparent 60%),
+        radial-gradient(760px circle at 85% 70%, rgba(168,85,247,.10), transparent 62%);
+      opacity:.85;
+      pointer-events:none;
+    }
+    .card > *{position:relative}
+
+    .kicker{
+      font-size:12px;
+      color:rgba(255,255,255,.70);
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      margin:0 0 10px;
+    }
+    .title{
+      margin:0 0 10px;
+      font-size:16px;
+      letter-spacing:-.01em;
+    }
+    .desc{
+      margin:0 0 14px;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.75;
+    }
+
+    .chips{display:flex;flex-wrap:wrap;gap:10px}
+    .chip{
+      font-size:12px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.05);
+      color:rgba(255,255,255,.80);
+      transition:transform 180ms var(--ease), border-color 180ms var(--ease);
+    }
+    .chip:hover{transform:translateY(-1px); border-color:rgba(168,85,247,.22);}
+
+    /* Layout spans */
+    .span6{grid-column: span 6;}
+    .span4{grid-column: span 4;}
+    .span8{grid-column: span 8;}
+    .span12{grid-column: span 12;}
+    @media(max-width:980px){
+      .span6,.span4,.span8,.span12{grid-column: span 12;}
+    }
+
+    /* Skill matrix rows */
+    .matrix{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+      margin-top:10px;
+    }
+    @media(max-width:980px){ .matrix{grid-template-columns:1fr;} }
+    .row{
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.04);
+      padding:12px 12px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+    .row strong{font-size:13px}
+    .row span{
+      font-size:12px;
+      color:rgba(255,255,255,.70);
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(0,0,0,.20);
+      padding:6px 10px;
+      border-radius:999px;
+      white-space:nowrap;
+    }
+
+    /* MOBILE OPTIMIZATION (premium + safe) */
+    @media (max-width: 980px){
+      .container{padding:0 16px;}
+      .page{padding:20px 0 58px;}
+      .top{margin-bottom:16px;}
+      .lead{font-size:14px;}
+      .grid{gap:12px;}
+      .card{padding:16px; border-radius:20px;}
+      .chips{gap:8px;}
+      .chip{padding:7px 10px;}
+    }
+    @media (max-width: 420px){
+      h1{font-size:clamp(30px, 10.5vw, 42px); line-height:1.1;}
+      .pill{font-size:11px; padding:7px 10px;}
+      .row{padding:11px;}
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      .card{opacity:1 !important; transform:none !important; transition:none !important;}
+    }
+
+    /* FOOTER */
+    footer{
+      border-top:1px solid rgba(255,255,255,.08);
+      background:rgba(5,8,23,.55);
+      backdrop-filter:blur(12px);
+    }
+    .footerWrap{
+      max-width:1120px;
+      margin:auto;
+      padding:18px 22px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      color:rgba(255,255,255,.60);
+      font-size:12px;
+    }
+    .footerLinks{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .footerLinks a{
+      color:rgba(255,255,255,.70);
+      border-bottom:1px solid rgba(255,255,255,.16);
+      padding-bottom:2px;
+    }
+    .footerLinks a:hover{
+      color:white;
+      border-bottom-color:rgba(56,189,248,.45);
+    }
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="container nav">
+    <div class="brand">
+      <div class="logo"></div>
+      Sajini Tharushika
+    </div>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="skills.html">Skills</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <!-- Mobile hamburger -->
+    <button class="menuBtn" id="menuBtn" type="button" aria-label="Open menu" aria-controls="drawer" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <path d="M4 7h16M4 12h16M4 17h16"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Backdrop -->
+  <div class="drawerBack" id="drawerBack" aria-hidden="true"></div>
+
+  <!-- Drawer -->
+  <div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <div class="drawerHeader">
+      <div class="drawerTitle">Navigation</div>
+      <button class="closeBtn" id="closeBtn" type="button" aria-label="Close menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M18 6L6 18M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+    <div class="drawerNav">
+      <!-- ✅ Set active per page (same as desktop nav) -->
+      <a href="index.html" data-nav="index"><span>Home</span><small>Start</small></a>
+      <a href="about.html" data-nav="about"><span>About</span><small>Me</small></a>
+      <a class="active" href="skills.html" data-nav="skills"><span>Skills</span><small>Stack</small></a>
+      <a href="projects.html" data-nav="projects"><span>Projects</span><small>Work</small></a>
+      <a href="contact.html" data-nav="contact"><span>Contact</span><small>Reach</small></a>
+    </div>
+  </div>
+</header>
+
+<section class="page">
+  <div class="bg" aria-hidden="true"></div>
+
+  <div class="container">
+    <div class="top">
+      <div>
+        <h1>Technical <span class="grad">Skills</span></h1>
+        <p class="lead">
+          A structured overview of the tools, languages, and concepts I’m building as I work toward a software engineering career.
+        </p>
+      </div>
+
+      <div class="pillRow">
+        <span class="pill">Full-Stack</span>
+        <span class="pill">Embedded</span>
+        <span class="pill">Problem Solving</span>
+        <span class="pill">Clean UI</span>
+      </div>
+    </div>
+
+    <div class="grid">
+      <!-- Languages -->
+      <article class="card span6" data-reveal>
+        <p class="kicker">Core</p>
+        <h2 class="title">Programming Languages</h2>
+        <p class="desc">Languages I use for web development and embedded systems work.</p>
+        <div class="chips">
+        <span class="chip">Python</span>
+        <span class="chip">JavaScript</span>
+        <span class="chip">C / C++</span>
+        <span class="chip">Java (Basics)</span>
+        <span class="chip">PHP</span>
+        <span class="chip">HTML</span>
+        <span class="chip">CSS</span>
+        <span class="chip">SQL</span>
+        </div>
+
+
+        <div class="matrix">
+        <div class="row"><strong>Python</strong><span>Scripting</span></div>
+        <div class="row"><strong>JavaScript</strong><span>Web / Logic</span></div>
+        <div class="row"><strong>C / C++</strong><span>Embedded</span></div>
+        <div class="row"><strong>PHP</strong><span>Server-side</span></div>
+        </div>
+
+      </article>
+
+      <!-- Frontend -->
+      <article class="card span6" data-reveal>
+        <p class="kicker">Frontend</p>
+        <h2 class="title">UI Development</h2>
+        <p class="desc">Building modern, responsive interfaces with attention to layout and usability.</p>
+        <div class="chips">
+          <span class="chip">React</span>
+          <span class="chip">Next.js (Basics)</span>
+          <span class="chip">Tailwind CSS</span>
+          <span class="chip">Responsive Design</span>
+          <span class="chip">Component-based UI</span>
+          <span class="chip">UI/UX Basics</span>
+          <span class="chip">JavaScript (ES6+)</span>
+            <span class="chip">UI Animations</span>
+            <span class="chip">Accessibility Basics</span>
+
+        </div>
+      </article>
+
+      <!-- Backend / DB -->
+      <article class="card span8" data-reveal>
+        <p class="kicker">Backend</p>
+        <h2 class="title">Backend, APIs & Databases</h2>
+        <p class="desc">Creating server logic, API routes, and connecting apps to data storage.</p>
+        <div class="chips">
+  <span class="chip">REST APIs</span>
+  <span class="chip">Next.js API Routes</span>
+  <span class="chip">MongoDB</span>
+  <span class="chip">PostgreSQL</span>
+  <span class="chip">CRUD</span>
+  <span class="chip">Validation</span>
+  <span class="chip">Auth / Session Basics</span>
+</div>
+
+
+        <div class="matrix">
+  <div class="row"><strong>MongoDB</strong><span>Docs / Collections</span></div>
+  <div class="row"><strong>PostgreSQL</strong><span>Relational DB</span></div>
+  <div class="row"><strong>API Design</strong><span>Routes / Requests</span></div>
+  <div class="row"><strong>Security</strong><span>Basics</span></div>
+</div>
+
+      </article>
+
+      <!-- Tools -->
+      <article class="card span4" data-reveal>
+        <p class="kicker">Workflow</p>
+        <h2 class="title">Tools & Practices</h2>
+        <p class="desc">Tools I use to build, debug, and collaborate.</p>
+        <div class="chips">
+          <span class="chip">Git</span>
+          <span class="chip">GitHub</span>
+          <span class="chip">VS Code</span>
+          <span class="chip">Debugging</span>
+          <span class="chip">Documentation</span>
+          <span class="chip">Project Structure</span>
+        </div>
+      </article>
+
+      <!-- Embedded -->
+      <article class="card span12" data-reveal>
+        <p class="kicker">Hardware</p>
+        <h2 class="title">Embedded Systems & Electronics</h2>
+        <p class="desc">Skills gained through projects like LaserTunes (sensors, interaction, and audio modules).</p>
+
+        <div class="chips">
+          <span class="chip">Arduino Mega</span>
+          <span class="chip">ESP32</span>
+          <span class="chip">VS1053B Audio Codec</span>
+          <span class="chip">Piezo Sensors</span>
+          <span class="chip">FSR</span>
+          <span class="chip">SD Card</span>
+          <span class="chip">Custom PCB (Basics)</span>
+          <span class="chip">Serial / IO</span>
+        </div>
+
+        <div class="matrix">
+          <div class="row"><strong>Microcontrollers</strong><span>Arduino / ESP32</span></div>
+          <div class="row"><strong>Sensors</strong><span>Piezo / FSR</span></div>
+          <div class="row"><strong>Audio</strong><span>VS1053B</span></div>
+          <div class="row"><strong>Integration</strong><span>Wiring / IO</span></div>
+        </div>
+      </article>
+
+      <!-- CS concepts -->
+      <article class="card span12" data-reveal>
+  <p class="kicker">Engineering</p>
+  <h2 class="title">Software Engineering Practices</h2>
+  <p class="desc">Good habits I follow to write clean, maintainable, and reliable software.</p>
+
+  <div class="chips">
+    <span class="chip">OOP</span>
+    <span class="chip">Clean Code</span>
+    <span class="chip">Debugging</span>
+    <span class="chip">Problem Solving</span>
+    <span class="chip">Git Workflow</span>
+    <span class="chip">Basic Testing</span>
+    <span class="chip">Documentation</span>
+  </div>
+
+  <div class="matrix">
+    <div class="row"><strong>Version Control</strong><span>Git / GitHub</span></div>
+    <div class="row"><strong>Code Quality</strong><span>Readable code</span></div>
+    <div class="row"><strong>Delivery</strong><span>Structured projects</span></div>
+    <div class="row"><strong>Mindset</strong><span>Improve daily</span></div>
+  </div>
+</article>
+
+      <!-- Soft / teamwork -->
+      <article class="card span6" data-reveal>
+        <p class="kicker">Professional</p>
+        <h2 class="title">Team & Communication</h2>
+        <p class="desc">Skills strengthened through Leo Club work and project collaboration.</p>
+        <div class="chips">
+          <span class="chip">Teamwork</span>
+          <span class="chip">Leadership</span>
+          <span class="chip">Communication</span>
+          <span class="chip">Content / Editorial</span>
+          <span class="chip">Event Support</span>
+          <span class="chip">Consistency</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Premium reveal (simple + smooth)
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const els = document.querySelectorAll("[data-reveal]");
+  if (!reduce) {
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); }
+      });
+    }, {threshold: .12});
+    els.forEach((el,i)=>{
+      el.style.transitionDelay = (70 + i*70) + "ms";
+      io.observe(el);
+    });
+  } else {
+    els.forEach(el => el.classList.add("in"));
+  }
+</script>
+
+<footer>
+  <div class="footerWrap">
+    <div>© <span id="yr"></span> Sajini Tharushika · Built with HTML, CSS & JavaScript</div>
+
+    <div class="footerLinks">
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+      <a href="https://www.linkedin.com/in/sajini-tharushika-15990234b/" target="_blank" rel="noreferrer">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const y = document.getElementById("yr");
+  if (y) y.textContent = new Date().getFullYear();
+</script>
+<script>
+(function(){
+  const menuBtn = document.getElementById("menuBtn");
+  const closeBtn = document.getElementById("closeBtn");
+  const drawer = document.getElementById("drawer");
+  const back = document.getElementById("drawerBack");
+  if(!menuBtn || !drawer || !back || !closeBtn) return;
+
+  const links = drawer.querySelectorAll("a[data-nav]");
+
+  // Auto active highlight based on filename
+  const path = (location.pathname.split("/").pop() || "index.html").toLowerCase();
+  const key =
+    path.includes("about") ? "about" :
+    path.includes("skills") ? "skills" :
+    path.includes("projects") ? "projects" :
+    path.includes("contact") ? "contact" :
+    "index";
+
+  links.forEach(a => a.classList.toggle("active", a.getAttribute("data-nav") === key));
+
+  function open(){
+    drawer.classList.add("open");
+    back.classList.add("open");
+    menuBtn.setAttribute("aria-expanded", "true");
+    document.body.style.overflow = "hidden";
+  }
+  function close(){
+    drawer.classList.remove("open");
+    back.classList.remove("open");
+    menuBtn.setAttribute("aria-expanded", "false");
+    document.body.style.overflow = "";
+  }
+
+  menuBtn.addEventListener("click", open);
+  closeBtn.addEventListener("click", close);
+  back.addEventListener("click", close);
+
+  window.addEventListener("keydown", (e)=>{
+    if(e.key === "Escape") close();
+  });
+
+  // close after clicking a link (nice UX)
+  links.forEach(a => a.addEventListener("click", close));
+})();
+</script>
+</body>
+</html>

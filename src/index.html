@@ -1,0 +1,965 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sajini Tharushika — Home</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#050817;
+      --fg:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.65);
+      --stroke:rgba(255,255,255,.12);
+      --panel:rgba(0,0,0,.26);
+      --accent:#38bdf8;
+      --accent2:#a855f7;
+      --ease:cubic-bezier(.16,1,.3,1);
+      --shadow:0 24px 100px rgba(0,0,0,.45);
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter,system-ui;
+      background:linear-gradient(180deg,#050817,#060a14);
+      color:var(--fg);
+      overflow-x:hidden;
+    }
+
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1120px;margin:auto;padding:0 22px}
+
+    /* NAV */
+    header{
+      position:sticky;top:0;z-index:30;
+      backdrop-filter:blur(14px);
+      background:rgba(5,8,23,.72);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .nav{
+      height:70px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+    }
+    .brand{display:flex;gap:12px;align-items:center;font-weight:800}
+    .logo{
+      width:38px;height:38px;border-radius:14px;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,.22), transparent 55%),
+        linear-gradient(135deg,var(--accent),var(--accent2));
+      box-shadow:0 0 28px rgba(56,189,248,.14);
+    }
+    nav a{
+      margin-left:18px;font-size:13px;color:rgba(255,255,255,.75);
+      padding:8px 10px;border-radius:12px;
+      transition:background .2s var(--ease), transform .2s var(--ease), color .2s var(--ease);
+    }
+    nav a:hover{background:rgba(255,255,255,.06); transform:translateY(-1px); color:white;}
+    nav a.active{color:white;background:rgba(255,255,255,.06);}
+    @media(max-width:980px){ nav{display:none} }
+
+    /* --- Mobile Nav --- */
+.menuBtn{
+  height:44px;width:44px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(255,255,255,.06);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  transition:transform .18s var(--ease), border-color .18s var(--ease), background .18s var(--ease);
+  -webkit-tap-highlight-color: transparent;
+}
+.menuBtn:hover{transform:translateY(-1px); background:rgba(255,255,255,.08); border-color:rgba(56,189,248,.22);}
+.menuBtn svg{width:20px;height:20px;opacity:.9}
+
+/* drawer backdrop */
+.drawerBack{
+  position:fixed; inset:0;
+  background:rgba(0,0,0,.55);
+  backdrop-filter:blur(10px);
+  z-index:60;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .25s var(--ease);
+}
+.drawerBack.open{opacity:1; pointer-events:auto;}
+
+/* drawer */
+.drawer{
+  position:fixed;
+  right:14px; top:82px;
+  width:min(360px, calc(100vw - 28px));
+  border-radius:20px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(5,8,23,.88);
+  box-shadow:0 24px 100px rgba(0,0,0,.55);
+  z-index:70;
+  transform:translateY(-8px) scale(.98);
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .25s var(--ease), transform .25s var(--ease);
+}
+.drawer.open{
+  opacity:1;
+  pointer-events:auto;
+  transform:translateY(0) scale(1);
+}
+.drawerHeader{
+  padding:14px 14px 10px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.drawerTitle{
+  font-weight:800;
+  font-size:13px;
+  color:rgba(255,255,255,.88);
+  letter-spacing:.01em;
+}
+.closeBtn{
+  height:38px;width:38px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.06);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  transition:transform .18s var(--ease), border-color .18s var(--ease), background .18s var(--ease);
+}
+.closeBtn:hover{transform:translateY(-1px); background:rgba(255,255,255,.08); border-color:rgba(168,85,247,.22);}
+.closeBtn svg{width:18px;height:18px;opacity:.9}
+
+.drawerNav{
+  padding:12px;
+  display:grid;
+  gap:10px;
+}
+.drawerNav a{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:12px 12px;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(255,255,255,.05);
+  color:rgba(255,255,255,.82);
+  font-size:13px;
+  font-weight:700;
+  transition:transform .18s var(--ease), border-color .18s var(--ease), background .18s var(--ease);
+}
+.drawerNav a:hover{
+  transform:translateY(-1px);
+  background:rgba(255,255,255,.07);
+  border-color:rgba(56,189,248,.22);
+  color:white;
+}
+.drawerNav a.active{
+  border-color:rgba(56,189,248,.40);
+  background:rgba(56,189,248,.12);
+  color:white;
+}
+.drawerNav small{
+  font-weight:700;
+  color:rgba(255,255,255,.55);
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(0,0,0,.20);
+  padding:6px 10px;
+  border-radius:999px;
+}
+
+/* only show hamburger on mobile */
+@media(max-width:980px){
+  .menuBtn{display:flex;}
+}
+
+    /* HERO (FULL SCREEN) */
+    .hero{
+      min-height: calc(100vh - 70px);
+      padding: 26px 0 26px;
+      display:flex;
+      align-items:center;
+      position:relative;
+      overflow:hidden;
+    }
+
+    /* particles canvas behind */
+    #particles{
+      position:absolute; inset:0;
+      width:100%; height:100%;
+      z-index:0;
+      opacity:.95;
+      pointer-events:none;
+    }
+
+    /* grid glow */
+    .gridbg{
+      position:absolute; inset:0;
+      background:
+        radial-gradient(900px 520px at 22% 18%, rgba(56,189,248,.10), transparent 62%),
+        radial-gradient(980px 600px at 86% 22%, rgba(168,85,247,.10), transparent 65%),
+        linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
+      background-size:auto, auto, 64px 64px, 64px 64px;
+      opacity:.42;
+      mask-image:radial-gradient(ellipse at 38% 24%, rgba(0,0,0,1) 22%, rgba(0,0,0,.85) 45%, rgba(0,0,0,0) 78%);
+      pointer-events:none;
+      z-index:1;
+    }
+
+    .heroGrid{
+      display:grid;
+      grid-template-columns:1.08fr .92fr;
+      gap:34px;
+      align-items:center;
+      position:relative;
+      z-index:2;
+      width:100%;
+    }
+    @media(max-width:980px){
+      .heroGrid{grid-template-columns:1fr}
+      .hero{padding:22px 0;}
+    }
+
+    .pill{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:10px 14px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(0,0,0,.30);
+      font-size:13px;color:rgba(255,255,255,.72);
+    }
+    .dot{
+      width:8px;height:8px;border-radius:999px;background:rgba(56,189,248,.95);
+      box-shadow:0 0 18px rgba(56,189,248,.45);
+    }
+
+    h1{
+      font-size:clamp(42px,5.8vw,72px);
+      line-height:1.04;
+      letter-spacing:-.03em;
+      margin:16px 0 10px;
+    }
+    .grad{
+      background:linear-gradient(90deg,var(--accent),var(--accent2));
+      -webkit-background-clip:text;color:transparent;
+    }
+
+    .roleline{
+      margin:0 0 10px;
+      color:rgba(255,255,255,.74);
+      font-size:14px;
+      line-height:1.6;
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .roleTag{
+      display:inline-flex;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.05);
+      font-weight:700;
+    }
+    .typing{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      font-weight:700;
+      color:rgba(255,255,255,.88);
+    }
+    .caret{
+      width:10px;
+      display:inline-block;
+      transform:translateY(-1px);
+      opacity:.9;
+      animation: blink 1s steps(2,end) infinite;
+    }
+    @keyframes blink { 50% { opacity:0; } }
+
+    .lead{
+      color:var(--muted);
+      max-width:70ch;
+      line-height:1.85;
+      font-size:15px;
+      margin:0;
+    }
+    .actions{margin-top:22px;display:flex;gap:12px;flex-wrap:wrap}
+
+    .btn{
+      height:48px;padding:0 18px;border-radius:14px;
+      border:1px solid rgba(255,255,255,.15);
+      background:rgba(255,255,255,.06);
+      font-weight:800;font-size:13px;
+      display:inline-flex;align-items:center;justify-content:center;
+      transition:transform .2s var(--ease), background .2s var(--ease), border-color .2s var(--ease);
+    }
+    .btn:hover{transform:translateY(-2px); background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.22);}
+    .btn.primary{
+      background:rgba(56,189,248,.16);
+      border-color:rgba(56,189,248,.40);
+      box-shadow:var(--shadow);
+    }
+    .btn.primary:hover{background:rgba(56,189,248,.20); border-color:rgba(56,189,248,.55);}
+
+    /* profile panel */
+    .profile{
+      background:rgba(0,0,0,.28);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:26px;
+      padding:14px;
+      box-shadow:var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+    .profile::before{
+      content:"";
+      position:absolute; inset:-40%;
+      background:
+        radial-gradient(520px circle at 30% 20%, rgba(56,189,248,.14), transparent 60%),
+        radial-gradient(680px circle at 80% 70%, rgba(168,85,247,.12), transparent 62%);
+      pointer-events:none;
+      opacity:.9;
+    }
+    .profile img{
+      position:relative;
+      width:100%;
+      height:360px;
+      object-fit:cover;
+      border-radius:20px;
+      display:block;
+      z-index:1;
+    }
+    .badge{
+      position:absolute;
+      top:16px; right:16px;
+      padding:9px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(0,0,0,.35);
+      font-size:12px;color:rgba(255,255,255,.84);
+      backdrop-filter:blur(10px);
+      z-index:2;
+    }
+    .profileFooter{
+      position:relative;
+      margin-top:12px;
+      color:rgba(255,255,255,.70);
+      font-size:13px;
+      text-align:center;
+      z-index:2;
+    }
+
+    /* sections */
+    .section{padding:34px 0 70px;}
+    .sectionTitle{text-align:center; max-width:880px; margin:0 auto 28px;}
+    .sectionTitle h2{margin:0; font-size:clamp(22px,3vw,34px); letter-spacing:-.02em;}
+    .sectionTitle p{margin:10px 0 0; color:var(--muted); line-height:1.8; font-size:14px;}
+
+    .cards{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+    @media(max-width:980px){ .cards{grid-template-columns:1fr} }
+
+    .card{
+      background:rgba(0,0,0,.25);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:20px;
+      padding:18px;
+      transition:transform .25s var(--ease), background .25s var(--ease), border-color .25s var(--ease);
+      opacity:0;
+      transform:translateY(10px);
+    }
+    .card.in{opacity:1; transform:translateY(0);}
+    .card:hover{transform:translateY(-3px); background:rgba(255,255,255,.06); border-color:rgba(56,189,248,.22);}
+    .card h3{margin:0 0 6px;font-size:14px}
+    .card p{margin:0;color:var(--muted);font-size:13px;line-height:1.7}
+
+    /* chips */
+    .chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:16px;}
+    .chip{
+      font-size:12px;padding:8px 12px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.05);
+      color:rgba(255,255,255,.78);
+    }
+
+    /* featured projects preview */
+    .projGrid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+    @media(max-width:980px){ .projGrid{grid-template-columns:1fr} }
+    .proj{
+      border-radius:20px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(0,0,0,.25);
+      overflow:hidden;
+      transition:transform .25s var(--ease), border-color .25s var(--ease), background .25s var(--ease);
+      opacity:0;
+      transform:translateY(10px);
+    }
+    .proj.in{opacity:1; transform:translateY(0);}
+    .proj:hover{transform:translateY(-3px); border-color:rgba(168,85,247,.22); background:rgba(255,255,255,.06);}
+    .projTop{padding:16px 16px 0; display:flex; align-items:center; justify-content:space-between; gap:10px;}
+    .projTop strong{font-size:14px}
+    .projTag{
+      font-size:11px;padding:6px 10px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.05);
+      color:rgba(255,255,255,.76);
+    }
+    .projBody{padding:10px 16px 16px}
+    .projBody p{margin:0;color:var(--muted);font-size:13px;line-height:1.7}
+    .projLink{
+      display:inline-block;margin-top:12px;
+      color:rgba(56,189,248,.92);font-size:12px;
+      border-bottom:1px solid rgba(56,189,248,.25);
+      padding-bottom:2px;
+    }
+    .projLink:hover{border-bottom-color:rgba(56,189,248,.55)}
+
+    /* cursor glow */
+    .glow{
+      position:fixed;
+      width:520px;height:520px;
+      border-radius:999px;
+      transform:translate(-50%,-50%);
+      background:radial-gradient(circle at center, rgba(56,189,248,.10), rgba(168,85,247,.06), transparent 60%);
+      filter:blur(2px);
+      pointer-events:none;
+      z-index:5;
+      opacity:.85;
+      transition:opacity .25s var(--ease);
+      mix-blend-mode:screen;
+    }
+    @media (prefers-reduced-motion: reduce){
+      .glow{display:none}
+      .caret{animation:none}
+    }
+
+    /* FOOTER */
+    footer{
+      border-top:1px solid rgba(255,255,255,.08);
+      background:rgba(5,8,23,.55);
+      backdrop-filter:blur(12px);
+    }
+    .footerWrap{
+      max-width:1120px;
+      margin:auto;
+      padding:18px 22px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      color:rgba(255,255,255,.60);
+      font-size:12px;
+    }
+    .footerLinks{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .footerLinks a{
+      color:rgba(255,255,255,.70);
+      border-bottom:1px solid rgba(255,255,255,.16);
+      padding-bottom:2px;
+    }
+    .footerLinks a:hover{
+      color:white;
+      border-bottom-color:rgba(56,189,248,.45);
+    }
+  </style>
+</head>
+
+<body>
+<div class="glow" id="glow" aria-hidden="true"></div>
+
+<header>
+  <div class="container nav">
+    <div class="brand">
+      <div class="logo"></div>
+      Sajini Tharushika
+    </div>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="skills.html">Skills</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <!-- Mobile hamburger -->
+    <button class="menuBtn" id="menuBtn" type="button" aria-label="Open menu" aria-controls="drawer" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <path d="M4 7h16M4 12h16M4 17h16"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Backdrop -->
+  <div class="drawerBack" id="drawerBack" aria-hidden="true"></div>
+
+  <!-- Drawer -->
+  <div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <div class="drawerHeader">
+      <div class="drawerTitle">Navigation</div>
+      <button class="closeBtn" id="closeBtn" type="button" aria-label="Close menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M18 6L6 18M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+    <div class="drawerNav">
+      <!-- ✅ Set active per page (same as desktop nav) -->
+      <a class="active" href="index.html" data-nav="index"><span>Home</span><small>Start</small></a>
+      <a href="about.html" data-nav="about"><span>About</span><small>Me</small></a>
+      <a href="skills.html" data-nav="skills"><span>Skills</span><small>Stack</small></a>
+      <a href="projects.html" data-nav="projects"><span>Projects</span><small>Work</small></a>
+      <a href="contact.html" data-nav="contact"><span>Contact</span><small>Reach</small></a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <canvas id="particles"></canvas>
+  <div class="gridbg" aria-hidden="true"></div>
+
+  <div class="container heroGrid">
+    <!-- LEFT -->
+    <div>
+      <div class="pill"><span class="dot"></span> BSc (Hons) IT · University of Moratuwa</div>
+
+      <h1>Hi, I’m <span class="grad">Sajini</span><br/>Tharushika</h1>
+
+      <div class="roleline">
+        <span class="roleTag">Role</span>
+        <span class="typing"><span id="typed"></span><span class="caret">|</span></span>
+      </div>
+
+      <p class="lead">
+        Aspiring software engineer with a strong academic background and a growing interest in building
+        reliable and efficient software solutions.
+      </p>
+
+      <div class="actions">
+        <a class="btn primary" href="projects.html">View projects</a>
+        <a class="btn" href="Sajini_Tharushika_Resume.pdf" target="_blank">Download Resume</a>
+        <a class="btn" href="contact.html">Get in touch</a>
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <aside class="profile">
+      <div class="badge">Aspiring Software Engineer</div>
+      <img src="profile.jpg" alt="Sajini Tharushika">
+      <div class="profileFooter">Sri Lanka · University of Moratuwa</div>
+    </aside>
+  </div>
+</section>
+
+<!-- pushed down so it doesn't show in the first screen -->
+<section class="section" style="padding-top:90px;">
+  <div class="container">
+    <div class="sectionTitle">
+      <h2>What I build</h2>
+      <p>Software-first sections (so it feels like a real engineer portfolio, not a generic template).</p>
+    </div>
+
+    <div class="cards">
+      <div class="card" data-reveal>
+        <h3>Full-Stack Web Apps</h3>
+        <p>Building end-to-end apps with clean UI, backend logic, and database integration.</p>
+      </div>
+      <div class="card" data-reveal>
+        <h3>Embedded / Hardware Systems</h3>
+        <p>Hands-on work with Arduino / ESP32, sensors, and real-time interaction projects.</p>
+      </div>
+      <div class="card" data-reveal>
+        <h3>Strong Fundamentals</h3>
+        <p>Focused on problem solving, core web fundamentals, and writing maintainable code.</p>
+      </div>
+    </div>
+
+    <div class="chips">
+      <span class="chip">Next.js</span><span class="chip">React</span><span class="chip">Tailwind CSS</span>
+      <span class="chip">MongoDB</span><span class="chip">JavaScript</span><span class="chip">PHP</span>
+      <span class="chip">Arduino</span><span class="chip">ESP32</span><span class="chip">Embedded C++</span>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <div class="sectionTitle">
+      <h2>Quick highlights</h2>
+      <p>Short, skimmable facts recruiters actually read.</p>
+    </div>
+
+    <div class="cards">
+      <div class="card" data-reveal>
+        <h3>Academics</h3>
+        <p>A/L: 2 A’s + 1 B · O/L: 9 A’s · Grade 5 Scholarship: 176.</p>
+      </div>
+      <div class="card" data-reveal>
+        <h3>Leadership</h3>
+        <p>Leo Club (UoM) — Active Member & Editorial Panelist (Present).</p>
+      </div>
+      <div class="card" data-reveal>
+        <h3>Projects</h3>
+        <p>AURA (Full-Stack) · LaserTunes (Hardware) · FitnessFirst.lk (PHP).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <div class="sectionTitle">
+      <h2>Featured projects</h2>
+      <p>A preview — full details are on the Projects page.</p>
+    </div>
+
+    <div class="projGrid">
+      <div class="proj" data-reveal>
+        <div class="projTop"><strong>AURA</strong><span class="projTag">Full-Stack</span></div>
+        <div class="projBody">
+          <p>E-commerce web app with rewards + voucher system and smooth checkout flow.</p>
+          <a class="projLink" href="projects.html">See details →</a>
+        </div>
+      </div>
+
+      <div class="proj" data-reveal>
+        <div class="projTop"><strong>LaserTunes</strong><span class="projTag">Hardware</span></div>
+        <div class="projBody">
+          <p>Laser-based instrument with sensors, switching, and loop recording (FIT EXPO 2025).</p>
+          <a class="projLink" href="projects.html">See details →</a>
+        </div>
+      </div>
+
+      <div class="proj" data-reveal>
+        <div class="projTop"><strong>FitnessFirst.lk</strong><span class="projTag">PHP</span></div>
+        <div class="projBody">
+          <p>Gym website built with PHP, HTML & CSS with a clean structured layout.</p>
+          <a class="projLink" href="projects.html">See details →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Reveal Animations
+  (function(){
+    const els = document.querySelectorAll("[data-reveal]");
+    if (reduce) { els.forEach(el => el.classList.add("in")); return; }
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); }
+      });
+    }, {threshold: .12});
+    els.forEach((el,i)=>{
+      el.style.transitionDelay = (80 + i*60) + "ms";
+      io.observe(el);
+    });
+  })();
+
+  // Mouse Glow Follow
+  (function(){
+    const glow = document.getElementById("glow");
+    if (!glow || reduce) return;
+    let x = window.innerWidth * 0.6, y = window.innerHeight * 0.25;
+    let tx = x, ty = y;
+
+    window.addEventListener("mousemove", (e)=>{
+      tx = e.clientX; ty = e.clientY;
+    }, {passive:true});
+
+    function tick(){
+      x += (tx - x) * 0.10;
+      y += (ty - y) * 0.10;
+      glow.style.left = x + "px";
+      glow.style.top  = y + "px";
+      requestAnimationFrame(tick);
+    }
+    tick();
+  })();
+
+  // Typing Role
+  (function(){
+    const el = document.getElementById("typed");
+    if (!el) return;
+
+    const roles = [
+      "Aspiring Software Engineer",
+      "Full-Stack Web Developer",
+      "Embedded Systems Enthusiast"
+    ];
+
+    if (reduce) { el.textContent = roles[0]; return; }
+
+    let roleIndex = 0, charIndex = 0;
+    let deleting = false;
+
+    function step(){
+      const current = roles[roleIndex];
+
+      if (!deleting) {
+        charIndex++;
+        el.textContent = current.slice(0, charIndex);
+        if (charIndex >= current.length) {
+          deleting = true;
+          setTimeout(step, 900);
+          return;
+        }
+      } else {
+        charIndex--;
+        el.textContent = current.slice(0, charIndex);
+        if (charIndex <= 0) {
+          deleting = false;
+          roleIndex = (roleIndex + 1) % roles.length;
+        }
+      }
+      const speed = deleting ? 35 : 55;
+      setTimeout(step, speed);
+    }
+
+    step();
+  })();
+
+  // ===== Particles (ADVANCED + SHOOTING STARS) =====
+  (function(){
+    const canvas = document.getElementById("particles");
+    if (!canvas || reduce) return;
+
+    const ctx = canvas.getContext("2d");
+    let w=0,h=0,dpr=1;
+
+    function resize(){
+      dpr = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
+      w = canvas.clientWidth; h = canvas.clientHeight;
+      canvas.width = Math.floor(w*dpr);
+      canvas.height = Math.floor(h*dpr);
+      ctx.setTransform(dpr,0,0,dpr,0,0);
+    }
+    resize();
+    window.addEventListener("resize", resize);
+
+    // Mouse parallax (subtle)
+    let mx = 0, my = 0;
+    window.addEventListener("mousemove", (e)=>{
+      mx = (e.clientX / window.innerWidth - 0.5);
+      my = (e.clientY / window.innerHeight - 0.5);
+    }, {passive:true});
+
+    // Star layers (density/speeds tuned for your hero)
+    const layers = [
+      { count: 240, speed: 0.65, r:[0.5,1.1], a:[0.10,0.30] },
+      { count: 150, speed: 1.20, r:[0.9,1.8], a:[0.18,0.55] },
+      { count: 80,  speed: 1.95, r:[1.4,2.7], a:[0.22,0.75] },
+    ];
+
+    const palette = [
+      [255,255,255],
+      [120,211,252],
+      [167,139,250],
+      [56,189,248],
+    ];
+
+    function rand(a,b){ return a + Math.random()*(b-a); }
+    function pick(arr){ return arr[(Math.random()*arr.length)|0]; }
+
+    const stars = [];
+    function spawnStar(layerIndex){
+      const L = layers[layerIndex];
+      const [Rmin,Rmax] = L.r;
+      const [Amin,Amax] = L.a;
+      const c = pick(palette);
+      return {
+        x: Math.random()*w,
+        y: Math.random()*h,
+        z: layerIndex,
+        r: rand(Rmin,Rmax),
+        a: rand(Amin,Amax),
+        vy: L.speed * rand(0.85,1.25),
+        tw: rand(0.0, Math.PI*2),
+        tc: rand(0.010,0.022),
+        col: c
+      };
+    }
+
+    function init(){
+      stars.length = 0;
+      layers.forEach((L,zi)=>{
+        for(let i=0;i<L.count;i++) stars.push(spawnStar(zi));
+      });
+    }
+    init();
+
+    // Shooting stars
+    const shooters = [];
+    function spawnShooter(){
+      const startX = rand(w*0.15, w*0.95);
+      const startY = rand(-80, h*0.35);
+      const len = rand(180, 380);
+      const speed = rand(10, 18);
+      const angle = rand(Math.PI*0.58, Math.PI*0.72); // diagonal down-right
+      return { x:startX, y:startY, vx:Math.cos(angle)*speed, vy:Math.sin(angle)*speed, len, life:0 };
+    }
+
+    let last = performance.now();
+
+    function draw(now){
+      const dt = Math.min(32, now-last);
+      last = now;
+
+      ctx.clearRect(0,0,w,h);
+
+      // Nebula glow (subtle + premium)
+      const g1 = ctx.createRadialGradient(w*0.22, h*0.10, 0, w*0.22, h*0.10, Math.max(w,h)*0.85);
+      g1.addColorStop(0, "rgba(56,189,248,0.10)");
+      g1.addColorStop(0.40, "rgba(168,85,247,0.06)");
+      g1.addColorStop(1, "rgba(0,0,0,0)");
+      ctx.fillStyle = g1;
+      ctx.fillRect(0,0,w,h);
+
+      const g2 = ctx.createRadialGradient(w*0.88, h*0.20, 0, w*0.88, h*0.20, Math.max(w,h)*0.85);
+      g2.addColorStop(0, "rgba(168,85,247,0.08)");
+      g2.addColorStop(0.45, "rgba(56,189,248,0.05)");
+      g2.addColorStop(1, "rgba(0,0,0,0)");
+      ctx.fillStyle = g2;
+      ctx.fillRect(0,0,w,h);
+
+      // Stars (top -> down)
+      for(const s of stars){
+        const px = mx * (6 + s.z*6);
+        const py = my * (4 + s.z*4);
+
+        s.y += s.vy * (dt/16);
+        if (s.y > h + 20) { s.y = -20; s.x = Math.random()*w; }
+
+        s.tw += s.tc * (dt/16);
+        const tw = (Math.sin(s.tw)+1)/2;
+        const a = s.a * (0.65 + tw*0.55);
+
+        const [r,g,b] = s.col;
+        ctx.beginPath();
+        ctx.arc(s.x + px, s.y + py, s.r, 0, Math.PI*2);
+        ctx.fillStyle = `rgba(${r},${g},${b},${a})`;
+        ctx.fill();
+      }
+
+      // Shooting stars occasionally
+      if (shooters.length < 2 && Math.random() < 0.010){
+        shooters.push(spawnShooter());
+      }
+
+      for(let i=shooters.length-1;i>=0;i--){
+        const sh = shooters[i];
+        sh.life += dt;
+
+        sh.x += sh.vx * (dt/16);
+        sh.y += sh.vy * (dt/16);
+
+        const tailX = sh.x - sh.vx * (sh.len/18);
+        const tailY = sh.y - sh.vy * (sh.len/18);
+
+        const grad = ctx.createLinearGradient(sh.x, sh.y, tailX, tailY);
+        grad.addColorStop(0, "rgba(255,255,255,0.85)");
+        grad.addColorStop(0.4, "rgba(56,189,248,0.22)");
+        grad.addColorStop(1, "rgba(168,85,247,0)");
+
+        ctx.strokeStyle = grad;
+        ctx.lineWidth = 2.0;
+        ctx.beginPath();
+        ctx.moveTo(sh.x, sh.y);
+        ctx.lineTo(tailX, tailY);
+        ctx.stroke();
+
+        if (sh.life > 900 || sh.x > w+200 || sh.y > h+200) shooters.splice(i,1);
+      }
+
+      requestAnimationFrame(draw);
+    }
+
+    requestAnimationFrame(draw);
+  })();
+</script>
+
+<footer>
+  <div class="footerWrap">
+    <div>© <span id="yr"></span> Sajini Tharushika · Built with HTML, CSS & JavaScript</div>
+    <div class="footerLinks">
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+      <a href="https://www.linkedin.com/in/sajini-tharushika-15990234b/" target="_blank" rel="noreferrer">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const y = document.getElementById("yr");
+  if (y) y.textContent = new Date().getFullYear();
+</script>
+<script>
+(function(){
+  const menuBtn = document.getElementById("menuBtn");
+  const closeBtn = document.getElementById("closeBtn");
+  const drawer = document.getElementById("drawer");
+  const back = document.getElementById("drawerBack");
+  if(!menuBtn || !drawer || !back || !closeBtn) return;
+
+  const links = drawer.querySelectorAll("a[data-nav]");
+
+  // Auto active highlight based on filename
+  const path = (location.pathname.split("/").pop() || "index.html").toLowerCase();
+  const key =
+    path.includes("about") ? "about" :
+    path.includes("skills") ? "skills" :
+    path.includes("projects") ? "projects" :
+    path.includes("contact") ? "contact" :
+    "index";
+
+  links.forEach(a => a.classList.toggle("active", a.getAttribute("data-nav") === key));
+
+  function open(){
+    drawer.classList.add("open");
+    back.classList.add("open");
+    menuBtn.setAttribute("aria-expanded", "true");
+    document.body.style.overflow = "hidden";
+  }
+  function close(){
+    drawer.classList.remove("open");
+    back.classList.remove("open");
+    menuBtn.setAttribute("aria-expanded", "false");
+    document.body.style.overflow = "";
+  }
+
+  menuBtn.addEventListener("click", open);
+  closeBtn.addEventListener("click", close);
+  back.addEventListener("click", close);
+
+  window.addEventListener("keydown", (e)=>{
+    if(e.key === "Escape") close();
+  });
+
+  // close after clicking a link (nice UX)
+  links.forEach(a => a.addEventListener("click", close));
+})();
+</script>
+</body>
+</html>

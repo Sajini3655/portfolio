@@ -1,0 +1,608 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sajini Tharushika — Contact</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#050817;
+      --fg:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.65);
+      --stroke:rgba(255,255,255,.12);
+      --panel:rgba(0,0,0,.26);
+      --accent:#38bdf8;
+      --accent2:#a855f7;
+      --ease:cubic-bezier(.16,1,.3,1);
+      --shadow:0 24px 100px rgba(0,0,0,.45);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter,system-ui;
+      background:linear-gradient(180deg,#050817,#060a14);
+      color:var(--fg);
+      overflow-x:hidden;
+    }
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1120px;margin:auto;padding:0 22px}
+
+    /* NAV */
+    header{
+      position:sticky;top:0;z-index:30;
+      backdrop-filter:blur(14px);
+      background:rgba(5,8,23,.72);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .nav{
+      height:70px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+    }
+    .brand{display:flex;gap:12px;align-items:center;font-weight:800}
+    .logo{
+      width:38px;height:38px;border-radius:14px;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,.22), transparent 55%),
+        linear-gradient(135deg,var(--accent),var(--accent2));
+      box-shadow:0 0 28px rgba(56,189,248,.14);
+    }
+    nav a{
+      margin-left:18px;font-size:13px;color:rgba(255,255,255,.75);
+      padding:8px 10px;border-radius:12px;
+      transition:background .2s var(--ease), transform .2s var(--ease), color .2s var(--ease);
+    }
+    nav a:hover{background:rgba(255,255,255,.06); transform:translateY(-1px); color:white;}
+    nav a.active{color:white;background:rgba(255,255,255,.06);}
+    @media(max-width:980px){ nav{display:none} }
+/* --- Mobile Nav --- */
+.menuBtn{
+  height:44px;width:44px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(255,255,255,.06);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  transition:transform .18s var(--ease), border-color .18s var(--ease), background .18s var(--ease);
+  -webkit-tap-highlight-color: transparent;
+}
+.menuBtn:hover{transform:translateY(-1px); background:rgba(255,255,255,.08); border-color:rgba(56,189,248,.22);}
+.menuBtn svg{width:20px;height:20px;opacity:.9}
+
+/* drawer backdrop */
+.drawerBack{
+  position:fixed; inset:0;
+  background:rgba(0,0,0,.55);
+  backdrop-filter:blur(10px);
+  z-index:60;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .25s var(--ease);
+}
+.drawerBack.open{opacity:1; pointer-events:auto;}
+
+/* drawer */
+.drawer{
+  position:fixed;
+  right:14px; top:82px;
+  width:min(360px, calc(100vw - 28px));
+  border-radius:20px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(5,8,23,.88);
+  box-shadow:0 24px 100px rgba(0,0,0,.55);
+  z-index:70;
+  transform:translateY(-8px) scale(.98);
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .25s var(--ease), transform .25s var(--ease);
+}
+.drawer.open{
+  opacity:1;
+  pointer-events:auto;
+  transform:translateY(0) scale(1);
+}
+.drawerHeader{
+  padding:14px 14px 10px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.drawerTitle{
+  font-weight:800;
+  font-size:13px;
+  color:rgba(255,255,255,.88);
+  letter-spacing:.01em;
+}
+.closeBtn{
+  height:38px;width:38px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.06);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  transition:transform .18s var(--ease), border-color .18s var(--ease), background .18s var(--ease);
+}
+.closeBtn:hover{transform:translateY(-1px); background:rgba(255,255,255,.08); border-color:rgba(168,85,247,.22);}
+.closeBtn svg{width:18px;height:18px;opacity:.9}
+
+.drawerNav{
+  padding:12px;
+  display:grid;
+  gap:10px;
+}
+.drawerNav a{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:12px 12px;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(255,255,255,.05);
+  color:rgba(255,255,255,.82);
+  font-size:13px;
+  font-weight:700;
+  transition:transform .18s var(--ease), border-color .18s var(--ease), background .18s var(--ease);
+}
+.drawerNav a:hover{
+  transform:translateY(-1px);
+  background:rgba(255,255,255,.07);
+  border-color:rgba(56,189,248,.22);
+  color:white;
+}
+.drawerNav a.active{
+  border-color:rgba(56,189,248,.40);
+  background:rgba(56,189,248,.12);
+  color:white;
+}
+.drawerNav small{
+  font-weight:700;
+  color:rgba(255,255,255,.55);
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(0,0,0,.20);
+  padding:6px 10px;
+  border-radius:999px;
+}
+
+/* only show hamburger on mobile */
+@media(max-width:980px){
+  .menuBtn{display:flex;}
+}
+    /* PAGE (gap fixed) */
+    .page{
+      padding:48px 48px 126px; /* fixed from 88px */
+      position:relative;
+    }
+    .bg{
+      position:absolute; inset:0;
+      background:
+        radial-gradient(900px 520px at 18% 10%, rgba(56,189,248,.10), transparent 62%),
+        radial-gradient(980px 600px at 86% 18%, rgba(168,85,247,.10), transparent 65%),
+        linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
+      background-size:auto, auto, 64px 64px, 64px 64px;
+      opacity:.32;
+      mask-image:radial-gradient(ellipse at 42% 14%, rgba(0,0,0,1) 22%, rgba(0,0,0,.85) 45%, rgba(0,0,0,0) 78%);
+      pointer-events:none;
+    }
+
+    .top{
+      position:relative;
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:18px;
+      flex-wrap:wrap;
+      margin-bottom:16px;
+    }
+    h1{
+      margin:0;
+      font-size:clamp(34px,4.8vw,54px);
+      letter-spacing:-.03em;
+      line-height:1.08;
+    }
+    .grad{
+      background:linear-gradient(90deg,var(--accent),var(--accent2));
+      -webkit-background-clip:text;color:transparent;
+    }
+    .lead{
+      margin:10px 0 0;
+      color:var(--muted);
+      line-height:1.9;
+      font-size:15px;
+      max-width:80ch;
+    }
+
+    /* Layout */
+    .grid{
+      position:relative;
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap:16px;
+      margin-top:18px;
+    }
+    @media(max-width:980px){
+      .grid{grid-template-columns:1fr;}
+    }
+
+    .card{
+      border-radius:22px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(0,0,0,.26);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+
+    /* Left panel */
+    .panel{
+      padding:18px;
+      position:relative;
+    }
+    .panel::before{
+      content:"";
+      position:absolute; inset:-35%;
+      background:
+        radial-gradient(680px circle at 22% 18%, rgba(56,189,248,.12), transparent 60%),
+        radial-gradient(760px circle at 84% 72%, rgba(168,85,247,.10), transparent 62%);
+      opacity:.9;
+      pointer-events:none;
+    }
+    .panel > *{position:relative}
+
+    .row{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:14px;
+      padding:14px 0;
+      border-bottom:1px solid rgba(255,255,255,.08);
+      flex-wrap:wrap;
+    }
+    .row:last-child{border-bottom:none}
+    .label{
+      font-weight:800;
+      font-size:13px;
+      letter-spacing:.01em;
+    }
+    .value{
+      font-size:13px;
+      color:var(--muted);
+      word-break:break-word;
+      text-align:right;
+      max-width:70%;
+    }
+    .value a{
+      color:rgba(56,189,248,.92);
+      border-bottom:1px solid rgba(56,189,248,.25);
+      padding-bottom:2px;
+    }
+    .value a:hover{border-bottom-color:rgba(56,189,248,.55)}
+
+    .btns{
+      margin-top:16px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .btn{
+      height:44px;
+      padding:0 14px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.15);
+      background:rgba(255,255,255,.06);
+      font-weight:800;
+      font-size:12px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      transition:transform .18s var(--ease), border-color .18s var(--ease), background .18s var(--ease);
+      cursor:pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .btn:hover{transform:translateY(-1px); background:rgba(255,255,255,.08); border-color:rgba(56,189,248,.22);}
+    .btn.primary{
+      background:rgba(56,189,248,.14);
+      border-color:rgba(56,189,248,.35);
+    }
+    .btn.primary:hover{background:rgba(56,189,248,.18); border-color:rgba(56,189,248,.55);}
+    .btn svg{width:16px;height:16px;opacity:.9}
+
+    /* Right panel */
+    .side{
+      padding:18px;
+    }
+    .side h2{
+      margin:0 0 10px;
+      font-size:16px;
+      letter-spacing:-.01em;
+    }
+    .side p{
+      margin:0 0 14px;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.75;
+    }
+    .note{
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.04);
+      padding:14px;
+      color:rgba(255,255,255,.78);
+      font-size:13px;
+      line-height:1.8;
+    }
+    .note strong{color:white}
+
+    .tiny{
+      margin-top:12px;
+      color:rgba(255,255,255,.58);
+      font-size:12px;
+      line-height:1.6;
+    }
+
+    /* MOBILE FIXES */
+    @media (max-width: 980px){
+      .container{padding:0 16px;}
+      .page{padding:20px 0 60px;}
+      .lead{font-size:14px;}
+      .grid{gap:12px; margin-top:14px;}
+      .card{border-radius:20px;}
+      .panel,.side{padding:16px;}
+      .value{max-width:100%; text-align:left;} /* better for mobile */
+      .btns{gap:10px;}
+      .btn{height:46px; padding:0 14px;}        /* better tap */
+    }
+    @media (max-width: 420px){
+      h1{font-size:clamp(30px, 10.5vw, 42px); line-height:1.1;}
+      .row{padding:12px 0;}
+      .btn{width:100%;} /* full width on small screens */
+    }
+
+    /* FOOTER */
+    footer{
+      border-top:1px solid rgba(255,255,255,.08);
+      background:rgba(5,8,23,.55);
+      backdrop-filter:blur(12px);
+    }
+    .footerWrap{
+      max-width:1120px;
+      margin:auto;
+      padding:18px 22px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      color:rgba(255,255,255,.60);
+      font-size:12px;
+    }
+    .footerLinks{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .footerLinks a{
+      color:rgba(255,255,255,.70);
+      border-bottom:1px solid rgba(255,255,255,.16);
+      padding-bottom:2px;
+    }
+    .footerLinks a:hover{
+      color:white;
+      border-bottom-color:rgba(56,189,248,.45);
+    }
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="container nav">
+    <div class="brand">
+      <div class="logo"></div>
+      Sajini Tharushika
+    </div>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="skills.html">Skills</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <!-- Mobile hamburger -->
+    <button class="menuBtn" id="menuBtn" type="button" aria-label="Open menu" aria-controls="drawer" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <path d="M4 7h16M4 12h16M4 17h16"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Backdrop -->
+  <div class="drawerBack" id="drawerBack" aria-hidden="true"></div>
+
+  <!-- Drawer -->
+  <div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <div class="drawerHeader">
+      <div class="drawerTitle">Navigation</div>
+      <button class="closeBtn" id="closeBtn" type="button" aria-label="Close menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M18 6L6 18M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+    <div class="drawerNav">
+      <!-- ✅ Set active per page (same as desktop nav) -->
+      <a href="index.html" data-nav="index"><span>Home</span><small>Start</small></a>
+      <a href="about.html" data-nav="about"><span>About</span><small>Me</small></a>
+      <a href="skills.html" data-nav="skills"><span>Skills</span><small>Stack</small></a>
+      <a href="projects.html" data-nav="projects"><span>Projects</span><small>Work</small></a>
+      <a class="active" href="contact.html" data-nav="contact"><span>Contact</span><small>Reach</small></a>
+    </div>
+  </div>
+</header>
+
+<section class="page">
+  <div class="bg" aria-hidden="true"></div>
+
+  <div class="container">
+    <div class="top">
+      <div>
+        <h1>Contact <span class="grad">Me</span></h1>
+        <p class="lead">Feel free to reach out for collaborations, internships, or project discussions.</p>
+      </div>
+    </div>
+
+    <div class="grid">
+      <!-- Left -->
+      <div class="card panel">
+        <div class="row">
+          <div class="label">Email</div>
+          <div class="value">
+            <a href="mailto:sajinitharushika3655@gmail.com">sajinitharushika3655@gmail.com</a>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="label">LinkedIn</div>
+          <div class="value">
+            <a href="https://www.linkedin.com/in/sajini-tharushika-15990234b/" target="_blank" rel="noreferrer">
+              linkedin.com/in/sajini-tharushika-15990234b
+            </a>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="label">GitHub</div>
+          <div class="value">
+            <a href="https://github.com/" target="_blank" rel="noreferrer">github.com</a>
+          </div>
+        </div>
+
+        <div class="btns">
+          <a class="btn primary" href="Sajini_Tharushika_Resume.pdf" target="_blank">Download Resume</a>
+
+          <a class="btn primary" href="mailto:sajinitharushika3655@gmail.com" aria-label="Email Sajini">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16v16H4z"></path><path d="m22 6-10 7L2 6"></path>
+            </svg>
+            Email
+          </a>
+
+          <a class="btn" href="https://www.linkedin.com/in/sajini-tharushika-15990234b/" target="_blank" rel="noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+              <rect x="2" y="9" width="4" height="12"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+            LinkedIn
+          </a>
+
+          <a class="btn" href="https://github.com/" target="_blank" rel="noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+            </svg>
+            GitHub
+          </a>
+        </div>
+
+        <div class="tiny">
+          Tip: If you’re a recruiter, please include your company name + role in the email subject.
+        </div>
+      </div>
+
+      <!-- Right -->
+      <div class="card side">
+        <h2>Quick message</h2>
+        <p>Fastest way to reach me is email. I’m happy to discuss internships, projects, or collaboration.</p>
+
+        <div class="note">
+          <strong>Best subject format:</strong><br/>
+          Internship Opportunity — (Company Name) — (Role)
+        </div>
+
+        <div class="tiny">
+          I’ll respond as soon as possible. Thank you for visiting my portfolio!
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footerWrap">
+    <div>© <span id="yr"></span> Sajini Tharushika · Built with HTML, CSS & JavaScript</div>
+    <div class="footerLinks">
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+      <a href="https://www.linkedin.com/in/sajini-tharushika-15990234b/" target="_blank" rel="noreferrer">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const y = document.getElementById("yr");
+  if (y) y.textContent = new Date().getFullYear();
+</script>
+<script>
+(function(){
+  const menuBtn = document.getElementById("menuBtn");
+  const closeBtn = document.getElementById("closeBtn");
+  const drawer = document.getElementById("drawer");
+  const back = document.getElementById("drawerBack");
+  if(!menuBtn || !drawer || !back || !closeBtn) return;
+
+  const links = drawer.querySelectorAll("a[data-nav]");
+
+  // Auto active highlight based on filename
+  const path = (location.pathname.split("/").pop() || "index.html").toLowerCase();
+  const key =
+    path.includes("about") ? "about" :
+    path.includes("skills") ? "skills" :
+    path.includes("projects") ? "projects" :
+    path.includes("contact") ? "contact" :
+    "index";
+
+  links.forEach(a => a.classList.toggle("active", a.getAttribute("data-nav") === key));
+
+  function open(){
+    drawer.classList.add("open");
+    back.classList.add("open");
+    menuBtn.setAttribute("aria-expanded", "true");
+    document.body.style.overflow = "hidden";
+  }
+  function close(){
+    drawer.classList.remove("open");
+    back.classList.remove("open");
+    menuBtn.setAttribute("aria-expanded", "false");
+    document.body.style.overflow = "";
+  }
+
+  menuBtn.addEventListener("click", open);
+  closeBtn.addEventListener("click", close);
+  back.addEventListener("click", close);
+
+  window.addEventListener("keydown", (e)=>{
+    if(e.key === "Escape") close();
+  });
+
+  // close after clicking a link (nice UX)
+  links.forEach(a => a.addEventListener("click", close));
+})();
+</script>
+</body>
+</html>
