@@ -344,6 +344,24 @@
 
     /* MOBILE OPTIMIZATION (premium + safe) */
     @media (max-width: 980px){
+  .topGrid{
+    display:flex;
+    flex-direction:column;
+  }
+
+  /* show photo first */
+  .photo{
+    order:-1;
+  }
+
+  /* add spacing */
+  .photo{
+    margin-bottom:18px;
+  }
+}
+
+    
+    @media (max-width: 980px){
       .container{padding:0 16px;}
       .page{padding:20px 0 58px;}
       .top{margin-bottom:16px;}
