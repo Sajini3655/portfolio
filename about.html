@@ -177,6 +177,8 @@
   padding:6px 10px;
   border-radius:999px;
 }
+ /* MOBILE OPTIMIZATION (premium + safe) */
+  
 
 /* only show hamburger on mobile */
 @media(max-width:980px){
@@ -436,6 +438,26 @@
       color:white;
       border-bottom-color:rgba(56,189,248,.45);
     }
+    @media (max-width: 980px){
+  /* Mobile: only move PHOTO to top */
+  .topGrid{
+    grid-template-columns: 1fr;   /* stack */
+    grid-template-areas:
+      "photo"
+      "card"
+      "facts";
+    gap:14px;
+  }
+
+  /* Make photo + facts act like grid items */
+  .side{ display: contents; }
+
+  /* Assign areas */
+  .photo{ grid-area: photo; margin-bottom: 14px; }
+  .card{ grid-area: card; }
+  .facts{ grid-area: facts; }
+}
+
   </style>
 </head>
 
