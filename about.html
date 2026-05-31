@@ -32,7 +32,6 @@
     a{color:inherit;text-decoration:none}
     .container{max-width:1120px;margin:auto;padding:0 22px}
 
-    /* NAV */
     header{
       position:sticky;top:0;z-index:30;
       backdrop-filter:blur(14px);
@@ -63,122 +62,121 @@
     nav a.active{color:white;background:rgba(255,255,255,.06);}
     @media(max-width:980px){ nav{display:none} }
 
-.menuBtn{
-  height:44px;width:44px;
-  border-radius:14px;
-  border:1px solid rgba(255,255,255,.14);
-  background:rgba(255,255,255,.06);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  cursor:pointer;
-  transition:transform .18s var(--ease), border-color .18s var(--ease), background .18s var(--ease);
-  -webkit-tap-highlight-color: transparent;
-}
-.menuBtn:hover{transform:translateY(-1px); background:rgba(255,255,255,.08); border-color:rgba(56,189,248,.22);}
-.menuBtn svg{width:20px;height:20px;opacity:.9}
+    .menuBtn{
+      height:44px;width:44px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      transition:transform .18s var(--ease), border-color .18s var(--ease), background .18s var(--ease);
+      -webkit-tap-highlight-color: transparent;
+    }
+    .menuBtn:hover{transform:translateY(-1px); background:rgba(255,255,255,.08); border-color:rgba(56,189,248,.22);}
+    .menuBtn svg{width:20px;height:20px;opacity:.9}
 
-.drawerBack{
-  position:fixed; inset:0;
-  background:rgba(0,0,0,.55);
-  backdrop-filter:blur(10px);
-  z-index:60;
-  opacity:0;
-  pointer-events:none;
-  transition:opacity .25s var(--ease);
-}
-.drawerBack.open{opacity:1; pointer-events:auto;}
+    .drawerBack{
+      position:fixed; inset:0;
+      background:rgba(0,0,0,.55);
+      backdrop-filter:blur(10px);
+      z-index:60;
+      opacity:0;
+      pointer-events:none;
+      transition:opacity .25s var(--ease);
+    }
+    .drawerBack.open{opacity:1; pointer-events:auto;}
 
-.drawer{
-  position:fixed;
-  right:14px; top:82px;
-  width:min(360px, calc(100vw - 28px));
-  border-radius:20px;
-  border:1px solid rgba(255,255,255,.12);
-  background:rgba(5,8,23,.88);
-  box-shadow:0 24px 100px rgba(0,0,0,.55);
-  z-index:70;
-  transform:translateY(-8px) scale(.98);
-  opacity:0;
-  pointer-events:none;
-  transition:opacity .25s var(--ease), transform .25s var(--ease);
-}
-.drawer.open{
-  opacity:1;
-  pointer-events:auto;
-  transform:translateY(0) scale(1);
-}
-.drawerHeader{
-  padding:14px 14px 10px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-  border-bottom:1px solid rgba(255,255,255,.08);
-}
-.drawerTitle{
-  font-weight:800;
-  font-size:13px;
-  color:rgba(255,255,255,.88);
-  letter-spacing:.01em;
-}
-.closeBtn{
-  height:38px;width:38px;
-  border-radius:14px;
-  border:1px solid rgba(255,255,255,.12);
-  background:rgba(255,255,255,.06);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  cursor:pointer;
-  transition:transform .18s var(--ease), border-color .18s var(--ease), background .18s var(--ease);
-}
-.closeBtn:hover{transform:translateY(-1px); background:rgba(255,255,255,.08); border-color:rgba(168,85,247,.22);}
-.closeBtn svg{width:18px;height:18px;opacity:.9}
+    .drawer{
+      position:fixed;
+      right:14px; top:82px;
+      width:min(360px, calc(100vw - 28px));
+      border-radius:20px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(5,8,23,.88);
+      box-shadow:0 24px 100px rgba(0,0,0,.55);
+      z-index:70;
+      transform:translateY(-8px) scale(.98);
+      opacity:0;
+      pointer-events:none;
+      transition:opacity .25s var(--ease), transform .25s var(--ease);
+    }
+    .drawer.open{
+      opacity:1;
+      pointer-events:auto;
+      transform:translateY(0) scale(1);
+    }
+    .drawerHeader{
+      padding:14px 14px 10px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .drawerTitle{
+      font-weight:800;
+      font-size:13px;
+      color:rgba(255,255,255,.88);
+      letter-spacing:.01em;
+    }
+    .closeBtn{
+      height:38px;width:38px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.06);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      transition:transform .18s var(--ease), border-color .18s var(--ease), background .18s var(--ease);
+    }
+    .closeBtn:hover{transform:translateY(-1px); background:rgba(255,255,255,.08); border-color:rgba(168,85,247,.22);}
+    .closeBtn svg{width:18px;height:18px;opacity:.9}
 
-.drawerNav{
-  padding:12px;
-  display:grid;
-  gap:10px;
-}
-.drawerNav a{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-  padding:12px 12px;
-  border-radius:16px;
-  border:1px solid rgba(255,255,255,.10);
-  background:rgba(255,255,255,.05);
-  color:rgba(255,255,255,.82);
-  font-size:13px;
-  font-weight:700;
-  transition:transform .18s var(--ease), border-color .18s var(--ease), background .18s var(--ease);
-}
-.drawerNav a:hover{
-  transform:translateY(-1px);
-  background:rgba(255,255,255,.07);
-  border-color:rgba(56,189,248,.22);
-  color:white;
-}
-.drawerNav a.active{
-  border-color:rgba(56,189,248,.40);
-  background:rgba(56,189,248,.12);
-  color:white;
-}
-.drawerNav small{
-  font-weight:700;
-  color:rgba(255,255,255,.55);
-  border:1px solid rgba(255,255,255,.10);
-  background:rgba(0,0,0,.20);
-  padding:6px 10px;
-  border-radius:999px;
-}
-  
+    .drawerNav{
+      padding:12px;
+      display:grid;
+      gap:10px;
+    }
+    .drawerNav a{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      padding:12px 12px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.05);
+      color:rgba(255,255,255,.82);
+      font-size:13px;
+      font-weight:700;
+      transition:transform .18s var(--ease), border-color .18s var(--ease), background .18s var(--ease);
+    }
+    .drawerNav a:hover{
+      transform:translateY(-1px);
+      background:rgba(255,255,255,.07);
+      border-color:rgba(56,189,248,.22);
+      color:white;
+    }
+    .drawerNav a.active{
+      border-color:rgba(56,189,248,.40);
+      background:rgba(56,189,248,.12);
+      color:white;
+    }
+    .drawerNav small{
+      font-weight:700;
+      color:rgba(255,255,255,.55);
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(0,0,0,.20);
+      padding:6px 10px;
+      border-radius:999px;
+    }
 
-@media(max-width:980px){
-  .menuBtn{display:flex;}
-}
+    @media(max-width:980px){
+      .menuBtn{display:flex;}
+    }
 
     .page{
       padding:28px 0 70px;
@@ -427,23 +425,21 @@
       border-bottom-color:rgba(56,189,248,.45);
     }
     @media (max-width: 980px){
-
       .topGrid{
-    grid-template-columns: 1fr;   
-    grid-template-areas:
-      "photo"
-      "card"
-      "facts";
-    gap:14px;
-  }
+        grid-template-columns: 1fr;   
+        grid-template-areas:
+          "photo"
+          "card"
+          "facts";
+        gap:14px;
+      }
 
-  .side{ display: contents; }
+      .side{ display: contents; }
 
-  .photo{ grid-area: photo; margin-bottom: 14px; }
-  .card{ grid-area: card; }
-  .facts{ grid-area: facts; }
-}
-
+      .photo{ grid-area: photo; margin-bottom: 14px; }
+      .card{ grid-area: card; }
+      .facts{ grid-area: facts; }
+    }
   </style>
 </head>
 
@@ -457,7 +453,7 @@
 
     <nav>
       <a href="index.html">Home</a>
-      <a href="about.html">About</a>
+      <a href="about.html" class="active">About</a>
       <a href="skills.html">Skills</a>
       <a href="projects.html">Projects</a>
       <a href="contact.html">Contact</a>
@@ -483,7 +479,6 @@
     </div>
 
     <div class="drawerNav">
-
       <a href="index.html" data-nav="index"><span>Home</span><small>Start</small></a>
       <a class="active" href="about.html" data-nav="about"><span>About</span><small>Me</small></a>
       <a href="skills.html" data-nav="skills"><span>Skills</span><small>Stack</small></a>
@@ -502,27 +497,28 @@
 
       <p class="lead">
         Hi! I’m <strong>Sajini Tharushika</strong>, currently pursuing a BSc (Hons) in Information Technology
-        at the University of Moratuwa, Sri Lanka. I’m interested in software development and enjoy learning
-        programming concepts, problem-solving techniques, and modern technologies used in real-world applications.
+        at the University of Moratuwa, Sri Lanka. I’m interested in software development, Artificial Intelligence,
+        and Machine Learning, and I enjoy building practical software solutions that solve real-world problems.
         <br><br>
         I completed my G.C.E. Advanced Level examination with <strong>2 A’s and 1 B</strong>, and my G.C.E.
         Ordinary Level examination with <strong>9 A’s</strong>, reflecting a strong academic foundation.
         <br><br>
-        I’m motivated to continuously improve my technical skills and work towards a career as a software engineer.
+        I’m motivated to continuously improve my technical skills and work towards a career in AI-enhanced
+        software engineering.
       </p>
 
       <div class="section">
         <div class="mini">
           <h3>Focus</h3>
-          <p>Software development, clean UI, backend logic, and building reliable solutions.</p>
+          <p>Software development, AI-enhanced applications, clean UI, backend logic, and reliable solutions.</p>
         </div>
         <div class="mini">
           <h3>Strengths</h3>
-          <p>Problem solving, consistency, fast learning, and strong fundamentals.</p>
+          <p>Problem solving, consistency, fast learning, teamwork, and strong technical fundamentals.</p>
         </div>
         <div class="mini">
           <h3>Learning</h3>
-          <p>Full-stack development + embedded systems projects and real-world applications.</p>
+          <p>Full-stack development, Artificial Intelligence, Machine Learning, and real-world applications.</p>
         </div>
       </div>
 
@@ -554,7 +550,7 @@
           <div class="fact"><strong>University</strong><span>UoM</span></div>
           <div class="fact"><strong>A/L Results</strong><span>2A + 1B</span></div>
           <div class="fact"><strong>O/L Results</strong><span>9A</span></div>
-          <div class="fact"><strong>Role</strong><span>Aspiring SE</span></div>
+          <div class="fact"><strong>Role</strong><span>Aspiring AI & ML Engineer</span></div>
         </div>
       </div>
     </aside>
@@ -576,6 +572,7 @@
   const y = document.getElementById("yr");
   if (y) y.textContent = new Date().getFullYear();
 </script>
+
 <script>
 (function(){
   const menuBtn = document.getElementById("menuBtn");
@@ -602,6 +599,7 @@
     menuBtn.setAttribute("aria-expanded", "true");
     document.body.style.overflow = "hidden";
   }
+
   function close(){
     drawer.classList.remove("open");
     back.classList.remove("open");
@@ -622,4 +620,3 @@
 </script>
 </body>
 </html>
-
