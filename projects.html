@@ -391,11 +391,11 @@
       .page{padding:20px 0 64px;}
       .top{margin-bottom:14px;}
       .lead{font-size:14px;}
-      .filters{justify-content:flex-start;} /* better on mobile */
-      .chipBtn{padding:10px 12px;}          /* bigger tap */
+      .filters{justify-content:flex-start;}
+      .chipBtn{padding:10px 12px;}
       .grid{gap:12px;}
       .card{border-radius:20px;}
-      .media{height:210px;}                 /* better fit */
+      .media{height:210px;}
       .content{padding:14px 14px 16px;}
       .titleRow{flex-direction:column; align-items:flex-start;}
       .typeTag{margin-top:6px;}
@@ -464,7 +464,6 @@
       <a href="contact.html">Contact</a>
     </nav>
 
-    <!-- Mobile hamburger -->
     <button class="menuBtn" id="menuBtn" type="button" aria-label="Open menu" aria-controls="drawer" aria-expanded="false">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
         <path d="M4 7h16M4 12h16M4 17h16"></path>
@@ -472,10 +471,8 @@
     </button>
   </div>
 
-  <!-- Backdrop -->
   <div class="drawerBack" id="drawerBack" aria-hidden="true"></div>
 
-  <!-- Drawer -->
   <div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Mobile navigation">
     <div class="drawerHeader">
       <div class="drawerTitle">Navigation</div>
@@ -487,7 +484,6 @@
     </div>
 
     <div class="drawerNav">
-      <!-- ✅ Set active per page (same as desktop nav) -->
       <a href="index.html" data-nav="index"><span>Home</span><small>Start</small></a>
       <a href="about.html" data-nav="about"><span>About</span><small>Me</small></a>
       <a href="skills.html" data-nav="skills"><span>Skills</span><small>Stack</small></a>
@@ -505,49 +501,50 @@
       <div>
         <h1>My <span class="grad">Projects</span></h1>
         <p class="lead">
-          A selection of projects that show my interest in full-stack development, embedded systems, and building practical software solutions.
+          A selection of projects that show my interest in software engineering, full-stack development, AI-enhanced applications, and practical web solutions.
         </p>
       </div>
 
       <div class="filters" aria-label="Project filters">
         <button class="chipBtn active" data-filter="all" type="button">All</button>
         <button class="chipBtn" data-filter="fullstack" type="button">Full-Stack</button>
-        <button class="chipBtn" data-filter="embedded" type="button">Embedded</button>
+        <button class="chipBtn" data-filter="ai" type="button">AI-Enhanced</button>
         <button class="chipBtn" data-filter="web" type="button">Web</button>
       </div>
     </div>
 
     <div class="grid" id="grid">
 
-      <!-- AURA -->
-      <article class="card" data-reveal data-tags="fullstack web">
+      <!-- Nexora -->
+      <article class="card" data-reveal data-tags="ai fullstack web">
         <div class="media">
-          <img src="./images/aura.png" alt="AURA — fashion e-commerce app">
+          <img src="./images/nexora.png" alt="Nexora — AI-enhanced project management system">
           <div class="overlay" aria-hidden="true"></div>
           <div class="badgeRow">
-            <span class="badge">Next.js</span>
-            <span class="badge">Tailwind</span>
-            <span class="badge">MongoDB</span>
-            <span class="badge">Rewards + Vouchers</span>
+            <span class="badge">AI-Enhanced</span>
+            <span class="badge">Project Management</span>
+            <span class="badge">Full-Stack</span>
+            <span class="badge">Team Collaboration</span>
           </div>
         </div>
         <div class="content">
           <div class="titleRow">
-            <h2>AURA — Full-Stack Fashion Brand Web App</h2>
-            <span class="typeTag">Full-Stack</span>
+            <h2>Nexora — AI-Enhanced Project Management System</h2>
+            <span class="typeTag">AI-Enhanced</span>
           </div>
           <p class="desc">
-            Fashion e-commerce web app with product catalog, cart, spin-the-wheel rewards, voucher redemption in checkout, and real-time order summary.
+            AI-enhanced project management system designed to support task handling, project planning, and team collaboration.
+            This project highlights my interest in applying AI features to practical software solutions.
           </p>
           <div class="links">
-            <a class="link primary" href="https://lnkd.in/eB28b2Jk" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="link primary" href="https://github.com/Sajini3655" target="_blank" rel="noreferrer">GitHub</a>
             <a class="link" href="contact.html">Contact me</a>
           </div>
         </div>
       </article>
 
       <!-- LaserTunes -->
-      <article class="card" data-reveal data-tags="embedded">
+      <article class="card" data-reveal data-tags="fullstack web">
         <div class="media">
           <img src="./images/lasertunes.jpg" alt="LaserTunes — laser based musical instrument">
           <div class="overlay" aria-hidden="true"></div>
@@ -591,7 +588,7 @@
             <span class="typeTag">Web</span>
           </div>
           <p class="desc">
-            A gym website built using PHP, HTML, and CSS, focusing on clean layout and core web fundamentals.
+            A gym website with trainer contact details, BMI calculator, and a clean user-friendly layout.
           </p>
           <div class="links">
             <a class="link" href="contact.html">Contact me</a>
@@ -599,26 +596,27 @@
         </div>
       </article>
 
-      <!-- Optional placeholder -->
-      <article class="card" data-reveal data-tags="all">
+      <!-- Auro -->
+      <article class="card" data-reveal data-tags="web">
         <div class="media">
-          <img src="./images/image.png" alt="More projects coming soon">
+          <img src="./images/auro.png" alt="Auro — fashion brand website">
           <div class="overlay" aria-hidden="true"></div>
           <div class="badgeRow">
-            <span class="badge">More projects</span>
-            <span class="badge">Coming soon</span>
+            <span class="badge">Web Design</span>
+            <span class="badge">Fashion Brand</span>
+            <span class="badge">Clean Layout</span>
           </div>
         </div>
         <div class="content">
           <div class="titleRow">
-            <h2>More Projects Coming</h2>
-            <span class="typeTag">Soon</span>
+            <h2>Auro — Fashion Brand Website</h2>
+            <span class="typeTag">Web</span>
           </div>
           <p class="desc">
-            I’m continuously learning and building. New projects will be added here as I complete them.
+            Fashion brand website designed with a clean layout, product-focused presentation, and user-friendly interface.
           </p>
           <div class="links">
-            <a class="link primary" href="contact.html">Get in touch</a>
+            <a class="link" href="contact.html">Contact me</a>
           </div>
         </div>
       </article>
