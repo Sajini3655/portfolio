@@ -34,7 +34,6 @@
     a{color:inherit;text-decoration:none}
     .container{max-width:1120px;margin:auto;padding:0 22px}
 
-    /* NAV */
     header{
       position:sticky;top:0;z-index:30;
       backdrop-filter:blur(14px);
@@ -65,127 +64,122 @@
     nav a.active{color:white;background:rgba(255,255,255,.06);}
     @media(max-width:980px){ nav{display:none} }
 
-    /* --- Mobile Nav --- */
-.menuBtn{
-  height:44px;width:44px;
-  border-radius:14px;
-  border:1px solid rgba(255,255,255,.14);
-  background:rgba(255,255,255,.06);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  cursor:pointer;
-  transition:transform .18s var(--ease), border-color .18s var(--ease), background .18s var(--ease);
-  -webkit-tap-highlight-color: transparent;
-}
-.menuBtn:hover{transform:translateY(-1px); background:rgba(255,255,255,.08); border-color:rgba(56,189,248,.22);}
-.menuBtn svg{width:20px;height:20px;opacity:.9}
+    .menuBtn{
+      height:44px;width:44px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      transition:transform .18s var(--ease), border-color .18s var(--ease), background .18s var(--ease);
+      -webkit-tap-highlight-color: transparent;
+    }
+    .menuBtn:hover{transform:translateY(-1px); background:rgba(255,255,255,.08); border-color:rgba(56,189,248,.22);}
+    .menuBtn svg{width:20px;height:20px;opacity:.9}
 
-/* drawer backdrop */
-.drawerBack{
-  position:fixed; inset:0;
-  background:rgba(0,0,0,.55);
-  backdrop-filter:blur(10px);
-  z-index:60;
-  opacity:0;
-  pointer-events:none;
-  transition:opacity .25s var(--ease);
-}
-.drawerBack.open{opacity:1; pointer-events:auto;}
+    .drawerBack{
+      position:fixed; inset:0;
+      background:rgba(0,0,0,.55);
+      backdrop-filter:blur(10px);
+      z-index:60;
+      opacity:0;
+      pointer-events:none;
+      transition:opacity .25s var(--ease);
+    }
+    .drawerBack.open{opacity:1; pointer-events:auto;}
 
-/* drawer */
-.drawer{
-  position:fixed;
-  right:14px; top:82px;
-  width:min(360px, calc(100vw - 28px));
-  border-radius:20px;
-  border:1px solid rgba(255,255,255,.12);
-  background:rgba(5,8,23,.88);
-  box-shadow:0 24px 100px rgba(0,0,0,.55);
-  z-index:70;
-  transform:translateY(-8px) scale(.98);
-  opacity:0;
-  pointer-events:none;
-  transition:opacity .25s var(--ease), transform .25s var(--ease);
-}
-.drawer.open{
-  opacity:1;
-  pointer-events:auto;
-  transform:translateY(0) scale(1);
-}
-.drawerHeader{
-  padding:14px 14px 10px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-  border-bottom:1px solid rgba(255,255,255,.08);
-}
-.drawerTitle{
-  font-weight:800;
-  font-size:13px;
-  color:rgba(255,255,255,.88);
-  letter-spacing:.01em;
-}
-.closeBtn{
-  height:38px;width:38px;
-  border-radius:14px;
-  border:1px solid rgba(255,255,255,.12);
-  background:rgba(255,255,255,.06);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  cursor:pointer;
-  transition:transform .18s var(--ease), border-color .18s var(--ease), background .18s var(--ease);
-}
-.closeBtn:hover{transform:translateY(-1px); background:rgba(255,255,255,.08); border-color:rgba(168,85,247,.22);}
-.closeBtn svg{width:18px;height:18px;opacity:.9}
+    .drawer{
+      position:fixed;
+      right:14px; top:82px;
+      width:min(360px, calc(100vw - 28px));
+      border-radius:20px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(5,8,23,.88);
+      box-shadow:0 24px 100px rgba(0,0,0,.55);
+      z-index:70;
+      transform:translateY(-8px) scale(.98);
+      opacity:0;
+      pointer-events:none;
+      transition:opacity .25s var(--ease), transform .25s var(--ease);
+    }
+    .drawer.open{
+      opacity:1;
+      pointer-events:auto;
+      transform:translateY(0) scale(1);
+    }
+    .drawerHeader{
+      padding:14px 14px 10px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .drawerTitle{
+      font-weight:800;
+      font-size:13px;
+      color:rgba(255,255,255,.88);
+      letter-spacing:.01em;
+    }
+    .closeBtn{
+      height:38px;width:38px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.06);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      transition:transform .18s var(--ease), border-color .18s var(--ease), background .18s var(--ease);
+    }
+    .closeBtn:hover{transform:translateY(-1px); background:rgba(255,255,255,.08); border-color:rgba(168,85,247,.22);}
+    .closeBtn svg{width:18px;height:18px;opacity:.9}
 
-.drawerNav{
-  padding:12px;
-  display:grid;
-  gap:10px;
-}
-.drawerNav a{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-  padding:12px 12px;
-  border-radius:16px;
-  border:1px solid rgba(255,255,255,.10);
-  background:rgba(255,255,255,.05);
-  color:rgba(255,255,255,.82);
-  font-size:13px;
-  font-weight:700;
-  transition:transform .18s var(--ease), border-color .18s var(--ease), background .18s var(--ease);
-}
-.drawerNav a:hover{
-  transform:translateY(-1px);
-  background:rgba(255,255,255,.07);
-  border-color:rgba(56,189,248,.22);
-  color:white;
-}
-.drawerNav a.active{
-  border-color:rgba(56,189,248,.40);
-  background:rgba(56,189,248,.12);
-  color:white;
-}
-.drawerNav small{
-  font-weight:700;
-  color:rgba(255,255,255,.55);
-  border:1px solid rgba(255,255,255,.10);
-  background:rgba(0,0,0,.20);
-  padding:6px 10px;
-  border-radius:999px;
-}
+    .drawerNav{
+      padding:12px;
+      display:grid;
+      gap:10px;
+    }
+    .drawerNav a{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      padding:12px 12px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.05);
+      color:rgba(255,255,255,.82);
+      font-size:13px;
+      font-weight:700;
+      transition:transform .18s var(--ease), border-color .18s var(--ease), background .18s var(--ease);
+    }
+    .drawerNav a:hover{
+      transform:translateY(-1px);
+      background:rgba(255,255,255,.07);
+      border-color:rgba(56,189,248,.22);
+      color:white;
+    }
+    .drawerNav a.active{
+      border-color:rgba(56,189,248,.40);
+      background:rgba(56,189,248,.12);
+      color:white;
+    }
+    .drawerNav small{
+      font-weight:700;
+      color:rgba(255,255,255,.55);
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(0,0,0,.20);
+      padding:6px 10px;
+      border-radius:999px;
+    }
 
-/* only show hamburger on mobile */
-@media(max-width:980px){
-  .menuBtn{display:flex;}
-}
+    @media(max-width:980px){
+      .menuBtn{display:flex;}
+    }
 
-    /* HERO (FULL SCREEN) */
     .hero{
       min-height: calc(100vh - 70px);
       padding: 26px 0 26px;
@@ -195,7 +189,6 @@
       overflow:hidden;
     }
 
-    /* particles canvas behind */
     #particles{
       position:absolute; inset:0;
       width:100%; height:100%;
@@ -204,7 +197,6 @@
       pointer-events:none;
     }
 
-    /* grid glow */
     .gridbg{
       position:absolute; inset:0;
       background:
@@ -315,7 +307,6 @@
     }
     .btn.primary:hover{background:rgba(56,189,248,.20); border-color:rgba(56,189,248,.55);}
 
-    /* profile panel */
     .profile{
       background:rgba(0,0,0,.28);
       border:1px solid rgba(255,255,255,.12);
@@ -363,7 +354,6 @@
       z-index:2;
     }
 
-    /* sections */
     .section{padding:34px 0 70px;}
     .sectionTitle{text-align:center; max-width:880px; margin:0 auto 28px;}
     .sectionTitle h2{margin:0; font-size:clamp(22px,3vw,34px); letter-spacing:-.02em;}
@@ -386,7 +376,6 @@
     .card h3{margin:0 0 6px;font-size:14px}
     .card p{margin:0;color:var(--muted);font-size:13px;line-height:1.7}
 
-    /* chips */
     .chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:16px;}
     .chip{
       font-size:12px;padding:8px 12px;border-radius:999px;
@@ -395,7 +384,6 @@
       color:rgba(255,255,255,.78);
     }
 
-    /* featured projects preview */
     .projGrid{display:grid; grid-template-columns:repeat(4,1fr); gap:16px;}
     @media(max-width:980px){ .projGrid{grid-template-columns:1fr} }
     .proj{
@@ -427,7 +415,6 @@
     }
     .projLink:hover{border-bottom-color:rgba(56,189,248,.55)}
 
-    /* cursor glow */
     .glow{
       position:fixed;
       width:520px;height:520px;
@@ -446,7 +433,6 @@
       .caret{animation:none}
     }
 
-    /* FOOTER */
     footer{
       border-top:1px solid rgba(255,255,255,.08);
       background:rgba(5,8,23,.55);
@@ -499,7 +485,6 @@
       <a href="contact.html">Contact</a>
     </nav>
 
-    <!-- Mobile hamburger -->
     <button class="menuBtn" id="menuBtn" type="button" aria-label="Open menu" aria-controls="drawer" aria-expanded="false">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
         <path d="M4 7h16M4 12h16M4 17h16"></path>
@@ -507,10 +492,8 @@
     </button>
   </div>
 
-  <!-- Backdrop -->
   <div class="drawerBack" id="drawerBack" aria-hidden="true"></div>
 
-  <!-- Drawer -->
   <div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Mobile navigation">
     <div class="drawerHeader">
       <div class="drawerTitle">Navigation</div>
@@ -522,7 +505,6 @@
     </div>
 
     <div class="drawerNav">
-      <!-- ✅ Set active per page (same as desktop nav) -->
       <a class="active" href="index.html" data-nav="index"><span>Home</span><small>Start</small></a>
       <a href="about.html" data-nav="about"><span>About</span><small>Me</small></a>
       <a href="skills.html" data-nav="skills"><span>Skills</span><small>Stack</small></a>
@@ -532,13 +514,11 @@
   </div>
 </header>
 
-<!-- HERO -->
 <section class="hero">
   <canvas id="particles"></canvas>
   <div class="gridbg" aria-hidden="true"></div>
 
   <div class="container heroGrid">
-    <!-- LEFT -->
     <div>
       <div class="pill"><span class="dot"></span> BSc (Hons) IT · University of Moratuwa</div>
 
@@ -562,7 +542,6 @@
       </div>
     </div>
 
-    <!-- RIGHT -->
     <aside class="profile">
       <div class="badge">Software Engineering Undergraduate</div>
       <img src="./images/profile.jpg" alt="Sajini Tharushika">
@@ -571,34 +550,34 @@
   </div>
 </section>
 
-<!-- pushed down so it doesn't show in the first screen -->
 <section class="section" style="padding-top:90px;">
   <div class="container">
     <div class="sectionTitle">
       <h2>What I build</h2>
-      <p>Focused on full-stack development, AI-enhanced applications, and practical software solutions.</p>    </div>
+      <p>Focused on full-stack development, AI-enhanced applications, and practical software solutions.</p>
+    </div>
 
     <div class="cards">
-  <div class="card" data-reveal>
-    <h3>Full-Stack Web Apps</h3>
-    <p>Building end-to-end applications with clean UI, backend logic, and database integration.</p>
-  </div>
+      <div class="card" data-reveal>
+        <h3>Full-Stack Web Apps</h3>
+        <p>Building end-to-end applications with clean UI, backend logic, and database integration.</p>
+      </div>
 
-  <div class="card" data-reveal>
-    <h3>AI-Enhanced Applications</h3>
-    <p>Exploring how AI and machine learning concepts can improve practical software solutions.</p>
-  </div>
+      <div class="card" data-reveal>
+        <h3>AI-Enhanced Applications</h3>
+        <p>Exploring how AI and machine learning concepts can improve practical software solutions.</p>
+      </div>
 
-  <div class="card" data-reveal>
-    <h3>Software Engineering Fundamentals</h3>
-    <p>Focused on problem solving, data structures, algorithms, and writing maintainable code.</p>
-  </div>
+      <div class="card" data-reveal>
+        <h3>Software Engineering Fundamentals</h3>
+        <p>Focused on problem solving, data structures, algorithms, and writing maintainable code.</p>
+      </div>
 
-  <div class="card" data-reveal>
-    <h3>Project-Based Development</h3>
-    <p>Applying my knowledge through real projects such as Nexora, portfolio websites, and web applications.</p>
-  </div>
-</div>
+      <div class="card" data-reveal>
+        <h3>Project-Based Development</h3>
+        <p>Applying my knowledge through real projects such as Nexora, portfolio websites, and web applications.</p>
+      </div>
+    </div>
 
     <div class="chips">
       <span class="chip">React</span><span class="chip">Node.js</span><span class="chip">JavaScript</span>
@@ -620,13 +599,21 @@
         <h3>Academics</h3>
         <p>A/L: 2 A’s + 1 B · O/L: 9 A’s</p>
       </div>
+
       <div class="card" data-reveal>
         <h3>Leadership</h3>
-        <p>Leo Club (UoM) — Active Member & Editorial Panelist (Present).</p>
+        <p>Leo Club Editorial Board · Event Coordination · Rotaract Editorial Volunteer.</p>
       </div>
+
+      <div class="card" data-reveal>
+        <h3>IEEE & Design</h3>
+        <p>Design team member and project lead in selected IEEE student branch project activities.</p>
+      </div>
+
       <div class="card" data-reveal>
         <h3>Projects</h3>
-        <p>Nexora (AI-Enhanced Project Management System) · Personal Portfolio · Fitness First · Auro.</p>      </div>
+        <p>Nexora · Personal Portfolio · Fitness First · Auro.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -639,45 +626,44 @@
     </div>
 
     <div class="projGrid">
-  <div class="proj" data-reveal>
-    <div class="projTop"><strong>Nexora</strong><span class="projTag">AI-Enhanced</span></div>
-    <div class="projBody">
-      <p>AI-enhanced project management system for task handling, project planning, and team collaboration.</p>
-      <a class="projLink" href="projects.html">See details →</a>
-    </div>
-  </div>
+      <div class="proj" data-reveal>
+        <div class="projTop"><strong>Nexora</strong><span class="projTag">AI-Enhanced</span></div>
+        <div class="projBody">
+          <p>AI-enhanced project management system for task handling, project planning, and team collaboration.</p>
+          <a class="projLink" href="projects.html">See details →</a>
+        </div>
+      </div>
 
-  <div class="proj" data-reveal>
-    <div class="projTop"><strong>Personal Portfolio</strong><span class="projTag">Web</span></div>
-    <div class="projBody">
-      <p>Portfolio website showcasing my skills, projects, education, and background.</p>
-      <a class="projLink" href="projects.html">See details →</a>
-    </div>
-  </div>
+      <div class="proj" data-reveal>
+        <div class="projTop"><strong>Personal Portfolio</strong><span class="projTag">Web</span></div>
+        <div class="projBody">
+          <p>Portfolio website showcasing my skills, projects, education, and background.</p>
+          <a class="projLink" href="projects.html">See details →</a>
+        </div>
+      </div>
 
-  <div class="proj" data-reveal>
-    <div class="projTop"><strong>Fitness First</strong><span class="projTag">Web</span></div>
-    <div class="projBody">
-      <p>Gym website with trainer contact details and BMI calculator.</p>
-      <a class="projLink" href="projects.html">See details →</a>
-    </div>
-  </div>
+      <div class="proj" data-reveal>
+        <div class="projTop"><strong>Fitness First</strong><span class="projTag">Web</span></div>
+        <div class="projBody">
+          <p>Gym website with trainer contact details and BMI calculator.</p>
+          <a class="projLink" href="projects.html">See details →</a>
+        </div>
+      </div>
 
-  <div class="proj" data-reveal>
-    <div class="projTop"><strong>Auro</strong><span class="projTag">Web</span></div>
-    <div class="projBody">
-      <p>Fashion brand website with a clean layout, product-focused presentation, and user-friendly design.</p>
-      <a class="projLink" href="projects.html">See details →</a>
+      <div class="proj" data-reveal>
+        <div class="projTop"><strong>Auro</strong><span class="projTag">Web</span></div>
+        <div class="projBody">
+          <p>Fashion brand website with a clean layout, product-focused presentation, and user-friendly design.</p>
+          <a class="projLink" href="projects.html">See details →</a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
   </div>
 </section>
 
 <script>
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // Reveal Animations
   (function(){
     const els = document.querySelectorAll("[data-reveal]");
     if (reduce) { els.forEach(el => el.classList.add("in")); return; }
@@ -692,7 +678,6 @@
     });
   })();
 
-  // Mouse Glow Follow
   (function(){
     const glow = document.getElementById("glow");
     if (!glow || reduce) return;
@@ -713,16 +698,16 @@
     tick();
   })();
 
-  // Typing Role
   (function(){
     const el = document.getElementById("typed");
     if (!el) return;
 
     const roles = [
-  "Aspiring AI & ML Engineer",
-  "Full-Stack Web Developer",
-  "Software Engineering Undergraduate"
-];
+      "Aspiring AI & ML Engineer",
+      "Full-Stack Web Developer",
+      "Software Engineering Undergraduate"
+    ];
+
     if (reduce) { el.textContent = roles[0]; return; }
 
     let roleIndex = 0, charIndex = 0;
@@ -754,7 +739,6 @@
     step();
   })();
 
-  // ===== Particles (ADVANCED + SHOOTING STARS) =====
   (function(){
     const canvas = document.getElementById("particles");
     if (!canvas || reduce) return;
@@ -772,14 +756,12 @@
     resize();
     window.addEventListener("resize", resize);
 
-    // Mouse parallax (subtle)
     let mx = 0, my = 0;
     window.addEventListener("mousemove", (e)=>{
       mx = (e.clientX / window.innerWidth - 0.5);
       my = (e.clientY / window.innerHeight - 0.5);
     }, {passive:true});
 
-    // Star layers (density/speeds tuned for your hero)
     const layers = [
       { count: 240, speed: 0.65, r:[0.5,1.1], a:[0.10,0.30] },
       { count: 150, speed: 1.20, r:[0.9,1.8], a:[0.18,0.55] },
@@ -823,14 +805,13 @@
     }
     init();
 
-    // Shooting stars
     const shooters = [];
     function spawnShooter(){
       const startX = rand(w*0.15, w*0.95);
       const startY = rand(-80, h*0.35);
       const len = rand(180, 380);
       const speed = rand(10, 18);
-      const angle = rand(Math.PI*0.58, Math.PI*0.72); // diagonal down-right
+      const angle = rand(Math.PI*0.58, Math.PI*0.72);
       return { x:startX, y:startY, vx:Math.cos(angle)*speed, vy:Math.sin(angle)*speed, len, life:0 };
     }
 
@@ -842,7 +823,6 @@
 
       ctx.clearRect(0,0,w,h);
 
-      // Nebula glow (subtle + premium)
       const g1 = ctx.createRadialGradient(w*0.22, h*0.10, 0, w*0.22, h*0.10, Math.max(w,h)*0.85);
       g1.addColorStop(0, "rgba(56,189,248,0.10)");
       g1.addColorStop(0.40, "rgba(168,85,247,0.06)");
@@ -857,7 +837,6 @@
       ctx.fillStyle = g2;
       ctx.fillRect(0,0,w,h);
 
-      // Stars (top -> down)
       for(const s of stars){
         const px = mx * (6 + s.z*6);
         const py = my * (4 + s.z*4);
@@ -876,7 +855,6 @@
         ctx.fill();
       }
 
-      // Shooting stars occasionally
       if (shooters.length < 2 && Math.random() < 0.010){
         shooters.push(spawnShooter());
       }
@@ -928,6 +906,7 @@
   const y = document.getElementById("yr");
   if (y) y.textContent = new Date().getFullYear();
 </script>
+
 <script>
 (function(){
   const menuBtn = document.getElementById("menuBtn");
@@ -938,7 +917,6 @@
 
   const links = drawer.querySelectorAll("a[data-nav]");
 
-  // Auto active highlight based on filename
   const path = (location.pathname.split("/").pop() || "index.html").toLowerCase();
   const key =
     path.includes("about") ? "about" :
@@ -970,7 +948,6 @@
     if(e.key === "Escape") close();
   });
 
-  // close after clicking a link (nice UX)
   links.forEach(a => a.addEventListener("click", close));
 })();
 </script>
