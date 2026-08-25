@@ -3,11 +3,15 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+
   <title>Sajini Tharushika — Contact</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
 
   <style>
     :root{
@@ -22,7 +26,9 @@
       --shadow:0 24px 100px rgba(0,0,0,.45);
     }
 
-    *{box-sizing:border-box}
+    *{
+      box-sizing:border-box;
+    }
 
     html{
       min-height:100%;
@@ -31,7 +37,7 @@
     body{
       margin:0;
       min-height:100vh;
-      font-family:Inter,system-ui;
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
       background:linear-gradient(180deg,#050817,#060a14);
       color:var(--fg);
       overflow-x:hidden;
@@ -39,8 +45,20 @@
       flex-direction:column;
     }
 
-    a{color:inherit;text-decoration:none}
-    .container{max-width:1120px;margin:auto;padding:0 22px}
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    .container{
+      max-width:1120px;
+      margin:auto;
+      padding:0 22px;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
 
     header{
       position:sticky;
@@ -71,8 +89,16 @@
       height:38px;
       border-radius:14px;
       background:
-        radial-gradient(circle at 30% 30%, rgba(255,255,255,.22), transparent 55%),
-        linear-gradient(135deg,var(--accent),var(--accent2));
+        radial-gradient(
+          circle at 30% 30%,
+          rgba(255,255,255,.22),
+          transparent 55%
+        ),
+        linear-gradient(
+          135deg,
+          var(--accent),
+          var(--accent2)
+        );
       box-shadow:0 0 28px rgba(56,189,248,.14);
     }
 
@@ -82,7 +108,10 @@
       color:rgba(255,255,255,.75);
       padding:8px 10px;
       border-radius:12px;
-      transition:background .2s var(--ease), transform .2s var(--ease), color .2s var(--ease);
+      transition:
+        background .2s var(--ease),
+        transform .2s var(--ease),
+        color .2s var(--ease);
     }
 
     nav a:hover{
@@ -96,9 +125,9 @@
       background:rgba(255,255,255,.06);
     }
 
-    @media(max-width:980px){
-      nav{display:none}
-    }
+    /* =========================
+       MOBILE MENU
+    ========================= */
 
     .menuBtn{
       height:44px;
@@ -110,8 +139,11 @@
       align-items:center;
       justify-content:center;
       cursor:pointer;
-      transition:transform .18s var(--ease), border-color .18s var(--ease), background .18s var(--ease);
-      -webkit-tap-highlight-color: transparent;
+      transition:
+        transform .18s var(--ease),
+        border-color .18s var(--ease),
+        background .18s var(--ease);
+      -webkit-tap-highlight-color:transparent;
     }
 
     .menuBtn:hover{
@@ -146,7 +178,7 @@
       position:fixed;
       right:14px;
       top:82px;
-      width:min(360px, calc(100vw - 28px));
+      width:min(360px,calc(100vw - 28px));
       border-radius:20px;
       border:1px solid rgba(255,255,255,.12);
       background:rgba(5,8,23,.88);
@@ -155,7 +187,9 @@
       transform:translateY(-8px) scale(.98);
       opacity:0;
       pointer-events:none;
-      transition:opacity .25s var(--ease), transform .25s var(--ease);
+      transition:
+        opacity .25s var(--ease),
+        transform .25s var(--ease);
     }
 
     .drawer.open{
@@ -190,7 +224,10 @@
       align-items:center;
       justify-content:center;
       cursor:pointer;
-      transition:transform .18s var(--ease), border-color .18s var(--ease), background .18s var(--ease);
+      transition:
+        transform .18s var(--ease),
+        border-color .18s var(--ease),
+        background .18s var(--ease);
     }
 
     .closeBtn:hover{
@@ -216,14 +253,17 @@
       align-items:center;
       justify-content:space-between;
       gap:10px;
-      padding:12px 12px;
+      padding:12px;
       border-radius:16px;
       border:1px solid rgba(255,255,255,.10);
       background:rgba(255,255,255,.05);
       color:rgba(255,255,255,.82);
       font-size:13px;
       font-weight:700;
-      transition:transform .18s var(--ease), border-color .18s var(--ease), background .18s var(--ease);
+      transition:
+        transform .18s var(--ease),
+        border-color .18s var(--ease),
+        background .18s var(--ease);
     }
 
     .drawerNav a:hover{
@@ -248,12 +288,12 @@
       border-radius:999px;
     }
 
-    @media(max-width:980px){
-      .menuBtn{display:flex;}
-    }
+    /* =========================
+       PAGE
+    ========================= */
 
     .page{
-      padding:48px 48px 70px;
+      padding:48px 0 70px;
       position:relative;
       flex:1;
     }
@@ -262,13 +302,42 @@
       position:absolute;
       inset:0;
       background:
-        radial-gradient(900px 520px at 18% 10%, rgba(56,189,248,.10), transparent 62%),
-        radial-gradient(980px 600px at 86% 18%, rgba(168,85,247,.10), transparent 65%),
-        linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
-      background-size:auto, auto, 64px 64px, 64px 64px;
+        radial-gradient(
+          900px 520px at 18% 10%,
+          rgba(56,189,248,.10),
+          transparent 62%
+        ),
+        radial-gradient(
+          980px 600px at 86% 18%,
+          rgba(168,85,247,.10),
+          transparent 65%
+        ),
+        linear-gradient(
+          rgba(255,255,255,.06) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255,255,255,.06) 1px,
+          transparent 1px
+        );
+
+      background-size:
+        auto,
+        auto,
+        64px 64px,
+        64px 64px;
+
       opacity:.32;
-      mask-image:radial-gradient(ellipse at 42% 14%, rgba(0,0,0,1) 22%, rgba(0,0,0,.85) 45%, rgba(0,0,0,0) 78%);
+
+      mask-image:
+        radial-gradient(
+          ellipse at 42% 14%,
+          rgba(0,0,0,1) 22%,
+          rgba(0,0,0,.85) 45%,
+          rgba(0,0,0,0) 78%
+        );
+
       pointer-events:none;
     }
 
@@ -290,7 +359,11 @@
     }
 
     .grad{
-      background:linear-gradient(90deg,var(--accent),var(--accent2));
+      background:linear-gradient(
+        90deg,
+        var(--accent),
+        var(--accent2)
+      );
       -webkit-background-clip:text;
       color:transparent;
     }
@@ -300,8 +373,12 @@
       color:var(--muted);
       line-height:1.9;
       font-size:15px;
-      max-width:80ch;
+      max-width:75ch;
     }
+
+    /* =========================
+       CONTACT GRID
+    ========================= */
 
     .grid{
       position:relative;
@@ -309,10 +386,6 @@
       grid-template-columns:1.05fr .95fr;
       gap:16px;
       margin-top:18px;
-    }
-
-    @media(max-width:980px){
-      .grid{grid-template-columns:1fr;}
     }
 
     .card{
@@ -333,13 +406,27 @@
       position:absolute;
       inset:-35%;
       background:
-        radial-gradient(680px circle at 22% 18%, rgba(56,189,248,.12), transparent 60%),
-        radial-gradient(760px circle at 84% 72%, rgba(168,85,247,.10), transparent 62%);
+        radial-gradient(
+          680px circle at 22% 18%,
+          rgba(56,189,248,.12),
+          transparent 60%
+        ),
+        radial-gradient(
+          760px circle at 84% 72%,
+          rgba(168,85,247,.10),
+          transparent 62%
+        );
       opacity:.9;
       pointer-events:none;
     }
 
-    .panel > *{position:relative}
+    .panel > *{
+      position:relative;
+    }
+
+    /* =========================
+       CONTACT ROWS
+    ========================= */
 
     .row{
       display:flex;
@@ -351,7 +438,9 @@
       flex-wrap:wrap;
     }
 
-    .row:last-child{border-bottom:none}
+    .row:last-child{
+      border-bottom:none;
+    }
 
     .label{
       font-weight:800;
@@ -364,16 +453,24 @@
       color:var(--muted);
       word-break:break-word;
       text-align:right;
-      max-width:70%;
+      max-width:72%;
     }
 
     .value a{
       color:rgba(56,189,248,.92);
       border-bottom:1px solid rgba(56,189,248,.25);
       padding-bottom:2px;
+      transition:color .18s ease,border-color .18s ease;
     }
 
-    .value a:hover{border-bottom-color:rgba(56,189,248,.55)}
+    .value a:hover{
+      color:white;
+      border-bottom-color:rgba(56,189,248,.55);
+    }
+
+    /* =========================
+       BUTTONS
+    ========================= */
 
     .btns{
       margin-top:16px;
@@ -394,9 +491,12 @@
       align-items:center;
       justify-content:center;
       gap:10px;
-      transition:transform .18s var(--ease), border-color .18s var(--ease), background .18s var(--ease);
+      transition:
+        transform .18s var(--ease),
+        border-color .18s var(--ease),
+        background .18s var(--ease);
       cursor:pointer;
-      -webkit-tap-highlight-color: transparent;
+      -webkit-tap-highlight-color:transparent;
     }
 
     .btn:hover{
@@ -421,57 +521,107 @@
       opacity:.9;
     }
 
+    /* =========================
+       RIGHT SIDE
+    ========================= */
+
     .side{
       padding:18px;
+      position:relative;
+    }
+
+    .side::before{
+      content:"";
+      position:absolute;
+      inset:-35%;
+      background:
+        radial-gradient(
+          650px circle at 75% 20%,
+          rgba(168,85,247,.11),
+          transparent 62%
+        ),
+        radial-gradient(
+          650px circle at 15% 80%,
+          rgba(56,189,248,.08),
+          transparent 62%
+        );
+      pointer-events:none;
+    }
+
+    .side > *{
+      position:relative;
     }
 
     .side h2{
       margin:0 0 10px;
-      font-size:16px;
-      letter-spacing:-.01em;
+      font-size:18px;
+      letter-spacing:-.02em;
     }
 
     .side p{
-      margin:0 0 14px;
+      margin:0 0 16px;
       color:var(--muted);
       font-size:13px;
-      line-height:1.75;
+      line-height:1.8;
     }
 
     .note{
       border-radius:18px;
       border:1px solid rgba(255,255,255,.10);
       background:rgba(255,255,255,.04);
-      padding:14px;
+      padding:16px;
       color:rgba(255,255,255,.78);
       font-size:13px;
       line-height:1.8;
     }
 
-    .tiny{
-      margin-top:12px;
-      color:rgba(255,255,255,.58);
+    .noteTitle{
+      display:flex;
+      align-items:center;
+      gap:9px;
+      margin-bottom:10px;
       font-size:12px;
-      line-height:1.6;
+      font-weight:800;
+      color:rgba(255,255,255,.88);
+      text-transform:uppercase;
+      letter-spacing:.12em;
     }
 
-    @media (max-width: 980px){
-      .container{padding:0 16px;}
-      .page{padding:20px 0 60px;}
-      .lead{font-size:14px;}
-      .grid{gap:12px; margin-top:14px;}
-      .card{border-radius:20px;}
-      .panel,.side{padding:16px;}
-      .value{max-width:100%; text-align:left;}
-      .btns{gap:10px;}
-      .btn{height:46px; padding:0 14px;}
+    .statusDot{
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:var(--accent);
+      box-shadow:0 0 12px rgba(56,189,248,.65);
     }
 
-    @media (max-width: 420px){
-      h1{font-size:clamp(30px, 10.5vw, 42px); line-height:1.1;}
-      .row{padding:12px 0;}
-      .btn{width:100%;}
+    .interestList{
+      margin:14px 0 0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:8px;
     }
+
+    .interestList li{
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.035);
+      color:rgba(255,255,255,.72);
+      font-size:12px;
+    }
+
+    .tiny{
+      margin-top:14px;
+      color:rgba(255,255,255,.55);
+      font-size:12px;
+      line-height:1.7;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
 
     footer{
       border-top:1px solid rgba(255,255,255,.08);
@@ -508,12 +658,87 @@
       color:white;
       border-bottom-color:rgba(56,189,248,.45);
     }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media(max-width:980px){
+
+      nav{
+        display:none;
+      }
+
+      .menuBtn{
+        display:flex;
+      }
+
+      .container{
+        padding:0 16px;
+      }
+
+      .page{
+        padding:28px 0 60px;
+      }
+
+      .grid{
+        grid-template-columns:1fr;
+        gap:12px;
+        margin-top:14px;
+      }
+
+      .card{
+        border-radius:20px;
+      }
+
+      .panel,
+      .side{
+        padding:16px;
+      }
+
+      .lead{
+        font-size:14px;
+      }
+
+      .value{
+        max-width:100%;
+        text-align:left;
+      }
+
+      .btns{
+        gap:10px;
+      }
+
+      .btn{
+        height:46px;
+        padding:0 14px;
+      }
+    }
+
+    @media(max-width:420px){
+
+      h1{
+        font-size:clamp(30px,10.5vw,42px);
+        line-height:1.1;
+      }
+
+      .row{
+        padding:12px 0;
+      }
+
+      .btn{
+        width:100%;
+      }
+    }
   </style>
 </head>
 
 <body>
+
 <header>
+
   <div class="container nav">
+
     <div class="brand">
       <div class="logo"></div>
       Sajini Tharushika
@@ -527,143 +752,420 @@
       <a href="contact.html" class="active">Contact</a>
     </nav>
 
-    <button class="menuBtn" id="menuBtn" type="button" aria-label="Open menu" aria-controls="drawer" aria-expanded="false">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+    <button
+      class="menuBtn"
+      id="menuBtn"
+      type="button"
+      aria-label="Open menu"
+      aria-controls="drawer"
+      aria-expanded="false"
+    >
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+      >
         <path d="M4 7h16M4 12h16M4 17h16"></path>
       </svg>
     </button>
+
   </div>
 
-  <div class="drawerBack" id="drawerBack" aria-hidden="true"></div>
+  <!-- Mobile navigation background -->
+  <div
+    class="drawerBack"
+    id="drawerBack"
+    aria-hidden="true"
+  ></div>
 
-  <div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+  <!-- Mobile navigation -->
+  <div
+    class="drawer"
+    id="drawer"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Mobile navigation"
+  >
+
     <div class="drawerHeader">
-      <div class="drawerTitle">Navigation</div>
-      <button class="closeBtn" id="closeBtn" type="button" aria-label="Close menu">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+
+      <div class="drawerTitle">
+        Navigation
+      </div>
+
+      <button
+        class="closeBtn"
+        id="closeBtn"
+        type="button"
+        aria-label="Close menu"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+        >
           <path d="M18 6L6 18M6 6l12 12"></path>
         </svg>
       </button>
+
     </div>
 
     <div class="drawerNav">
-      <a href="index.html" data-nav="index"><span>Home</span><small>Start</small></a>
-      <a href="about.html" data-nav="about"><span>About</span><small>Me</small></a>
-      <a href="skills.html" data-nav="skills"><span>Skills</span><small>Stack</small></a>
-      <a href="projects.html" data-nav="projects"><span>Projects</span><small>Work</small></a>
-      <a class="active" href="contact.html" data-nav="contact"><span>Contact</span><small>Reach</small></a>
+
+      <a href="index.html" data-nav="index">
+        <span>Home</span>
+        <small>Start</small>
+      </a>
+
+      <a href="about.html" data-nav="about">
+        <span>About</span>
+        <small>Me</small>
+      </a>
+
+      <a href="skills.html" data-nav="skills">
+        <span>Skills</span>
+        <small>Stack</small>
+      </a>
+
+      <a href="projects.html" data-nav="projects">
+        <span>Projects</span>
+        <small>Work</small>
+      </a>
+
+      <a
+        class="active"
+        href="contact.html"
+        data-nav="contact"
+      >
+        <span>Contact</span>
+        <small>Reach</small>
+      </a>
+
     </div>
+
   </div>
+
 </header>
 
+
 <section class="page">
-  <div class="bg" aria-hidden="true"></div>
+
+  <div
+    class="bg"
+    aria-hidden="true"
+  ></div>
 
   <div class="container">
+
+    <!-- Page heading -->
     <div class="top">
+
       <div>
-        <h1>Contact <span class="grad">Me</span></h1>
-        <p class="lead">Feel free to reach out for collaborations, internships, or project discussions.</p>
+
+        <h1>
+          Let's <span class="grad">Connect</span>
+        </h1>
+
+        <p class="lead">
+          I’m currently open to software engineering, full-stack development,
+          and AI/ML internship opportunities. Feel free to reach out for
+          opportunities, collaborations, or project discussions.
+        </p>
+
       </div>
+
     </div>
 
+
+    <!-- Contact content -->
     <div class="grid">
+
+      <!-- Contact details -->
       <div class="card panel">
-        <div class="row">
-          <div class="label">Email</div>
-          <div class="value">
-            <a href="mailto:sajinitharushika3655@gmail.com">sajinitharushika3655@gmail.com</a>
-          </div>
-        </div>
 
         <div class="row">
-          <div class="label">LinkedIn</div>
+
+          <div class="label">
+            Email
+          </div>
+
           <div class="value">
-            <a href="https://www.linkedin.com/in/sajini-tharushika-15990234b/" target="_blank" rel="noreferrer">
-              linkedin.com/in/sajini-tharushika-15990234b
+            <a href="mailto:sajinitharushika3655@gmail.com">
+              sajinitharushika3655@gmail.com
             </a>
           </div>
+
         </div>
+
 
         <div class="row">
-          <div class="label">GitHub</div>
-          <div class="value">
-            <a href="https://github.com/Sajini3655" target="_blank" rel="noreferrer">github.com/Sajini3655</a>
+
+          <div class="label">
+            LinkedIn
           </div>
+
+          <div class="value">
+
+            <a
+              href="https://www.linkedin.com/in/sajini-tharushika-15990234b/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              linkedin.com/in/sajini-tharushika-15990234b
+            </a>
+
+          </div>
+
         </div>
 
-        <div class="btns">
-          <a class="btn primary" href="Sajini_Tharushika_Resume.pdf" target="_blank">Download Resume</a>
 
-          <a class="btn primary" href="mailto:sajinitharushika3655@gmail.com" aria-label="Email Sajini">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <div class="row">
+
+          <div class="label">
+            GitHub
+          </div>
+
+          <div class="value">
+
+            <a
+              href="https://github.com/Sajini3655"
+              target="_blank"
+              rel="noreferrer"
+            >
+              github.com/Sajini3655
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <!-- Action buttons -->
+        <div class="btns">
+
+          <a
+            class="btn primary"
+            href="Sajini_Tharushika_Resume.pdf"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Download Resume
+          </a>
+
+
+          <a
+            class="btn primary"
+            href="mailto:sajinitharushika3655@gmail.com"
+            aria-label="Email Sajini"
+          >
+
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
               <path d="M4 4h16v16H4z"></path>
               <path d="m22 6-10 7L2 6"></path>
             </svg>
+
             Email
+
           </a>
 
-          <a class="btn" href="https://www.linkedin.com/in/sajini-tharushika-15990234b/" target="_blank" rel="noreferrer">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+
+          <a
+            class="btn"
+            href="https://www.linkedin.com/in/sajini-tharushika-15990234b/"
+            target="_blank"
+            rel="noreferrer"
+          >
+
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
               <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-              <rect x="2" y="9" width="4" height="12"></rect>
-              <circle cx="4" cy="4" r="2"></circle>
+              <rect
+                x="2"
+                y="9"
+                width="4"
+                height="12"
+              ></rect>
+              <circle
+                cx="4"
+                cy="4"
+                r="2"
+              ></circle>
             </svg>
+
             LinkedIn
+
           </a>
 
-          <a class="btn" href="https://github.com/Sajini3655" target="_blank" rel="noreferrer">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+
+          <a
+            class="btn"
+            href="https://github.com/Sajini3655"
+            target="_blank"
+            rel="noreferrer"
+          >
+
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
               <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
             </svg>
+
             GitHub
+
           </a>
+
         </div>
+
       </div>
 
+
+      <!-- Internship / collaboration panel -->
       <div class="card side">
-        <h2>Quick message</h2>
-        <p>Fastest way to reach me is email. I’m happy to discuss internships, projects, or collaboration.</p>
+
+        <h2>
+          Open to opportunities
+        </h2>
+
+        <p>
+          I’m interested in opportunities where I can apply my technical
+          knowledge, contribute to real-world projects, and continue growing
+          as a software engineer.
+        </p>
+
 
         <div class="note">
-          I am open to internship opportunities, project discussions, and collaboration-related messages.
+
+          <div class="noteTitle">
+            <span class="statusDot"></span>
+            Currently interested in
+          </div>
+
+          <ul class="interestList">
+
+            <li>
+              Software Engineering Internships
+            </li>
+
+            <li>
+              Full-Stack Development
+            </li>
+
+            <li>
+              Backend & API Development
+            </li>
+
+            <li>
+              AI/ML Applications
+            </li>
+
+          </ul>
+
         </div>
+
 
         <div class="tiny">
-          I’ll respond as soon as possible. Thank you for visiting my portfolio!
+          The best way to reach me is through email or LinkedIn.
+          I’m always happy to discuss interesting projects,
+          internship opportunities, and potential collaborations.
         </div>
+
       </div>
+
     </div>
+
   </div>
+
 </section>
 
+
+<!-- Footer -->
 <footer>
+
   <div class="footerWrap">
-    <div>© <span id="yr"></span> Sajini Tharushika · Built with HTML, CSS & JavaScript</div>
-    <div class="footerLinks">
-      <a href="projects.html">Projects</a>
-      <a href="contact.html">Contact</a>
-      <a href="https://www.linkedin.com/in/sajini-tharushika-15990234b/" target="_blank" rel="noreferrer">LinkedIn</a>
+
+    <div>
+      © <span id="yr"></span>
+      Sajini Tharushika · Built with HTML, CSS & JavaScript
     </div>
+
+    <div class="footerLinks">
+
+      <a href="projects.html">
+        Projects
+      </a>
+
+      <a href="contact.html">
+        Contact
+      </a>
+
+      <a
+        href="https://www.linkedin.com/in/sajini-tharushika-15990234b/"
+        target="_blank"
+        rel="noreferrer"
+      >
+        LinkedIn
+      </a>
+
+    </div>
+
   </div>
+
 </footer>
 
+
 <script>
+  /* Current year */
   const y = document.getElementById("yr");
-  if (y) y.textContent = new Date().getFullYear();
+
+  if (y) {
+    y.textContent = new Date().getFullYear();
+  }
 </script>
+
 
 <script>
 (function(){
+
   const menuBtn = document.getElementById("menuBtn");
   const closeBtn = document.getElementById("closeBtn");
   const drawer = document.getElementById("drawer");
   const back = document.getElementById("drawerBack");
-  if(!menuBtn || !drawer || !back || !closeBtn) return;
+
+  if(!menuBtn || !drawer || !back || !closeBtn){
+    return;
+  }
 
   const links = drawer.querySelectorAll("a[data-nav]");
 
-  const path = (location.pathname.split("/").pop() || "index.html").toLowerCase();
+
+  /* Detect current page */
+  const path =
+    (location.pathname.split("/").pop() || "index.html")
+      .toLowerCase();
+
+
   const key =
     path.includes("about") ? "about" :
     path.includes("skills") ? "skills" :
@@ -671,32 +1173,86 @@
     path.includes("contact") ? "contact" :
     "index";
 
-  links.forEach(a => a.classList.toggle("active", a.getAttribute("data-nav") === key));
 
+  /* Set active mobile navigation item */
+  links.forEach(a => {
+
+    a.classList.toggle(
+      "active",
+      a.getAttribute("data-nav") === key
+    );
+
+  });
+
+
+  /* Open menu */
   function open(){
+
     drawer.classList.add("open");
     back.classList.add("open");
-    menuBtn.setAttribute("aria-expanded", "true");
+
+    menuBtn.setAttribute(
+      "aria-expanded",
+      "true"
+    );
+
     document.body.style.overflow = "hidden";
   }
 
+
+  /* Close menu */
   function close(){
+
     drawer.classList.remove("open");
     back.classList.remove("open");
-    menuBtn.setAttribute("aria-expanded", "false");
+
+    menuBtn.setAttribute(
+      "aria-expanded",
+      "false"
+    );
+
     document.body.style.overflow = "";
   }
 
-  menuBtn.addEventListener("click", open);
-  closeBtn.addEventListener("click", close);
-  back.addEventListener("click", close);
 
-  window.addEventListener("keydown", (e)=>{
-    if(e.key === "Escape") close();
-  });
+  menuBtn.addEventListener(
+    "click",
+    open
+  );
 
-  links.forEach(a => a.addEventListener("click", close));
+
+  closeBtn.addEventListener(
+    "click",
+    close
+  );
+
+
+  back.addEventListener(
+    "click",
+    close
+  );
+
+
+  /* Close with Escape key */
+  window.addEventListener(
+    "keydown",
+    (e) => {
+
+      if(e.key === "Escape"){
+        close();
+      }
+
+    }
+  );
+
+
+  /* Close after navigation */
+  links.forEach(
+    a => a.addEventListener("click", close)
+  );
+
 })();
 </script>
+
 </body>
 </html>
