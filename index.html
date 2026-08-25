@@ -23,6 +23,7 @@
     }
 
     *{box-sizing:border-box}
+
     body{
       margin:0;
       font-family:Inter,system-ui;
@@ -31,8 +32,16 @@
       overflow-x:hidden;
     }
 
-    a{color:inherit;text-decoration:none}
-    .container{max-width:1120px;margin:auto;padding:0 22px}
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    .container{
+      max-width:1120px;
+      margin:auto;
+      padding:0 22px;
+    }
 
     header{
       position:sticky;
@@ -89,7 +98,9 @@
     }
 
     @media(max-width:980px){
-      nav{display:none}
+      nav{
+        display:none;
+      }
     }
 
     .menuBtn{
@@ -103,7 +114,7 @@
       justify-content:center;
       cursor:pointer;
       transition:transform .18s var(--ease), border-color .18s var(--ease), background .18s var(--ease);
-      -webkit-tap-highlight-color: transparent;
+      -webkit-tap-highlight-color:transparent;
     }
 
     .menuBtn:hover{
@@ -241,11 +252,13 @@
     }
 
     @media(max-width:980px){
-      .menuBtn{display:flex;}
+      .menuBtn{
+        display:flex;
+      }
     }
 
     .hero{
-      min-height: calc(100vh - 70px);
+      min-height:calc(100vh - 70px);
       padding:26px 0;
       display:flex;
       align-items:center;
@@ -289,8 +302,13 @@
     }
 
     @media(max-width:980px){
-      .heroGrid{grid-template-columns:1fr}
-      .hero{padding:22px 0;}
+      .heroGrid{
+        grid-template-columns:1fr;
+      }
+
+      .hero{
+        padding:22px 0;
+      }
     }
 
     .pill{
@@ -359,11 +377,13 @@
       display:inline-block;
       transform:translateY(-1px);
       opacity:.9;
-      animation: blink 1s steps(2,end) infinite;
+      animation:blink 1s steps(2,end) infinite;
     }
 
     @keyframes blink{
-      50%{opacity:0;}
+      50%{
+        opacity:0;
+      }
     }
 
     .lead{
@@ -649,9 +669,14 @@
       mix-blend-mode:screen;
     }
 
-    @media (prefers-reduced-motion: reduce){
-      .glow{display:none}
-      .caret{animation:none}
+    @media(prefers-reduced-motion:reduce){
+      .glow{
+        display:none;
+      }
+
+      .caret{
+        animation:none;
+      }
     }
 
     footer{
@@ -693,10 +718,12 @@
 </head>
 
 <body>
+
 <div class="glow" id="glow" aria-hidden="true"></div>
 
 <header>
   <div class="container nav">
+
     <div class="brand">
       <div class="logo"></div>
       Sajini Tharushika
@@ -710,19 +737,39 @@
       <a href="contact.html">Contact</a>
     </nav>
 
-    <button class="menuBtn" id="menuBtn" type="button" aria-label="Open menu" aria-controls="drawer" aria-expanded="false">
+    <button
+      class="menuBtn"
+      id="menuBtn"
+      type="button"
+      aria-label="Open menu"
+      aria-controls="drawer"
+      aria-expanded="false"
+    >
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
         <path d="M4 7h16M4 12h16M4 17h16"></path>
       </svg>
     </button>
+
   </div>
 
   <div class="drawerBack" id="drawerBack" aria-hidden="true"></div>
 
-  <div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+  <div
+    class="drawer"
+    id="drawer"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Mobile navigation"
+  >
     <div class="drawerHeader">
       <div class="drawerTitle">Navigation</div>
-      <button class="closeBtn" id="closeBtn" type="button" aria-label="Close menu">
+
+      <button
+        class="closeBtn"
+        id="closeBtn"
+        type="button"
+        aria-label="Close menu"
+      >
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
           <path d="M18 6L6 18M6 6l12 12"></path>
         </svg>
@@ -730,28 +777,62 @@
     </div>
 
     <div class="drawerNav">
-      <a class="active" href="index.html" data-nav="index"><span>Home</span><small>Start</small></a>
-      <a href="about.html" data-nav="about"><span>About</span><small>Me</small></a>
-      <a href="skills.html" data-nav="skills"><span>Skills</span><small>Stack</small></a>
-      <a href="projects.html" data-nav="projects"><span>Projects</span><small>Work</small></a>
-      <a href="contact.html" data-nav="contact"><span>Contact</span><small>Reach</small></a>
+      <a class="active" href="index.html" data-nav="index">
+        <span>Home</span>
+        <small>Start</small>
+      </a>
+
+      <a href="about.html" data-nav="about">
+        <span>About</span>
+        <small>Me</small>
+      </a>
+
+      <a href="skills.html" data-nav="skills">
+        <span>Skills</span>
+        <small>Stack</small>
+      </a>
+
+      <a href="projects.html" data-nav="projects">
+        <span>Projects</span>
+        <small>Work</small>
+      </a>
+
+      <a href="contact.html" data-nav="contact">
+        <span>Contact</span>
+        <small>Reach</small>
+      </a>
     </div>
   </div>
 </header>
 
+
 <section class="hero">
+
   <canvas id="particles"></canvas>
+
   <div class="gridbg" aria-hidden="true"></div>
 
   <div class="container heroGrid">
-    <div>
-      <div class="pill"><span class="dot"></span> BSc (Hons) IT · University of Moratuwa</div>
 
-      <h1>Hi, I’m <span class="grad">Sajini</span><br/>Tharushika</h1>
+    <div>
+
+      <div class="pill">
+        <span class="dot"></span>
+        BSc (Hons) IT · University of Moratuwa
+      </div>
+
+      <h1>
+        Hi, I’m <span class="grad">Sajini</span><br/>
+        Tharushika
+      </h1>
 
       <div class="roleline">
         <span class="roleTag">Role</span>
-        <span class="typing"><span id="typed"></span><span class="caret">|</span></span>
+
+        <span class="typing">
+          <span id="typed"></span>
+          <span class="caret">|</span>
+        </span>
       </div>
 
       <p class="lead">
@@ -760,50 +841,104 @@
       </p>
 
       <div class="actions">
-        <a class="btn primary" href="projects.html">View projects</a>
-        <a class="btn" href="Sajini_Tharushika_Resume.pdf" target="_blank">Download Resume</a>
-        <a class="btn" href="contact.html">Get in touch</a>
+        <a class="btn primary" href="projects.html">
+          View projects
+        </a>
+
+        <a
+          class="btn"
+          href="Sajini_Tharushika_Resume.pdf"
+          target="_blank"
+        >
+          Download Resume
+        </a>
+
+        <a class="btn" href="contact.html">
+          Get in touch
+        </a>
       </div>
+
     </div>
 
+
     <aside class="profile">
-      <div class="badge">Software Engineering Undergraduate</div>
-      <img src="./images/profile.jpg" alt="Sajini Tharushika">
-      <div class="profileFooter">Sri Lanka · University of Moratuwa</div>
+
+      <div class="badge">
+        Software Engineering Undergraduate
+      </div>
+
+      <img
+        src="./images/profile.jpg"
+        alt="Sajini Tharushika"
+      >
+
+      <div class="profileFooter">
+        Sri Lanka · University of Moratuwa
+      </div>
+
     </aside>
+
   </div>
 </section>
 
+
+<!-- WHAT I BUILD -->
+
 <section class="section" style="padding-top:90px;">
+
   <div class="container">
+
     <div class="sectionTitle">
       <h2>What I build</h2>
-      <p>Focused on full-stack development, software engineering fundamentals, and AI/ML-driven solutions.</p>
+
+      <p>
+        Focused on full-stack development, software engineering fundamentals, and AI/ML-driven solutions.
+      </p>
     </div>
 
+
     <div class="cards">
+
       <div class="card" data-reveal>
         <h3>Full-Stack Web Apps</h3>
-        <p>Building end-to-end applications with clean UI, backend logic, and database integration.</p>
+
+        <p>
+          Building end-to-end applications with clean UI, backend logic, and database integration.
+        </p>
       </div>
+
 
       <div class="card" data-reveal>
         <h3>AI-Enhanced Applications</h3>
-        <p>Exploring how AI and machine learning concepts can improve practical software solutions.</p>
+
+        <p>
+          Exploring how AI and machine learning concepts can improve practical software solutions.
+        </p>
       </div>
+
 
       <div class="card" data-reveal>
         <h3>Software Engineering Fundamentals</h3>
-        <p>Focused on problem solving, data structures, algorithms, and writing maintainable code.</p>
+
+        <p>
+          Focused on problem solving, data structures, algorithms, and writing maintainable code.
+        </p>
       </div>
+
 
       <div class="card" data-reveal>
         <h3>Project-Based Development</h3>
-        <p>Applying technical knowledge through academic and personal projects, from planning to implementation.</p>
+
+        <p>
+          Applying technical knowledge through academic and personal projects, from planning to implementation.
+        </p>
       </div>
+
     </div>
 
+
     <div class="chips">
+
       <span class="chip">React</span>
       <span class="chip">Node.js</span>
       <span class="chip">JavaScript</span>
@@ -813,420 +948,1161 @@
       <span class="chip">NumPy</span>
       <span class="chip">PostgreSQL</span>
       <span class="chip">MongoDB</span>
+
     </div>
+
   </div>
+
 </section>
 
+
+<!-- QUICK HIGHLIGHTS -->
+
 <section class="section" style="padding-top:0;">
+
   <div class="container">
+
     <div class="sectionTitle">
+
       <h2>Quick highlights</h2>
-      <p>A brief overview of my academic background, leadership experience, and project work.</p>
+
+      <p>
+        A brief overview of my academic background, leadership experience, and project work.
+      </p>
+
     </div>
+
 
     <div class="cards highlightGrid">
+
       <div class="card" data-reveal>
+
         <h3>Academics</h3>
-        <p>BSc (Hons) IT undergraduate at the University of Moratuwa with a strong academic foundation.</p>
+
+        <p>
+          BSc (Hons) IT undergraduate at the University of Moratuwa, building a strong foundation in software engineering and computing.
+        </p>
+
       </div>
 
+
       <div class="card" data-reveal>
+
         <h3>Leadership & Collaboration</h3>
-        <p>Leo Club · Rotaract · IEEE CS editorial work · IEEE project design roles · event coordination.</p>
+
+        <p>
+          IEEE CS · Leo Club · Rotaract · Moraspirit · CareerX — contributing through editorial, design, technology, and event coordination roles.
+        </p>
+
       </div>
 
+
       <div class="card" data-reveal>
-        <h3>Projects</h3>
-        <p>Nexora · Personal Portfolio · Fitness First · Auro.</p>
+
+        <h3>Technical Interests</h3>
+
+        <p>
+          Interested in full-stack development, AI/ML, software engineering, and building practical solutions to real-world problems.
+        </p>
+
       </div>
+
     </div>
+
   </div>
+
 </section>
+
+
+<!-- FEATURED PROJECTS -->
 
 <section class="section" style="padding-top:0;">
+
   <div class="container">
+
     <div class="sectionTitle">
+
       <h2>Featured projects</h2>
-      <p>Selected projects that reflect my interest in software engineering, web development, and AI-enhanced applications.</p>
+
+      <p>
+        Selected projects that reflect my interest in software engineering, web development, and AI-enhanced applications.
+      </p>
+
     </div>
+
 
     <div class="projGrid">
-      <div class="proj" data-reveal>
-        <div class="projTop"><strong>Nexora</strong><span class="projTag">AI-Enhanced</span></div>
-        <div class="projBody">
-          <p>AI-enhanced project management system for task handling, project planning, and team collaboration.</p>
-          <a class="projLink" href="projects.html">See details →</a>
-        </div>
-      </div>
+
+      <!-- NEXORA -->
 
       <div class="proj" data-reveal>
-        <div class="projTop"><strong>Personal Portfolio</strong><span class="projTag">Web</span></div>
-        <div class="projBody">
-          <p>Portfolio website showcasing my skills, projects, education, and background.</p>
-          <a class="projLink" href="projects.html">See details →</a>
+
+        <div class="projTop">
+
+          <strong>Nexora</strong>
+
+          <span class="projTag">
+            AI-Enhanced
+          </span>
+
         </div>
+
+        <div class="projBody">
+
+          <p>
+            AI-enhanced project management system designed for project planning, task management, team collaboration, and intelligent assistance.
+          </p>
+
+          <a class="projLink" href="projects.html">
+            See details →
+          </a>
+
+        </div>
+
       </div>
 
-      <div class="proj" data-reveal>
-        <div class="projTop"><strong>Fitness First</strong><span class="projTag">Web</span></div>
-        <div class="projBody">
-          <p>Gym website with trainer contact details and BMI calculator.</p>
-          <a class="projLink" href="projects.html">See details →</a>
-        </div>
-      </div>
+
+      <!-- AURA -->
 
       <div class="proj" data-reveal>
-        <div class="projTop"><strong>Auro</strong><span class="projTag">Web</span></div>
-        <div class="projBody">
-          <p>Fashion brand website with a clean layout, product-focused presentation, and user-friendly design.</p>
-          <a class="projLink" href="projects.html">See details →</a>
+
+        <div class="projTop">
+
+          <strong>AURA</strong>
+
+          <span class="projTag">
+            Web
+          </span>
+
         </div>
+
+        <div class="projBody">
+
+          <p>
+            Fashion brand website focused on a clean visual experience, product presentation, and a modern user-friendly interface.
+          </p>
+
+          <a class="projLink" href="projects.html">
+            See details →
+          </a>
+
+        </div>
+
       </div>
+
+
+      <!-- LASERTUNES -->
+
+      <div class="proj" data-reveal>
+
+        <div class="projTop">
+
+          <strong>LaserTunes</strong>
+
+          <span class="projTag">
+            Web
+          </span>
+
+        </div>
+
+        <div class="projBody">
+
+          <p>
+            Web-based music project combining an engaging interface with interactive features and a focus on a smooth user experience.
+          </p>
+
+          <a class="projLink" href="projects.html">
+            See details →
+          </a>
+
+        </div>
+
+      </div>
+
     </div>
+
   </div>
+
 </section>
 
+
 <script>
-  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const reduce =
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+
+  /* REVEAL ANIMATIONS */
 
   (function(){
-    const els = document.querySelectorAll("[data-reveal]");
-    if (reduce) {
-      els.forEach(el => el.classList.add("in"));
+
+    const els =
+      document.querySelectorAll("[data-reveal]");
+
+    if(reduce){
+
+      els.forEach(el =>
+        el.classList.add("in")
+      );
+
       return;
     }
 
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{
-        if(e.isIntersecting){
-          e.target.classList.add("in");
-          io.unobserve(e.target);
-        }
+
+    const io =
+      new IntersectionObserver((entries)=>{
+
+        entries.forEach(e=>{
+
+          if(e.isIntersecting){
+
+            e.target.classList.add("in");
+
+            io.unobserve(e.target);
+
+          }
+
+        });
+
+      }, {
+        threshold:.12
       });
-    }, {threshold: .12});
+
 
     els.forEach((el,i)=>{
-      el.style.transitionDelay = (80 + i*60) + "ms";
+
+      el.style.transitionDelay =
+        (80 + i * 60) + "ms";
+
       io.observe(el);
+
     });
+
   })();
 
-  (function(){
-    const glow = document.getElementById("glow");
-    if (!glow || reduce) return;
 
-    let x = window.innerWidth * 0.6;
-    let y = window.innerHeight * 0.25;
+
+  /* CURSOR GLOW */
+
+  (function(){
+
+    const glow =
+      document.getElementById("glow");
+
+    if(!glow || reduce) return;
+
+
+    let x =
+      window.innerWidth * .6;
+
+    let y =
+      window.innerHeight * .25;
+
     let tx = x;
     let ty = y;
 
-    window.addEventListener("mousemove", (e)=>{
-      tx = e.clientX;
-      ty = e.clientY;
-    }, {passive:true});
+
+    window.addEventListener(
+      "mousemove",
+      (e)=>{
+
+        tx = e.clientX;
+        ty = e.clientY;
+
+      },
+      {
+        passive:true
+      }
+    );
+
 
     function tick(){
-      x += (tx - x) * 0.10;
-      y += (ty - y) * 0.10;
-      glow.style.left = x + "px";
-      glow.style.top  = y + "px";
+
+      x += (tx - x) * .10;
+      y += (ty - y) * .10;
+
+      glow.style.left =
+        x + "px";
+
+      glow.style.top =
+        y + "px";
+
       requestAnimationFrame(tick);
+
     }
+
 
     tick();
+
   })();
 
+
+
+  /* TYPING EFFECT */
+
   (function(){
-    const el = document.getElementById("typed");
-    if (!el) return;
+
+    const el =
+      document.getElementById("typed");
+
+    if(!el) return;
+
 
     const roles = [
+
       "Aspiring AI & ML Engineer",
+
       "Full-Stack Web Developer",
+
       "Software Engineering Undergraduate"
+
     ];
 
-    if (reduce) {
-      el.textContent = roles[0];
+
+    if(reduce){
+
+      el.textContent =
+        roles[0];
+
       return;
+
     }
+
 
     let roleIndex = 0;
+
     let charIndex = 0;
+
     let deleting = false;
 
+
     function step(){
-      const current = roles[roleIndex];
 
-      if (!deleting) {
+      const current =
+        roles[roleIndex];
+
+
+      if(!deleting){
+
         charIndex++;
-        el.textContent = current.slice(0, charIndex);
 
-        if (charIndex >= current.length) {
+        el.textContent =
+          current.slice(0,charIndex);
+
+
+        if(charIndex >= current.length){
+
           deleting = true;
-          setTimeout(step, 900);
-          return;
-        }
-      } else {
-        charIndex--;
-        el.textContent = current.slice(0, charIndex);
 
-        if (charIndex <= 0) {
-          deleting = false;
-          roleIndex = (roleIndex + 1) % roles.length;
+          setTimeout(step,900);
+
+          return;
+
         }
+
+      }else{
+
+        charIndex--;
+
+        el.textContent =
+          current.slice(0,charIndex);
+
+
+        if(charIndex <= 0){
+
+          deleting = false;
+
+          roleIndex =
+            (roleIndex + 1) % roles.length;
+
+        }
+
       }
 
-      const speed = deleting ? 35 : 55;
-      setTimeout(step, speed);
+
+      const speed =
+        deleting ? 35 : 55;
+
+      setTimeout(step,speed);
+
     }
 
+
     step();
+
   })();
 
-  (function(){
-    const canvas = document.getElementById("particles");
-    if (!canvas || reduce) return;
 
-    const ctx = canvas.getContext("2d");
+
+  /* PARTICLES */
+
+  (function(){
+
+    const canvas =
+      document.getElementById("particles");
+
+    if(!canvas || reduce) return;
+
+
+    const ctx =
+      canvas.getContext("2d");
+
+
     let w = 0;
     let h = 0;
     let dpr = 1;
 
+
     function resize(){
-      dpr = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
-      w = canvas.clientWidth;
-      h = canvas.clientHeight;
-      canvas.width = Math.floor(w * dpr);
-      canvas.height = Math.floor(h * dpr);
-      ctx.setTransform(dpr,0,0,dpr,0,0);
+
+      dpr =
+        Math.max(
+          1,
+          Math.min(
+            2,
+            window.devicePixelRatio || 1
+          )
+        );
+
+
+      w =
+        canvas.clientWidth;
+
+      h =
+        canvas.clientHeight;
+
+
+      canvas.width =
+        Math.floor(w * dpr);
+
+      canvas.height =
+        Math.floor(h * dpr);
+
+
+      ctx.setTransform(
+        dpr,
+        0,
+        0,
+        dpr,
+        0,
+        0
+      );
+
     }
 
+
     resize();
-    window.addEventListener("resize", resize);
+
+    window.addEventListener(
+      "resize",
+      resize
+    );
+
 
     let mx = 0;
     let my = 0;
 
-    window.addEventListener("mousemove", (e)=>{
-      mx = (e.clientX / window.innerWidth - 0.5);
-      my = (e.clientY / window.innerHeight - 0.5);
-    }, {passive:true});
+
+    window.addEventListener(
+      "mousemove",
+      (e)=>{
+
+        mx =
+          (e.clientX /
+            window.innerWidth -
+            .5);
+
+        my =
+          (e.clientY /
+            window.innerHeight -
+            .5);
+
+      },
+      {
+        passive:true
+      }
+    );
+
 
     const layers = [
-      { count: 240, speed: 0.65, r:[0.5,1.1], a:[0.10,0.30] },
-      { count: 150, speed: 1.20, r:[0.9,1.8], a:[0.18,0.55] },
-      { count: 80,  speed: 1.95, r:[1.4,2.7], a:[0.22,0.75] },
+
+      {
+        count:240,
+        speed:.65,
+        r:[.5,1.1],
+        a:[.10,.30]
+      },
+
+      {
+        count:150,
+        speed:1.20,
+        r:[.9,1.8],
+        a:[.18,.55]
+      },
+
+      {
+        count:80,
+        speed:1.95,
+        r:[1.4,2.7],
+        a:[.22,.75]
+      }
+
     ];
+
 
     const palette = [
+
       [255,255,255],
+
       [120,211,252],
+
       [167,139,250],
-      [56,189,248],
+
+      [56,189,248]
+
     ];
 
+
     function rand(a,b){
-      return a + Math.random() * (b - a);
+
+      return a +
+        Math.random() * (b-a);
+
     }
 
+
     function pick(arr){
-      return arr[(Math.random() * arr.length) | 0];
+
+      return arr[
+        (Math.random() * arr.length) | 0
+      ];
+
     }
+
 
     const stars = [];
 
+
     function spawnStar(layerIndex){
-      const L = layers[layerIndex];
-      const [Rmin,Rmax] = L.r;
-      const [Amin,Amax] = L.a;
-      const c = pick(palette);
+
+      const L =
+        layers[layerIndex];
+
+
+      const [Rmin,Rmax] =
+        L.r;
+
+      const [Amin,Amax] =
+        L.a;
+
+
+      const c =
+        pick(palette);
+
 
       return {
-        x: Math.random() * w,
-        y: Math.random() * h,
-        z: layerIndex,
-        r: rand(Rmin,Rmax),
-        a: rand(Amin,Amax),
-        vy: L.speed * rand(0.85,1.25),
-        tw: rand(0.0, Math.PI * 2),
-        tc: rand(0.010,0.022),
-        col: c
+
+        x:Math.random() * w,
+
+        y:Math.random() * h,
+
+        z:layerIndex,
+
+        r:rand(Rmin,Rmax),
+
+        a:rand(Amin,Amax),
+
+        vy:L.speed *
+          rand(.85,1.25),
+
+        tw:rand(
+          0,
+          Math.PI * 2
+        ),
+
+        tc:rand(
+          .010,
+          .022
+        ),
+
+        col:c
+
       };
+
     }
 
+
     function init(){
+
       stars.length = 0;
-      layers.forEach((L,zi)=>{
-        for(let i=0;i<L.count;i++){
-          stars.push(spawnStar(zi));
+
+
+      layers.forEach(
+        (L,zi)=>{
+
+          for(
+            let i=0;
+            i<L.count;
+            i++
+          ){
+
+            stars.push(
+              spawnStar(zi)
+            );
+
+          }
+
         }
-      });
+      );
+
     }
+
 
     init();
 
+
     const shooters = [];
 
+
     function spawnShooter(){
-      const startX = rand(w * 0.15, w * 0.95);
-      const startY = rand(-80, h * 0.35);
-      const len = rand(180, 380);
-      const speed = rand(10, 18);
-      const angle = rand(Math.PI * 0.58, Math.PI * 0.72);
+
+      const startX =
+        rand(
+          w * .15,
+          w * .95
+        );
+
+
+      const startY =
+        rand(
+          -80,
+          h * .35
+        );
+
+
+      const len =
+        rand(180,380);
+
+
+      const speed =
+        rand(10,18);
+
+
+      const angle =
+        rand(
+          Math.PI * .58,
+          Math.PI * .72
+        );
+
 
       return {
+
         x:startX,
+
         y:startY,
-        vx:Math.cos(angle) * speed,
-        vy:Math.sin(angle) * speed,
+
+        vx:
+          Math.cos(angle) *
+          speed,
+
+        vy:
+          Math.sin(angle) *
+          speed,
+
         len,
+
         life:0
+
       };
+
     }
 
-    let last = performance.now();
+
+    let last =
+      performance.now();
+
 
     function draw(now){
-      const dt = Math.min(32, now - last);
+
+      const dt =
+        Math.min(
+          32,
+          now-last
+        );
+
+
       last = now;
 
-      ctx.clearRect(0,0,w,h);
 
-      const g1 = ctx.createRadialGradient(w*0.22, h*0.10, 0, w*0.22, h*0.10, Math.max(w,h)*0.85);
-      g1.addColorStop(0, "rgba(56,189,248,0.10)");
-      g1.addColorStop(0.40, "rgba(168,85,247,0.06)");
-      g1.addColorStop(1, "rgba(0,0,0,0)");
-      ctx.fillStyle = g1;
-      ctx.fillRect(0,0,w,h);
+      ctx.clearRect(
+        0,
+        0,
+        w,
+        h
+      );
 
-      const g2 = ctx.createRadialGradient(w*0.88, h*0.20, 0, w*0.88, h*0.20, Math.max(w,h)*0.85);
-      g2.addColorStop(0, "rgba(168,85,247,0.08)");
-      g2.addColorStop(0.45, "rgba(56,189,248,0.05)");
-      g2.addColorStop(1, "rgba(0,0,0,0)");
-      ctx.fillStyle = g2;
-      ctx.fillRect(0,0,w,h);
+
+      const g1 =
+        ctx.createRadialGradient(
+          w*.22,
+          h*.10,
+          0,
+          w*.22,
+          h*.10,
+          Math.max(w,h)*.85
+        );
+
+
+      g1.addColorStop(
+        0,
+        "rgba(56,189,248,0.10)"
+      );
+
+      g1.addColorStop(
+        .40,
+        "rgba(168,85,247,0.06)"
+      );
+
+      g1.addColorStop(
+        1,
+        "rgba(0,0,0,0)"
+      );
+
+
+      ctx.fillStyle =
+        g1;
+
+      ctx.fillRect(
+        0,
+        0,
+        w,
+        h
+      );
+
+
+      const g2 =
+        ctx.createRadialGradient(
+          w*.88,
+          h*.20,
+          0,
+          w*.88,
+          h*.20,
+          Math.max(w,h)*.85
+        );
+
+
+      g2.addColorStop(
+        0,
+        "rgba(168,85,247,0.08)"
+      );
+
+      g2.addColorStop(
+        .45,
+        "rgba(56,189,248,0.05)"
+      );
+
+      g2.addColorStop(
+        1,
+        "rgba(0,0,0,0)"
+      );
+
+
+      ctx.fillStyle =
+        g2;
+
+      ctx.fillRect(
+        0,
+        0,
+        w,
+        h
+      );
+
 
       for(const s of stars){
-        const px = mx * (6 + s.z * 6);
-        const py = my * (4 + s.z * 4);
 
-        s.y += s.vy * (dt/16);
+        const px =
+          mx * (6 + s.z * 6);
 
-        if (s.y > h + 20) {
+        const py =
+          my * (4 + s.z * 4);
+
+
+        s.y +=
+          s.vy * (dt/16);
+
+
+        if(s.y > h + 20){
+
           s.y = -20;
-          s.x = Math.random() * w;
+
+          s.x =
+            Math.random() * w;
+
         }
 
-        s.tw += s.tc * (dt/16);
-        const tw = (Math.sin(s.tw) + 1) / 2;
-        const a = s.a * (0.65 + tw * 0.55);
 
-        const [r,g,b] = s.col;
+        s.tw +=
+          s.tc * (dt/16);
+
+
+        const tw =
+          (Math.sin(s.tw)+1)/2;
+
+
+        const a =
+          s.a *
+          (.65 + tw*.55);
+
+
+        const [r,g,b] =
+          s.col;
+
+
         ctx.beginPath();
-        ctx.arc(s.x + px, s.y + py, s.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${r},${g},${b},${a})`;
+
+
+        ctx.arc(
+          s.x + px,
+          s.y + py,
+          s.r,
+          0,
+          Math.PI * 2
+        );
+
+
+        ctx.fillStyle =
+          `rgba(${r},${g},${b},${a})`;
+
+
         ctx.fill();
+
       }
 
-      if (shooters.length < 2 && Math.random() < 0.010){
-        shooters.push(spawnShooter());
+
+      if(
+        shooters.length < 2 &&
+        Math.random() < .010
+      ){
+
+        shooters.push(
+          spawnShooter()
+        );
+
       }
 
-      for(let i = shooters.length - 1; i >= 0; i--){
-        const sh = shooters[i];
+
+      for(
+        let i=shooters.length-1;
+        i>=0;
+        i--
+      ){
+
+        const sh =
+          shooters[i];
+
+
         sh.life += dt;
-        sh.x += sh.vx * (dt/16);
-        sh.y += sh.vy * (dt/16);
 
-        const tailX = sh.x - sh.vx * (sh.len/18);
-        const tailY = sh.y - sh.vy * (sh.len/18);
 
-        const grad = ctx.createLinearGradient(sh.x, sh.y, tailX, tailY);
-        grad.addColorStop(0, "rgba(255,255,255,0.85)");
-        grad.addColorStop(0.4, "rgba(56,189,248,0.22)");
-        grad.addColorStop(1, "rgba(168,85,247,0)");
+        sh.x +=
+          sh.vx * (dt/16);
 
-        ctx.strokeStyle = grad;
-        ctx.lineWidth = 2.0;
+        sh.y +=
+          sh.vy * (dt/16);
+
+
+        const tailX =
+          sh.x -
+          sh.vx *
+          (sh.len/18);
+
+
+        const tailY =
+          sh.y -
+          sh.vy *
+          (sh.len/18);
+
+
+        const grad =
+          ctx.createLinearGradient(
+            sh.x,
+            sh.y,
+            tailX,
+            tailY
+          );
+
+
+        grad.addColorStop(
+          0,
+          "rgba(255,255,255,0.85)"
+        );
+
+        grad.addColorStop(
+          .4,
+          "rgba(56,189,248,0.22)"
+        );
+
+        grad.addColorStop(
+          1,
+          "rgba(168,85,247,0)"
+        );
+
+
+        ctx.strokeStyle =
+          grad;
+
+        ctx.lineWidth = 2;
+
+
         ctx.beginPath();
-        ctx.moveTo(sh.x, sh.y);
-        ctx.lineTo(tailX, tailY);
+
+        ctx.moveTo(
+          sh.x,
+          sh.y
+        );
+
+        ctx.lineTo(
+          tailX,
+          tailY
+        );
+
         ctx.stroke();
 
-        if (sh.life > 900 || sh.x > w + 200 || sh.y > h + 200) {
-          shooters.splice(i,1);
+
+        if(
+          sh.life > 900 ||
+          sh.x > w + 200 ||
+          sh.y > h + 200
+        ){
+
+          shooters.splice(
+            i,
+            1
+          );
+
         }
+
       }
 
-      requestAnimationFrame(draw);
+
+      requestAnimationFrame(
+        draw
+      );
+
     }
 
-    requestAnimationFrame(draw);
+
+    requestAnimationFrame(
+      draw
+    );
+
   })();
+
 </script>
+
 
 <footer>
+
   <div class="footerWrap">
-    <div>© <span id="yr"></span> Sajini Tharushika · Built with HTML, CSS & JavaScript</div>
-    <div class="footerLinks">
-      <a href="projects.html">Projects</a>
-      <a href="contact.html">Contact</a>
-      <a href="https://www.linkedin.com/in/sajini-tharushika-15990234b/" target="_blank" rel="noreferrer">LinkedIn</a>
+
+    <div>
+      © <span id="yr"></span>
+      Sajini Tharushika · Built with HTML, CSS & JavaScript
     </div>
+
+
+    <div class="footerLinks">
+
+      <a href="projects.html">
+        Projects
+      </a>
+
+      <a href="contact.html">
+        Contact
+      </a>
+
+      <a
+        href="https://www.linkedin.com/in/sajini-tharushika-15990234/"
+        target="_blank"
+        rel="noreferrer"
+      >
+        LinkedIn
+      </a>
+
+    </div>
+
   </div>
+
 </footer>
 
+
 <script>
-  const y = document.getElementById("yr");
-  if (y) y.textContent = new Date().getFullYear();
+
+  const y =
+    document.getElementById("yr");
+
+  if(y){
+
+    y.textContent =
+      new Date().getFullYear();
+
+  }
+
 </script>
 
+
+<!-- MOBILE MENU -->
+
 <script>
+
 (function(){
-  const menuBtn = document.getElementById("menuBtn");
-  const closeBtn = document.getElementById("closeBtn");
-  const drawer = document.getElementById("drawer");
-  const back = document.getElementById("drawerBack");
 
-  if(!menuBtn || !drawer || !back || !closeBtn) return;
+  const menuBtn =
+    document.getElementById("menuBtn");
 
-  const links = drawer.querySelectorAll("a[data-nav]");
+  const closeBtn =
+    document.getElementById("closeBtn");
 
-  const path = (location.pathname.split("/").pop() || "index.html").toLowerCase();
+  const drawer =
+    document.getElementById("drawer");
+
+  const back =
+    document.getElementById("drawerBack");
+
+
+  if(
+    !menuBtn ||
+    !drawer ||
+    !back ||
+    !closeBtn
+  ){
+
+    return;
+
+  }
+
+
+  const links =
+    drawer.querySelectorAll(
+      "a[data-nav]"
+    );
+
+
+  const path =
+    (
+      location.pathname
+      .split("/")
+      .pop() ||
+      "index.html"
+    ).toLowerCase();
+
+
   const key =
-    path.includes("about") ? "about" :
-    path.includes("skills") ? "skills" :
-    path.includes("projects") ? "projects" :
-    path.includes("contact") ? "contact" :
-    "index";
 
-  links.forEach(a => a.classList.toggle("active", a.getAttribute("data-nav") === key));
+    path.includes("about")
+      ? "about"
 
-  function open(){
-    drawer.classList.add("open");
-    back.classList.add("open");
-    menuBtn.setAttribute("aria-expanded", "true");
-    document.body.style.overflow = "hidden";
-  }
+      : path.includes("skills")
+      ? "skills"
 
-  function close(){
-    drawer.classList.remove("open");
-    back.classList.remove("open");
-    menuBtn.setAttribute("aria-expanded", "false");
-    document.body.style.overflow = "";
-  }
+      : path.includes("projects")
+      ? "projects"
 
-  menuBtn.addEventListener("click", open);
-  closeBtn.addEventListener("click", close);
-  back.addEventListener("click", close);
+      : path.includes("contact")
+      ? "contact"
 
-  window.addEventListener("keydown", (e)=>{
-    if(e.key === "Escape") close();
+      : "index";
+
+
+  links.forEach(a => {
+
+    a.classList.toggle(
+      "active",
+      a.getAttribute("data-nav") === key
+    );
+
   });
 
-  links.forEach(a => a.addEventListener("click", close));
+
+  function open(){
+
+    drawer.classList.add("open");
+
+    back.classList.add("open");
+
+    menuBtn.setAttribute(
+      "aria-expanded",
+      "true"
+    );
+
+    document.body.style.overflow =
+      "hidden";
+
+  }
+
+
+  function close(){
+
+    drawer.classList.remove("open");
+
+    back.classList.remove("open");
+
+    menuBtn.setAttribute(
+      "aria-expanded",
+      "false"
+    );
+
+    document.body.style.overflow =
+      "";
+
+  }
+
+
+  menuBtn.addEventListener(
+    "click",
+    open
+  );
+
+
+  closeBtn.addEventListener(
+    "click",
+    close
+  );
+
+
+  back.addEventListener(
+    "click",
+    close
+  );
+
+
+  window.addEventListener(
+    "keydown",
+    (e)=>{
+
+      if(e.key === "Escape"){
+
+        close();
+
+      }
+
+    }
+  );
+
+
+  links.forEach(a => {
+
+    a.addEventListener(
+      "click",
+      close
+    );
+
+  });
+
+
 })();
+
 </script>
+
 </body>
 </html>
