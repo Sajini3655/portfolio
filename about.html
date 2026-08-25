@@ -1,652 +1,1879 @@
 <!doctype html>
-
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+
   <title>Sajini Tharushika — About</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
 
   <style>
+
     :root{
       --bg:#050817;
       --fg:rgba(255,255,255,.92);
       --muted:rgba(255,255,255,.65);
       --stroke:rgba(255,255,255,.12);
       --panel:rgba(0,0,0,.26);
+
       --accent:#38bdf8;
       --accent2:#a855f7;
+
       --ease:cubic-bezier(.16,1,.3,1);
       --shadow:0 24px 100px rgba(0,0,0,.45);
     }
-    *{box-sizing:border-box}
+
+
+    *{
+      box-sizing:border-box;
+    }
+
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+
     body{
       margin:0;
-      font-family:Inter,system-ui;
-      background:linear-gradient(180deg,#050817,#060a14);
+
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+
+      background:
+        linear-gradient(
+          180deg,
+          #050817,
+          #060a14
+        );
+
       color:var(--fg);
+
       overflow-x:hidden;
     }
-    a{color:inherit;text-decoration:none}
-    .container{max-width:1120px;margin:auto;padding:0 22px}
+
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+
+    .container{
+      max-width:1120px;
+      margin:auto;
+      padding:0 22px;
+    }
+
+
+    /* =========================
+       HEADER
+    ========================= */
 
     header{
-      position:sticky;top:0;z-index:30;
+      position:sticky;
+      top:0;
+      z-index:30;
+
       backdrop-filter:blur(14px);
+
       background:rgba(5,8,23,.72);
-      border-bottom:1px solid rgba(255,255,255,.06);
+
+      border-bottom:
+        1px solid rgba(255,255,255,.06);
     }
+
+
     .nav{
       height:70px;
+
       display:flex;
       align-items:center;
       justify-content:space-between;
+
       gap:16px;
     }
-    .brand{display:flex;gap:12px;align-items:center;font-weight:800}
+
+
+    .brand{
+      display:flex;
+      gap:12px;
+      align-items:center;
+
+      font-weight:800;
+    }
+
+
     .logo{
-      width:38px;height:38px;border-radius:14px;
+      width:38px;
+      height:38px;
+
+      border-radius:14px;
+
       background:
-        radial-gradient(circle at 30% 30%, rgba(255,255,255,.22), transparent 55%),
-        linear-gradient(135deg,var(--accent),var(--accent2));
-      box-shadow:0 0 28px rgba(56,189,248,.14);
+        radial-gradient(
+          circle at 30% 30%,
+          rgba(255,255,255,.22),
+          transparent 55%
+        ),
+        linear-gradient(
+          135deg,
+          var(--accent),
+          var(--accent2)
+        );
+
+      box-shadow:
+        0 0 28px rgba(56,189,248,.14);
     }
+
+
     nav a{
-      margin-left:18px;font-size:13px;color:rgba(255,255,255,.75);
-      padding:8px 10px;border-radius:12px;
-      transition:background .2s var(--ease), transform .2s var(--ease), color .2s var(--ease);
+      margin-left:18px;
+
+      font-size:13px;
+
+      color:rgba(255,255,255,.75);
+
+      padding:8px 10px;
+
+      border-radius:12px;
+
+      transition:
+        background .2s var(--ease),
+        transform .2s var(--ease),
+        color .2s var(--ease);
     }
-    nav a:hover{background:rgba(255,255,255,.06); transform:translateY(-1px); color:white;}
-    nav a.active{color:white;background:rgba(255,255,255,.06);}
-    @media(max-width:980px){ nav{display:none} }
+
+
+    nav a:hover{
+      background:rgba(255,255,255,.06);
+
+      transform:translateY(-1px);
+
+      color:white;
+    }
+
+
+    nav a.active{
+      color:white;
+
+      background:rgba(255,255,255,.06);
+    }
+
+
+    /* =========================
+       MOBILE MENU
+    ========================= */
 
     .menuBtn{
-      height:44px;width:44px;
+      height:44px;
+      width:44px;
+
       border-radius:14px;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(255,255,255,.06);
+
+      border:
+        1px solid rgba(255,255,255,.14);
+
+      background:
+        rgba(255,255,255,.06);
+
       display:none;
+
       align-items:center;
       justify-content:center;
+
       cursor:pointer;
-      transition:transform .18s var(--ease), border-color .18s var(--ease), background .18s var(--ease);
-      -webkit-tap-highlight-color: transparent;
+
+      transition:
+        transform .18s var(--ease),
+        border-color .18s var(--ease),
+        background .18s var(--ease);
+
+      -webkit-tap-highlight-color:transparent;
     }
-    .menuBtn:hover{transform:translateY(-1px); background:rgba(255,255,255,.08); border-color:rgba(56,189,248,.22);}
-    .menuBtn svg{width:20px;height:20px;opacity:.9}
+
+
+    .menuBtn:hover{
+      transform:translateY(-1px);
+
+      background:
+        rgba(255,255,255,.08);
+
+      border-color:
+        rgba(56,189,248,.22);
+    }
+
+
+    .menuBtn svg{
+      width:20px;
+      height:20px;
+
+      opacity:.9;
+    }
+
 
     .drawerBack{
-      position:fixed; inset:0;
+      position:fixed;
+      inset:0;
+
       background:rgba(0,0,0,.55);
+
       backdrop-filter:blur(10px);
+
       z-index:60;
+
       opacity:0;
+
       pointer-events:none;
-      transition:opacity .25s var(--ease);
+
+      transition:
+        opacity .25s var(--ease);
     }
-    .drawerBack.open{opacity:1; pointer-events:auto;}
+
+
+    .drawerBack.open{
+      opacity:1;
+
+      pointer-events:auto;
+    }
+
 
     .drawer{
       position:fixed;
-      right:14px; top:82px;
-      width:min(360px, calc(100vw - 28px));
+
+      right:14px;
+      top:82px;
+
+      width:
+        min(
+          360px,
+          calc(100vw - 28px)
+        );
+
       border-radius:20px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(5,8,23,.88);
-      box-shadow:0 24px 100px rgba(0,0,0,.55);
+
+      border:
+        1px solid rgba(255,255,255,.12);
+
+      background:
+        rgba(5,8,23,.88);
+
+      box-shadow:
+        0 24px 100px rgba(0,0,0,.55);
+
       z-index:70;
-      transform:translateY(-8px) scale(.98);
+
+      transform:
+        translateY(-8px)
+        scale(.98);
+
       opacity:0;
+
       pointer-events:none;
-      transition:opacity .25s var(--ease), transform .25s var(--ease);
+
+      transition:
+        opacity .25s var(--ease),
+        transform .25s var(--ease);
     }
+
+
     .drawer.open{
       opacity:1;
+
       pointer-events:auto;
-      transform:translateY(0) scale(1);
+
+      transform:
+        translateY(0)
+        scale(1);
     }
+
+
     .drawerHeader{
       padding:14px 14px 10px;
+
       display:flex;
       align-items:center;
       justify-content:space-between;
+
       gap:10px;
-      border-bottom:1px solid rgba(255,255,255,.08);
+
+      border-bottom:
+        1px solid rgba(255,255,255,.08);
     }
+
+
     .drawerTitle{
       font-weight:800;
+
       font-size:13px;
-      color:rgba(255,255,255,.88);
-      letter-spacing:.01em;
+
+      color:
+        rgba(255,255,255,.88);
     }
+
+
     .closeBtn{
-      height:38px;width:38px;
+      height:38px;
+      width:38px;
+
       border-radius:14px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.06);
+
+      border:
+        1px solid rgba(255,255,255,.12);
+
+      background:
+        rgba(255,255,255,.06);
+
       display:flex;
+
       align-items:center;
       justify-content:center;
+
       cursor:pointer;
-      transition:transform .18s var(--ease), border-color .18s var(--ease), background .18s var(--ease);
     }
-    .closeBtn:hover{transform:translateY(-1px); background:rgba(255,255,255,.08); border-color:rgba(168,85,247,.22);}
-    .closeBtn svg{width:18px;height:18px;opacity:.9}
+
+
+    .closeBtn:hover{
+      background:
+        rgba(255,255,255,.08);
+
+      border-color:
+        rgba(168,85,247,.22);
+    }
+
+
+    .closeBtn svg{
+      width:18px;
+      height:18px;
+
+      opacity:.9;
+    }
+
 
     .drawerNav{
       padding:12px;
+
       display:grid;
+
       gap:10px;
     }
+
+
     .drawerNav a{
       display:flex;
+
       align-items:center;
       justify-content:space-between;
+
       gap:10px;
-      padding:12px 12px;
+
+      padding:12px;
+
       border-radius:16px;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.05);
-      color:rgba(255,255,255,.82);
+
+      border:
+        1px solid rgba(255,255,255,.10);
+
+      background:
+        rgba(255,255,255,.05);
+
+      color:
+        rgba(255,255,255,.82);
+
       font-size:13px;
+
       font-weight:700;
-      transition:transform .18s var(--ease), border-color .18s var(--ease), background .18s var(--ease);
+
+      transition:
+        transform .18s var(--ease),
+        border-color .18s var(--ease),
+        background .18s var(--ease);
     }
+
+
     .drawerNav a:hover{
       transform:translateY(-1px);
-      background:rgba(255,255,255,.07);
-      border-color:rgba(56,189,248,.22);
+
+      background:
+        rgba(255,255,255,.07);
+
+      border-color:
+        rgba(56,189,248,.22);
+
       color:white;
     }
+
+
     .drawerNav a.active{
-      border-color:rgba(56,189,248,.40);
-      background:rgba(56,189,248,.12);
+      border-color:
+        rgba(56,189,248,.40);
+
+      background:
+        rgba(56,189,248,.12);
+
       color:white;
     }
+
+
     .drawerNav small{
       font-weight:700;
-      color:rgba(255,255,255,.55);
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(0,0,0,.20);
+
+      color:
+        rgba(255,255,255,.55);
+
+      border:
+        1px solid rgba(255,255,255,.10);
+
+      background:
+        rgba(0,0,0,.20);
+
       padding:6px 10px;
+
       border-radius:999px;
     }
 
-    @media(max-width:980px){
-      .menuBtn{display:flex;}
-    }
+
+    /* =========================
+       PAGE
+    ========================= */
 
     .page{
-      padding:28px 0 70px;
+      padding:42px 0 80px;
+
       position:relative;
+
+      min-height:calc(100vh - 70px);
+
+      overflow:hidden;
     }
+
+
     .bg{
-      position:absolute; inset:0;
+      position:absolute;
+
+      inset:0;
+
       background:
-        radial-gradient(900px 520px at 18% 10%, rgba(56,189,248,.10), transparent 62%),
-        radial-gradient(980px 600px at 86% 18%, rgba(168,85,247,.10), transparent 65%),
-        linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
-      background-size:auto, auto, 64px 64px, 64px 64px;
+
+        radial-gradient(
+          900px 520px at 18% 10%,
+          rgba(56,189,248,.10),
+          transparent 62%
+        ),
+
+        radial-gradient(
+          980px 600px at 86% 18%,
+          rgba(168,85,247,.10),
+          transparent 65%
+        ),
+
+        linear-gradient(
+          rgba(255,255,255,.06) 1px,
+          transparent 1px
+        ),
+
+        linear-gradient(
+          90deg,
+          rgba(255,255,255,.06) 1px,
+          transparent 1px
+        );
+
+      background-size:
+        auto,
+        auto,
+        64px 64px,
+        64px 64px;
+
       opacity:.36;
-      mask-image:radial-gradient(ellipse at 42% 18%, rgba(0,0,0,1) 22%, rgba(0,0,0,.85) 45%, rgba(0,0,0,0) 78%);
+
+      mask-image:
+        radial-gradient(
+          ellipse at 42% 18%,
+          rgba(0,0,0,1) 22%,
+          rgba(0,0,0,.85) 45%,
+          rgba(0,0,0,0) 78%
+        );
+
       pointer-events:none;
     }
+
+
+    /* =========================
+       TOP GRID
+    ========================= */
 
     .topGrid{
       position:relative;
+
       display:grid;
-      grid-template-columns: 1.12fr .88fr;
-      gap:18px;
+
+      grid-template-columns:
+        1.12fr .88fr;
+
+      gap:20px;
+
       align-items:start;
     }
-    @media(max-width:980px){
-      .topGrid{grid-template-columns:1fr; gap:14px;}
-    }
 
-    h1{
-      margin:0 0 10px;
-      font-size:clamp(34px,4.8vw,54px);
-      letter-spacing:-.03em;
-      line-height:1.08;
-    }
-    .grad{
-      background:linear-gradient(90deg,var(--accent),var(--accent2));
-      -webkit-background-clip:text;color:transparent;
-    }
-    .lead{
-      margin:0;
-      color:var(--muted);
-      line-height:1.9;
-      font-size:15px;
-      max-width:75ch;
-    }
+
+    /* =========================
+       MAIN CARD
+    ========================= */
 
     .card{
       position:relative;
-      background:rgba(0,0,0,.26);
-      border:1px solid rgba(255,255,255,.12);
+
+      background:
+        rgba(0,0,0,.26);
+
+      border:
+        1px solid rgba(255,255,255,.12);
+
       border-radius:22px;
-      padding:18px;
+
+      padding:26px;
+
       box-shadow:var(--shadow);
+
       overflow:hidden;
     }
+
+
     .card::before{
       content:"";
-      position:absolute; inset:-35%;
+
+      position:absolute;
+
+      inset:-35%;
+
       background:
-        radial-gradient(640px circle at 25% 20%, rgba(56,189,248,.10), transparent 60%),
-        radial-gradient(760px circle at 85% 70%, rgba(168,85,247,.09), transparent 62%);
+
+        radial-gradient(
+          640px circle at 25% 20%,
+          rgba(56,189,248,.10),
+          transparent 60%
+        ),
+
+        radial-gradient(
+          760px circle at 85% 70%,
+          rgba(168,85,247,.09),
+          transparent 62%
+        );
+
       opacity:.9;
+
       pointer-events:none;
     }
-    .card > *{position:relative}
 
-    .side{
+
+    .card > *{
       position:relative;
-      display:grid;
-      gap:14px;
-      align-content:start;
     }
-    .photo{
-      position:relative;
-      background:rgba(0,0,0,.22);
-      border:1px solid rgba(255,255,255,.12);
-      border-radius:22px;
-      padding:16px 14px 14px;
-      box-shadow:var(--shadow);
-      overflow:hidden;
+
+
+    h1{
+      margin:0 0 14px;
+
+      font-size:
+        clamp(
+          34px,
+          4.8vw,
+          54px
+        );
+
+      letter-spacing:-.03em;
+
+      line-height:1.08;
     }
-    .photo::before{
-      content:"";
-      position:absolute; inset:-40%;
+
+
+    .grad{
       background:
-        radial-gradient(620px circle at 30% 20%, rgba(56,189,248,.10), transparent 60%),
-        radial-gradient(760px circle at 80% 70%, rgba(168,85,247,.08), transparent 62%);
-      opacity:.95;
-      pointer-events:none;
-    }
-    .photo > *{position:relative}
+        linear-gradient(
+          90deg,
+          var(--accent),
+          var(--accent2)
+        );
 
-    .avatar{
-      width:220px;
-      height:220px;
-      object-fit:cover;
-      border-radius:50%;
-      display:block;
-      margin:14px auto 10px;
-      border:3px solid rgba(255,255,255,.18);
-      box-shadow:0 0 44px rgba(56,189,248,.18);
-    }
-    .cap{
-      margin-top:10px;
-      text-align:center;
-      color:rgba(255,255,255,.70);
-      font-size:13px;
-      line-height:1.6;
+      -webkit-background-clip:text;
+
+      background-clip:text;
+
+      color:transparent;
     }
 
-    .facts{
-      background:rgba(0,0,0,.22);
-      border:1px solid rgba(255,255,255,.12);
-      border-radius:22px;
-      padding:16px;
-      box-shadow:var(--shadow);
+
+    .lead{
+      margin:0;
+
+      color:var(--muted);
+
+      line-height:1.9;
+
+      font-size:15px;
+
+      max-width:75ch;
     }
-    .factsTitle{
-      margin:0 0 10px;
-      font-size:13px;
-      letter-spacing:.18em;
-      text-transform:uppercase;
-      color:rgba(255,255,255,.70);
+
+
+    .lead strong{
+      color:
+        rgba(255,255,255,.90);
     }
-    .factGrid{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap:10px;
-    }
-    .fact{
-      border-radius:16px;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.04);
-      padding:12px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:10px;
-    }
-    .fact strong{font-size:13px}
-    .fact span{
-      font-size:12px;
-      color:rgba(255,255,255,.70);
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(0,0,0,.20);
-      padding:6px 10px;
-      border-radius:999px;
-      white-space:nowrap;
-    }
+
+
+    /* =========================
+       FOCUS CARDS
+    ========================= */
 
     .section{
-      margin-top:18px;
+      margin-top:22px;
+
       display:grid;
-      grid-template-columns:repeat(3,1fr);
+
+      grid-template-columns:
+        repeat(3,1fr);
+
       gap:12px;
     }
-    @media(max-width:980px){ .section{grid-template-columns:1fr} }
+
+
     .mini{
-      background:rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.12);
+      background:
+        rgba(255,255,255,.05);
+
+      border:
+        1px solid rgba(255,255,255,.12);
+
       border-radius:18px;
-      padding:14px;
+
+      padding:16px;
+
+      transition:
+        transform .22s var(--ease),
+        background .22s var(--ease),
+        border-color .22s var(--ease);
     }
-    .mini h3{margin:0 0 6px;font-size:13px}
-    .mini p{margin:0;color:var(--muted);font-size:13px;line-height:1.7}
+
+
+    .mini:hover{
+      transform:translateY(-3px);
+
+      background:
+        rgba(255,255,255,.07);
+
+      border-color:
+        rgba(56,189,248,.22);
+    }
+
+
+    .mini h3{
+      margin:0 0 7px;
+
+      font-size:13px;
+    }
+
+
+    .mini p{
+      margin:0;
+
+      color:var(--muted);
+
+      font-size:13px;
+
+      line-height:1.7;
+    }
+
+
+    /* =========================
+       DIVIDER
+    ========================= */
 
     .divider{
       height:1px;
-      background:rgba(255,255,255,.08);
-      margin:18px 0 16px;
+
+      background:
+        rgba(255,255,255,.08);
+
+      margin:28px 0 22px;
     }
+
+
+    /* =========================
+       SECTION TITLE
+    ========================= */
+
     .titleRow{
-      display:flex;align-items:center;justify-content:space-between;gap:12px;
+      display:flex;
+
+      align-items:center;
+
+      justify-content:space-between;
+
+      gap:12px;
+
       margin-top:0;
+
       flex-wrap:wrap;
     }
+
+
     .titleRow h2{
       margin:0;
+
       font-size:18px;
+
       letter-spacing:-.02em;
     }
+
+
     .tag{
       font-size:12px;
+
       padding:8px 12px;
+
       border-radius:999px;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(255,255,255,.05);
-      color:rgba(255,255,255,.78);
+
+      border:
+        1px solid rgba(255,255,255,.14);
+
+      background:
+        rgba(255,255,255,.05);
+
+      color:
+        rgba(255,255,255,.78);
+    }
+
+
+    /* =========================
+       EXPERIENCE
+    ========================= */
+
+    ul{
+      margin:16px 0 0;
+
+      padding-left:19px;
+
+      color:
+        rgba(255,255,255,.76);
+
+      line-height:1.9;
+
+      font-size:14px;
+    }
+
+
+    li{
+      margin:8px 0;
+    }
+
+
+    li strong{
+      color:
+        rgba(255,255,255,.90);
+    }
+
+
+    /* =========================
+       SIDE
+    ========================= */
+
+    .side{
+      position:relative;
+
+      display:grid;
+
+      gap:14px;
+
+      align-content:start;
+    }
+
+
+    .photo{
+      position:relative;
+
+      background:
+        rgba(0,0,0,.22);
+
+      border:
+        1px solid rgba(255,255,255,.12);
+
+      border-radius:22px;
+
+      padding:16px 14px 14px;
+
+      box-shadow:var(--shadow);
+
+      overflow:hidden;
+    }
+
+
+    .photo::before{
+      content:"";
+
+      position:absolute;
+
+      inset:-40%;
+
+      background:
+
+        radial-gradient(
+          620px circle at 30% 20%,
+          rgba(56,189,248,.10),
+          transparent 60%
+        ),
+
+        radial-gradient(
+          760px circle at 80% 70%,
+          rgba(168,85,247,.08),
+          transparent 62%
+        );
+
+      opacity:.95;
+
+      pointer-events:none;
+    }
+
+
+    .photo > *{
+      position:relative;
+    }
+
+
+    .avatar{
+      width:220px;
+
+      height:220px;
+
+      object-fit:cover;
+
+      border-radius:50%;
+
+      display:block;
+
+      margin:14px auto 12px;
+
+      border:
+        3px solid rgba(255,255,255,.18);
+
+      box-shadow:
+        0 0 44px rgba(56,189,248,.18);
+    }
+
+
+    .cap{
+      margin-top:10px;
+
+      text-align:center;
+
+      color:
+        rgba(255,255,255,.70);
+
+      font-size:13px;
+
+      line-height:1.6;
+    }
+
+
+    /* =========================
+       QUICK FACTS
+    ========================= */
+
+    .facts{
+      background:
+        rgba(0,0,0,.22);
+
+      border:
+        1px solid rgba(255,255,255,.12);
+
+      border-radius:22px;
+
+      padding:16px;
+
+      box-shadow:var(--shadow);
+    }
+
+
+    .factsTitle{
+      margin:0 0 12px;
+
+      font-size:12px;
+
+      letter-spacing:.18em;
+
+      text-transform:uppercase;
+
+      color:
+        rgba(255,255,255,.70);
+    }
+
+
+    .factGrid{
+      display:grid;
+
+      grid-template-columns:1fr;
+
+      gap:10px;
+    }
+
+
+    .fact{
+      border-radius:16px;
+
+      border:
+        1px solid rgba(255,255,255,.10);
+
+      background:
+        rgba(255,255,255,.04);
+
+      padding:12px;
+
+      display:flex;
+
+      align-items:center;
+
+      justify-content:space-between;
+
+      gap:10px;
+    }
+
+
+    .fact strong{
+      font-size:13px;
+    }
+
+
+    .fact span{
+      font-size:12px;
+
+      color:
+        rgba(255,255,255,.70);
+
+      border:
+        1px solid rgba(255,255,255,.10);
+
+      background:
+        rgba(0,0,0,.20);
+
+      padding:6px 10px;
+
+      border-radius:999px;
+
       white-space:nowrap;
     }
 
-    ul{
-      margin:12px 0 0;
-      padding-left:18px;
-      color:rgba(255,255,255,.78);
-      line-height:1.9;
-      font-size:14px;
-    }
-    li{margin:6px 0}
 
-    @media (max-width: 980px){
-      .container{padding:0 16px;}
-      .page{padding:20px 0 58px;}
-      .card{padding:16px;border-radius:20px;}
-      .photo,.facts{border-radius:20px;}
-      .avatar{width:190px;height:190px;}
-      .lead{font-size:14px;}
-      ul{font-size:13.5px;}
-    }
-    @media (max-width: 420px){
-      h1{font-size:clamp(30px, 10.5vw, 42px); line-height:1.1;}
-      .avatar{width:170px;height:170px;}
-      .fact{padding:11px;}
-    }
+    /* =========================
+       FOOTER
+    ========================= */
 
     footer{
-      border-top:1px solid rgba(255,255,255,.08);
-      background:rgba(5,8,23,.55);
+      border-top:
+        1px solid rgba(255,255,255,.08);
+
+      background:
+        rgba(5,8,23,.55);
+
       backdrop-filter:blur(12px);
     }
+
+
     .footerWrap{
       max-width:1120px;
+
       margin:auto;
+
       padding:18px 22px;
+
       display:flex;
+
       align-items:center;
+
       justify-content:space-between;
+
       gap:12px;
+
       flex-wrap:wrap;
-      color:rgba(255,255,255,.60);
+
+      color:
+        rgba(255,255,255,.60);
+
       font-size:12px;
     }
+
+
     .footerLinks{
       display:flex;
+
       gap:12px;
+
       flex-wrap:wrap;
     }
+
+
     .footerLinks a{
-      color:rgba(255,255,255,.70);
-      border-bottom:1px solid rgba(255,255,255,.16);
+      color:
+        rgba(255,255,255,.70);
+
+      border-bottom:
+        1px solid rgba(255,255,255,.16);
+
       padding-bottom:2px;
     }
+
+
     .footerLinks a:hover{
       color:white;
-      border-bottom-color:rgba(56,189,248,.45);
+
+      border-bottom-color:
+        rgba(56,189,248,.45);
     }
-    @media (max-width: 980px){
+
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media(max-width:980px){
+
+      nav{
+        display:none;
+      }
+
+
+      .menuBtn{
+        display:flex;
+      }
+
+
+      .container{
+        padding:0 16px;
+      }
+
+
+      .page{
+        padding:28px 0 60px;
+      }
+
+
       .topGrid{
-        grid-template-columns: 1fr;   
+        grid-template-columns:1fr;
+
         grid-template-areas:
           "photo"
           "card"
           "facts";
+
         gap:14px;
       }
 
-      .side{ display: contents; }
 
-      .photo{ grid-area: photo; margin-bottom: 14px; }
-      .card{ grid-area: card; }
-      .facts{ grid-area: facts; }
+      .side{
+        display:contents;
+      }
+
+
+      .photo{
+        grid-area:photo;
+
+        margin-bottom:2px;
+      }
+
+
+      .card{
+        grid-area:card;
+
+        padding:20px;
+      }
+
+
+      .facts{
+        grid-area:facts;
+      }
+
+
+      .section{
+        grid-template-columns:1fr;
+      }
+
+
+      .avatar{
+        width:190px;
+        height:190px;
+      }
+
+
+      .lead{
+        font-size:14px;
+      }
+
+
+      ul{
+        font-size:13.5px;
+      }
     }
-  </style>
 
+
+    @media(max-width:420px){
+
+      h1{
+        font-size:
+          clamp(
+            30px,
+            10.5vw,
+            42px
+          );
+
+        line-height:1.1;
+      }
+
+
+      .avatar{
+        width:170px;
+        height:170px;
+      }
+
+
+      .fact{
+        padding:11px;
+      }
+
+
+      .fact span{
+        white-space:normal;
+
+        text-align:right;
+      }
+    }
+
+  </style>
 </head>
 
+
 <body>
-<header>
-  <div class="container nav">
-    <div class="brand">
-      <div class="logo"></div>
-      Sajini Tharushika
-    </div>
 
-<nav>
-  <a href="index.html">Home</a>
-  <a href="about.html" class="active">About</a>
-  <a href="skills.html">Skills</a>
-  <a href="projects.html">Projects</a>
-  <a href="contact.html">Contact</a>
-</nav>
 
-<button class="menuBtn" id="menuBtn" type="button" aria-label="Open menu" aria-controls="drawer" aria-expanded="false">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-    <path d="M4 7h16M4 12h16M4 17h16"></path>
-  </svg>
-</button>
+  <!-- =========================
+       HEADER
+  ========================= -->
 
-  </div>
+  <header>
 
-  <div class="drawerBack" id="drawerBack" aria-hidden="true"></div>
+    <div class="container nav">
 
-  <div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Mobile navigation">
-    <div class="drawerHeader">
-      <div class="drawerTitle">Navigation</div>
-      <button class="closeBtn" id="closeBtn" type="button" aria-label="Close menu">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-          <path d="M18 6L6 18M6 6l12 12"></path>
+      <div class="brand">
+
+        <div class="logo"></div>
+
+        Sajini Tharushika
+
+      </div>
+
+
+      <nav>
+
+        <a href="index.html">
+          Home
+        </a>
+
+        <a href="about.html" class="active">
+          About
+        </a>
+
+        <a href="skills.html">
+          Skills
+        </a>
+
+        <a href="projects.html">
+          Projects
+        </a>
+
+        <a href="contact.html">
+          Contact
+        </a>
+
+      </nav>
+
+
+      <button
+        class="menuBtn"
+        id="menuBtn"
+        type="button"
+        aria-label="Open menu"
+        aria-controls="drawer"
+        aria-expanded="false"
+      >
+
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+        >
+
+          <path d="M4 7h16M4 12h16M4 17h16"></path>
+
         </svg>
+
       </button>
+
     </div>
 
-<div class="drawerNav">
-  <a href="index.html" data-nav="index"><span>Home</span><small>Start</small></a>
-  <a class="active" href="about.html" data-nav="about"><span>About</span><small>Me</small></a>
-  <a href="skills.html" data-nav="skills"><span>Skills</span><small>Stack</small></a>
-  <a href="projects.html" data-nav="projects"><span>Projects</span><small>Work</small></a>
-  <a href="contact.html" data-nav="contact"><span>Contact</span><small>Reach</small></a>
-</div>
 
-  </div>
-</header>
+    <!-- MOBILE DRAWER -->
 
-<section class="page">
-  <div class="bg" aria-hidden="true"></div>
+    <div
+      class="drawerBack"
+      id="drawerBack"
+      aria-hidden="true"
+    ></div>
 
-  <div class="container topGrid">
-    <div class="card">
-      <h1>About <span class="grad">Me</span></h1>
 
-  <p class="lead">
-    I am an <strong>Information Technology undergraduate</strong> at the University of Moratuwa with an interest in
-    software engineering, full-stack development, and AI/ML. I focus on building practical, reliable software
-    solutions while developing skills in backend systems, databases, modern web technologies, and machine learning
-    fundamentals.
-    <br><br>
-    My academic background and project work have helped me build a strong foundation in problem solving, software
-    development principles, and real-world application development. I am especially interested in applying AI/ML
-    concepts to create useful, efficient, and user-focused software products.
-  </p>
+    <div
+      class="drawer"
+      id="drawer"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Mobile navigation"
+    >
 
-  <div class="section">
-    <div class="mini">
-      <h3>Focus</h3>
-      <p>Software engineering, full-stack development, backend systems, and AI/ML-driven applications.</p>
+      <div class="drawerHeader">
+
+        <div class="drawerTitle">
+          Navigation
+        </div>
+
+
+        <button
+          class="closeBtn"
+          id="closeBtn"
+          type="button"
+          aria-label="Close menu"
+        >
+
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+          >
+
+            <path d="M18 6L6 18M6 6l12 12"></path>
+
+          </svg>
+
+        </button>
+
+      </div>
+
+
+      <div class="drawerNav">
+
+        <a
+          href="index.html"
+          data-nav="index"
+        >
+          <span>Home</span>
+          <small>Start</small>
+        </a>
+
+
+        <a
+          class="active"
+          href="about.html"
+          data-nav="about"
+        >
+          <span>About</span>
+          <small>Me</small>
+        </a>
+
+
+        <a
+          href="skills.html"
+          data-nav="skills"
+        >
+          <span>Skills</span>
+          <small>Stack</small>
+        </a>
+
+
+        <a
+          href="projects.html"
+          data-nav="projects"
+        >
+          <span>Projects</span>
+          <small>Work</small>
+        </a>
+
+
+        <a
+          href="contact.html"
+          data-nav="contact"
+        >
+          <span>Contact</span>
+          <small>Reach</small>
+        </a>
+
+      </div>
+
     </div>
-    <div class="mini">
-      <h3>Strengths</h3>
-      <p>Problem solving, consistency, teamwork, fast learning, and strong technical fundamentals.</p>
+
+  </header>
+
+
+  <!-- =========================
+       ABOUT PAGE
+  ========================= -->
+
+  <main class="page">
+
+    <div
+      class="bg"
+      aria-hidden="true"
+    ></div>
+
+
+    <div class="container topGrid">
+
+
+      <!-- MAIN CONTENT -->
+
+      <div class="card">
+
+        <h1>
+          About
+          <span class="grad">Me</span>
+        </h1>
+
+
+        <p class="lead">
+
+          I am an
+          <strong>Information Technology undergraduate</strong>
+          at the University of Moratuwa, with a growing interest in software engineering,
+          full-stack development, and AI/ML.
+
+          I enjoy turning ideas into practical software and working across the
+          frontend, backend, and database layers of an application.
+
+          <br><br>
+
+          Through academic projects and hands-on development, I have gained experience
+          building web applications, working with APIs and databases, and exploring
+          AI-powered features. I am particularly interested in opportunities where
+          I can strengthen my software engineering skills, learn from experienced
+          developers, and contribute to real-world products.
+
+        </p>
+
+
+        <!-- FOCUS -->
+
+        <div class="section">
+
+
+          <div class="mini">
+
+            <h3>
+              Software Engineering
+            </h3>
+
+            <p>
+              Interested in building maintainable applications,
+              understanding system design, and improving my engineering practices.
+            </p>
+
+          </div>
+
+
+          <div class="mini">
+
+            <h3>
+              Full-Stack Development
+            </h3>
+
+            <p>
+              Enjoy working across frontend interfaces, backend services,
+              REST APIs, and relational databases.
+            </p>
+
+          </div>
+
+
+          <div class="mini">
+
+            <h3>
+              AI & Machine Learning
+            </h3>
+
+            <p>
+              Exploring AI/ML concepts and how intelligent features can
+              make practical software applications more useful.
+            </p>
+
+          </div>
+
+
+        </div>
+
+
+        <div
+          class="divider"
+          aria-hidden="true"
+        ></div>
+
+
+        <!-- EXPERIENCE -->
+
+        <div class="titleRow">
+
+          <h2>
+            Leadership & Volunteer Experience
+          </h2>
+
+          <span class="tag">
+            Leadership • Editorial • Technology
+          </span>
+
+        </div>
+
+
+        <ul>
+
+          <li>
+
+            <strong>
+              Editorial Head — IEEE Computer Society Student Branch
+            </strong>
+
+            <br>
+
+            Led editorial activities and contributed to content planning
+            and communication for student branch initiatives.
+
+          </li>
+
+
+          <li>
+
+            <strong>
+              Web & Technology Pillar Member — MoraSpirit
+            </strong>
+
+            <br>
+
+            Contributed to technology-related activities and digital
+            initiatives within the university community.
+
+          </li>
+
+
+          <li>
+
+            <strong>
+              Editorial Board Member — Leo Club of University of Moratuwa
+            </strong>
+
+            <br>
+
+            Supported content planning, editorial work, and communication
+            activities for club initiatives.
+
+          </li>
+
+
+          <li>
+
+            <strong>
+              Event Coordinator — Leo Club of University of Moratuwa
+            </strong>
+
+            <br>
+
+            Supported event planning, coordination, and execution
+            of university and community activities.
+
+          </li>
+
+
+          <li>
+
+            <strong>
+              Editorial Volunteer — Rotaract Club
+            </strong>
+
+            <br>
+
+            Contributed to editorial and content-related activities
+            for club projects and initiatives.
+
+          </li>
+
+
+          <li>
+
+            <strong>
+              Design Committee Lead — CareerX
+            </strong>
+
+            <br>
+
+            Contributed to visual communication, design coordination,
+            and branding-related activities.
+
+          </li>
+
+        </ul>
+
+      </div>
+
+
+      <!-- SIDE CONTENT -->
+
+      <aside class="side">
+
+
+        <!-- PHOTO -->
+
+        <div class="photo">
+
+          <img
+            class="avatar"
+            src="./images/about-photo.jpg"
+            alt="Sajini Tharushika"
+          >
+
+
+          <div class="cap">
+
+            BSc (Hons) Information Technology
+            <br>
+
+            University of Moratuwa · Sri Lanka
+
+          </div>
+
+        </div>
+
+
+        <!-- FACTS -->
+
+        <div class="facts">
+
+          <p class="factsTitle">
+            Quick facts
+          </p>
+
+
+          <div class="factGrid">
+
+
+            <div class="fact">
+
+              <strong>
+                Degree
+              </strong>
+
+              <span>
+                BSc (Hons) IT
+              </span>
+
+            </div>
+
+
+            <div class="fact">
+
+              <strong>
+                University
+              </strong>
+
+              <span>
+                University of Moratuwa
+              </span>
+
+            </div>
+
+
+            <div class="fact">
+
+              <strong>
+                A/L Results
+              </strong>
+
+              <span>
+                2A + 1B
+              </span>
+
+            </div>
+
+
+            <div class="fact">
+
+              <strong>
+                O/L Results
+              </strong>
+
+              <span>
+                9A
+              </span>
+
+            </div>
+
+
+            <div class="fact">
+
+              <strong>
+                Interests
+              </strong>
+
+              <span>
+                Software Engineering · AI/ML
+              </span>
+
+            </div>
+
+
+          </div>
+
+        </div>
+
+      </aside>
+
+
     </div>
-    <div class="mini">
-      <h3>Learning</h3>
-      <p>Modern web technologies, databases, machine learning fundamentals, and practical software design.</p>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+
+    <div class="footerWrap">
+
+      <div>
+
+        ©
+        <span id="yr"></span>
+
+        Sajini Tharushika
+        · Built with HTML, CSS & JavaScript
+
+      </div>
+
+
+      <div class="footerLinks">
+
+        <a href="projects.html">
+          Projects
+        </a>
+
+
+        <a href="contact.html">
+          Contact
+        </a>
+
+
+        <a
+          href="https://www.linkedin.com/in/sajini-tharushika-15990234/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          LinkedIn
+        </a>
+
+      </div>
+
     </div>
-  </div>
 
-  <div class="divider" aria-hidden="true"></div>
+  </footer>
 
-  <div class="titleRow">
-    <h2>Leadership & Volunteer Experience</h2>
-    <span class="tag">Leadership • Editorial • Event Coordination</span>
-  </div>
 
-  <ul>
-    <li>
-      <strong>Web and Technology Pillar Member — MoraSpirit:</strong>
-      Supported web and technology-related activities, contributing to digital and technical work.
-    </li>
+  <!-- =========================
+       YEAR
+  ========================= -->
 
-    <li>
-      <strong>Editorial Board Member — Leo Club of University of Moratuwa:</strong>
-      Contributed to content planning, editorial work, and club-related communication activities.
-    </li>
+  <script>
 
-    <li>
-      <strong>Event Coordinator — Leo Club of University of Moratuwa:</strong>
-      Supported university-level events and community engagement activities through planning and coordination.
-    </li>
+    const yearElement =
+      document.getElementById("yr");
 
-    <li>
-      <strong>Editorial Lead — IEEE Computer Society:</strong>
-      Led editorial-related work and supported content creation for student branch initiatives.
-    </li>
+    if(yearElement){
 
-    <li>
-      <strong>Design Committee Member — IEEE Student Branch Projects:</strong>
-      Contributed to design-related work, visual content, and project branding activities.
-    </li>
+      yearElement.textContent =
+        new Date().getFullYear();
 
-    <li>
-      <strong>Editorial Volunteer — Rotaract Club:</strong>
-      Supported selected editorial and content development activities.
-    </li>
-  </ul>
-</div>
+    }
 
-<aside class="side">
-  <div class="photo">
-    <img class="avatar" src="./images/about-photo.jpg" alt="Sajini Tharushika">
-    <div class="cap">BSc (Hons) IT · University of Moratuwa<br>Sri Lanka</div>
-  </div>
+  </script>
 
-  <div class="facts">
-    <p class="factsTitle">Quick facts</p>
-    <div class="factGrid">
-      <div class="fact"><strong>Degree</strong><span>BSc (Hons) IT</span></div>
-      <div class="fact"><strong>University</strong><span>UoM</span></div>
-      <div class="fact"><strong>A/L Results</strong><span>2A + 1B</span></div>
-      <div class="fact"><strong>O/L Results</strong><span>9A</span></div>
-      <div class="fact"><strong>Role</strong><span>Software Engineering · AI/ML</span></div>
-    </div>
-  </div>
-</aside>
 
-  </div>
-</section>
+  <!-- =========================
+       MOBILE MENU
+  ========================= -->
 
-<footer>
-  <div class="footerWrap">
-    <div>© <span id="yr"></span> Sajini Tharushika · Built with HTML, CSS & JavaScript</div>
-    <div class="footerLinks">
-      <a href="projects.html">Projects</a>
-      <a href="contact.html">Contact</a>
-      <a href="https://www.linkedin.com/in/sajini-tharushika-15990234b/" target="_blank" rel="noreferrer">LinkedIn</a>
-    </div>
-  </div>
-</footer>
+  <script>
 
-<script>
-  const y = document.getElementById("yr");
-  if (y) y.textContent = new Date().getFullYear();
-</script>
+    (function(){
 
-<script>
-(function(){
-  const menuBtn = document.getElementById("menuBtn");
-  const closeBtn = document.getElementById("closeBtn");
-  const drawer = document.getElementById("drawer");
-  const back = document.getElementById("drawerBack");
-  if(!menuBtn || !drawer || !back || !closeBtn) return;
+      const menuBtn =
+        document.getElementById("menuBtn");
 
-  const links = drawer.querySelectorAll("a[data-nav]");
+      const closeBtn =
+        document.getElementById("closeBtn");
 
-  const path = (location.pathname.split("/").pop() || "index.html").toLowerCase();
-  const key =
-    path.includes("about") ? "about" :
-    path.includes("skills") ? "skills" :
-    path.includes("projects") ? "projects" :
-    path.includes("contact") ? "contact" :
-    "index";
+      const drawer =
+        document.getElementById("drawer");
 
-  links.forEach(a => a.classList.toggle("active", a.getAttribute("data-nav") === key));
+      const back =
+        document.getElementById("drawerBack");
 
-  function open(){
-    drawer.classList.add("open");
-    back.classList.add("open");
-    menuBtn.setAttribute("aria-expanded", "true");
-    document.body.style.overflow = "hidden";
-  }
 
-  function close(){
-    drawer.classList.remove("open");
-    back.classList.remove("open");
-    menuBtn.setAttribute("aria-expanded", "false");
-    document.body.style.overflow = "";
-  }
+      if(
+        !menuBtn ||
+        !drawer ||
+        !back ||
+        !closeBtn
+      ){
 
-  menuBtn.addEventListener("click", open);
-  closeBtn.addEventListener("click", close);
-  back.addEventListener("click", close);
+        return;
 
-  window.addEventListener("keydown", (e)=>{
-    if(e.key === "Escape") close();
-  });
+      }
 
-  links.forEach(a => a.addEventListener("click", close));
-})();
-</script>
+
+      const links =
+        drawer.querySelectorAll(
+          "a[data-nav]"
+        );
+
+
+      const path =
+        (
+          location.pathname
+            .split("/")
+            .pop() ||
+          "index.html"
+        ).toLowerCase();
+
+
+      const key =
+
+        path.includes("about")
+          ? "about"
+
+          : path.includes("skills")
+          ? "skills"
+
+          : path.includes("projects")
+          ? "projects"
+
+          : path.includes("contact")
+          ? "contact"
+
+          : "index";
+
+
+      links.forEach(link => {
+
+        link.classList.toggle(
+          "active",
+          link.getAttribute("data-nav") === key
+        );
+
+      });
+
+
+      function openMenu(){
+
+        drawer.classList.add("open");
+
+        back.classList.add("open");
+
+        menuBtn.setAttribute(
+          "aria-expanded",
+          "true"
+        );
+
+        document.body.style.overflow =
+          "hidden";
+
+      }
+
+
+      function closeMenu(){
+
+        drawer.classList.remove("open");
+
+        back.classList.remove("open");
+
+        menuBtn.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+        document.body.style.overflow =
+          "";
+
+      }
+
+
+      menuBtn.addEventListener(
+        "click",
+        openMenu
+      );
+
+
+      closeBtn.addEventListener(
+        "click",
+        closeMenu
+      );
+
+
+      back.addEventListener(
+        "click",
+        closeMenu
+      );
+
+
+      window.addEventListener(
+        "keydown",
+        event => {
+
+          if(event.key === "Escape"){
+
+            closeMenu();
+
+          }
+
+        }
+      );
+
+
+      links.forEach(link => {
+
+        link.addEventListener(
+          "click",
+          closeMenu
+        );
+
+      });
+
+    })();
+
+  </script>
+
 
 </body>
+
 </html>
