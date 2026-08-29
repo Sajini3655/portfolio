@@ -1,8 +1,10 @@
 <!doctype html>
+
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Technical skills of Sajini Tharushika, an Information Technology undergraduate focused on software engineering and full-stack development." />
   <title>Sajini Tharushika — Skills</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,8 +16,6 @@
       --bg:#050817;
       --fg:rgba(255,255,255,.92);
       --muted:rgba(255,255,255,.65);
-      --stroke:rgba(255,255,255,.12);
-      --panel:rgba(0,0,0,.26);
       --accent:#38bdf8;
       --accent2:#a855f7;
       --ease:cubic-bezier(.16,1,.3,1);
@@ -26,9 +26,13 @@
       box-sizing:border-box;
     }
 
+    html{
+      scroll-behavior:smooth;
+    }
+
     body{
       margin:0;
-      font-family:Inter,system-ui;
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
       background:linear-gradient(180deg,#050817,#060a14);
       color:var(--fg);
       overflow-x:hidden;
@@ -37,6 +41,10 @@
     a{
       color:inherit;
       text-decoration:none;
+    }
+
+    button{
+      font:inherit;
     }
 
     .container{
@@ -54,6 +62,7 @@
       top:0;
       z-index:30;
       backdrop-filter:blur(14px);
+      -webkit-backdrop-filter:blur(14px);
       background:rgba(5,8,23,.72);
       border-bottom:1px solid rgba(255,255,255,.06);
     }
@@ -68,18 +77,28 @@
 
     .brand{
       display:flex;
-      gap:12px;
       align-items:center;
+      gap:12px;
       font-weight:800;
+      letter-spacing:-.02em;
     }
 
     .logo{
       width:38px;
       height:38px;
+      flex:none;
       border-radius:14px;
       background:
-        radial-gradient(circle at 30% 30%,rgba(255,255,255,.22),transparent 55%),
-        linear-gradient(135deg,var(--accent),var(--accent2));
+        radial-gradient(
+          circle at 30% 30%,
+          rgba(255,255,255,.22),
+          transparent 55%
+        ),
+        linear-gradient(
+          135deg,
+          var(--accent),
+          var(--accent2)
+        );
       box-shadow:0 0 28px rgba(56,189,248,.14);
     }
 
@@ -116,6 +135,7 @@
       border-radius:14px;
       border:1px solid rgba(255,255,255,.14);
       background:rgba(255,255,255,.06);
+      color:white;
       display:none;
       align-items:center;
       justify-content:center;
@@ -144,6 +164,7 @@
       inset:0;
       background:rgba(0,0,0,.55);
       backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
       z-index:60;
       opacity:0;
       pointer-events:none;
@@ -162,7 +183,7 @@
       width:min(360px,calc(100vw - 28px));
       border-radius:20px;
       border:1px solid rgba(255,255,255,.12);
-      background:rgba(5,8,23,.88);
+      background:rgba(5,8,23,.90);
       box-shadow:0 24px 100px rgba(0,0,0,.55);
       z-index:70;
       transform:translateY(-8px) scale(.98);
@@ -192,7 +213,6 @@
       font-weight:800;
       font-size:13px;
       color:rgba(255,255,255,.88);
-      letter-spacing:.01em;
     }
 
     .closeBtn{
@@ -201,10 +221,15 @@
       border-radius:14px;
       border:1px solid rgba(255,255,255,.12);
       background:rgba(255,255,255,.06);
+      color:white;
       display:flex;
       align-items:center;
       justify-content:center;
       cursor:pointer;
+      transition:
+        transform .18s var(--ease),
+        border-color .18s var(--ease),
+        background .18s var(--ease);
     }
 
     .closeBtn:hover{
@@ -272,6 +297,7 @@
     .page{
       padding:28px 0 70px;
       position:relative;
+      min-height:calc(100vh - 70px);
     }
 
     .bg{
@@ -305,6 +331,12 @@
         rgba(0,0,0,.85) 45%,
         rgba(0,0,0,0) 78%
       );
+      -webkit-mask-image:radial-gradient(
+        ellipse at 42% 14%,
+        rgba(0,0,0,1) 22%,
+        rgba(0,0,0,.85) 45%,
+        rgba(0,0,0,0) 78%
+      );
       pointer-events:none;
     }
 
@@ -313,7 +345,7 @@
       display:flex;
       align-items:flex-end;
       justify-content:space-between;
-      gap:18px;
+      gap:24px;
       flex-wrap:wrap;
       margin-bottom:22px;
     }
@@ -321,43 +353,50 @@
     h1{
       margin:0;
       font-size:clamp(34px,4.8vw,54px);
-      letter-spacing:-.03em;
+      letter-spacing:-.035em;
       line-height:1.08;
     }
 
     .grad{
-      background:linear-gradient(90deg,var(--accent),var(--accent2));
+      background:linear-gradient(
+        90deg,
+        var(--accent),
+        var(--accent2)
+      );
       -webkit-background-clip:text;
+      background-clip:text;
       color:transparent;
     }
 
     .lead{
       margin:10px 0 0;
       color:var(--muted);
-      line-height:1.9;
+      line-height:1.85;
       font-size:15px;
-      max-width:78ch;
+      max-width:76ch;
     }
 
     .pillRow{
       display:flex;
-      gap:10px;
+      gap:8px;
       flex-wrap:wrap;
-      justify-content:flex-start;
+      justify-content:flex-end;
+      max-width:430px;
     }
 
     .pill{
-      font-size:12px;
-      padding:8px 12px;
+      font-size:11px;
+      font-weight:600;
+      padding:8px 11px;
       border-radius:999px;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(255,255,255,.05);
-      color:rgba(255,255,255,.78);
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.045);
+      color:rgba(255,255,255,.70);
       white-space:nowrap;
     }
 
     /* =========================
-       GRID
+       SKILLS GRID
     ========================= */
 
     .grid{
@@ -390,7 +429,7 @@
     }
 
     .card:hover{
-      background:rgba(255,255,255,.06);
+      background:rgba(255,255,255,.055);
       border-color:rgba(56,189,248,.22);
     }
 
@@ -401,12 +440,12 @@
       background:
         radial-gradient(
           640px circle at 25% 20%,
-          rgba(56,189,248,.12),
+          rgba(56,189,248,.10),
           transparent 60%
         ),
         radial-gradient(
           760px circle at 85% 70%,
-          rgba(168,85,247,.10),
+          rgba(168,85,247,.08),
           transparent 62%
         );
       opacity:.85;
@@ -418,17 +457,19 @@
     }
 
     .kicker{
-      font-size:12px;
-      color:rgba(255,255,255,.70);
-      letter-spacing:.18em;
+      font-size:11px;
+      font-weight:700;
+      color:rgba(255,255,255,.52);
+      letter-spacing:.16em;
       text-transform:uppercase;
-      margin:0 0 10px;
+      margin:0 0 9px;
     }
 
     .title{
-      margin:0 0 10px;
+      margin:0 0 9px;
       font-size:16px;
-      letter-spacing:-.01em;
+      letter-spacing:-.015em;
+      line-height:1.4;
     }
 
     .desc{
@@ -441,24 +482,26 @@
     .chips{
       display:flex;
       flex-wrap:wrap;
-      gap:10px;
+      gap:8px;
     }
 
     .chip{
-      font-size:12px;
-      padding:8px 12px;
+      font-size:11.5px;
+      padding:7px 10px;
       border-radius:999px;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(255,255,255,.05);
-      color:rgba(255,255,255,.80);
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.045);
+      color:rgba(255,255,255,.76);
       transition:
         transform 180ms var(--ease),
-        border-color 180ms var(--ease);
+        border-color 180ms var(--ease),
+        background 180ms var(--ease);
     }
 
     .chip:hover{
       transform:translateY(-1px);
-      border-color:rgba(168,85,247,.22);
+      border-color:rgba(168,85,247,.25);
+      background:rgba(255,255,255,.06);
     }
 
     .span6{
@@ -478,37 +521,39 @@
     }
 
     /* =========================
-       MATRIX
+       SKILL DETAIL MATRIX
     ========================= */
 
     .matrix{
       display:grid;
       grid-template-columns:1fr 1fr;
-      gap:12px;
-      margin-top:10px;
+      gap:10px;
+      margin-top:12px;
     }
 
     .row{
-      border-radius:16px;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.04);
-      padding:12px;
+      min-height:50px;
+      border-radius:15px;
+      border:1px solid rgba(255,255,255,.09);
+      background:rgba(255,255,255,.035);
+      padding:10px 11px;
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:12px;
+      gap:10px;
     }
 
     .row strong{
-      font-size:13px;
+      font-size:12px;
+      font-weight:700;
     }
 
     .row span{
-      font-size:12px;
-      color:rgba(255,255,255,.70);
-      border:1px solid rgba(255,255,255,.10);
+      font-size:10.5px;
+      color:rgba(255,255,255,.60);
+      border:1px solid rgba(255,255,255,.09);
       background:rgba(0,0,0,.20);
-      padding:6px 10px;
+      padding:5px 8px;
       border-radius:999px;
       white-space:nowrap;
     }
@@ -521,6 +566,7 @@
       border-top:1px solid rgba(255,255,255,.08);
       background:rgba(5,8,23,.55);
       backdrop-filter:blur(12px);
+      -webkit-backdrop-filter:blur(12px);
     }
 
     .footerWrap{
@@ -546,6 +592,9 @@
       color:rgba(255,255,255,.70);
       border-bottom:1px solid rgba(255,255,255,.16);
       padding-bottom:2px;
+      transition:
+        color .18s ease,
+        border-color .18s ease;
     }
 
     .footerLinks a:hover{
@@ -554,7 +603,7 @@
     }
 
     /* =========================
-       MOBILE
+       RESPONSIVE
     ========================= */
 
     @media(max-width:980px){
@@ -594,6 +643,11 @@
         font-size:14px;
       }
 
+      .pillRow{
+        justify-content:flex-start;
+        max-width:none;
+      }
+
       .grid{
         gap:12px;
       }
@@ -604,11 +658,7 @@
       }
 
       .chips{
-        gap:8px;
-      }
-
-      .chip{
-        padding:7px 10px;
+        gap:7px;
       }
     }
 
@@ -620,16 +670,24 @@
       }
 
       .pill{
-        font-size:11px;
-        padding:7px 10px;
+        font-size:10.5px;
+        padding:7px 9px;
       }
 
       .row{
-        padding:11px;
+        padding:10px;
+      }
+
+      .row span{
+        font-size:10px;
       }
     }
 
     @media(prefers-reduced-motion:reduce){
+
+      html{
+        scroll-behavior:auto;
+      }
 
       .card{
         opacity:1 !important;
@@ -638,6 +696,7 @@
       }
     }
   </style>
+
 </head>
 
 <body>
@@ -646,37 +705,40 @@
 
   <div class="container nav">
 
-    <div class="brand">
-      <div class="logo"></div>
-      Sajini Tharushika
-    </div>
+```
+<a class="brand" href="index.html" aria-label="Sajini Tharushika home">
+  <div class="logo" aria-hidden="true"></div>
+  Sajini Tharushika
+</a>
 
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="skills.html" class="active">Skills</a>
-      <a href="projects.html">Projects</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+<nav aria-label="Primary navigation">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="skills.html" class="active" aria-current="page">Skills</a>
+  <a href="projects.html">Projects</a>
+  <a href="contact.html">Contact</a>
+</nav>
 
-    <button
-      class="menuBtn"
-      id="menuBtn"
-      type="button"
-      aria-label="Open menu"
-      aria-controls="drawer"
-      aria-expanded="false"
-    >
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-      >
-        <path d="M4 7h16M4 12h16M4 17h16"></path>
-      </svg>
-    </button>
+<button
+  class="menuBtn"
+  id="menuBtn"
+  type="button"
+  aria-label="Open menu"
+  aria-controls="drawer"
+  aria-expanded="false"
+>
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    aria-hidden="true"
+  >
+    <path d="M4 7h16M4 12h16M4 17h16"></path>
+  </svg>
+</button>
+```
 
   </div>
 
@@ -694,539 +756,541 @@
     aria-label="Mobile navigation"
   >
 
-    <div class="drawerHeader">
+```
+<div class="drawerHeader">
 
-      <div class="drawerTitle">
-        Navigation
-      </div>
+  <div class="drawerTitle">
+    Navigation
+  </div>
 
-      <button
-        class="closeBtn"
-        id="closeBtn"
-        type="button"
-        aria-label="Close menu"
-      >
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-        >
-          <path d="M18 6L6 18M6 6l12 12"></path>
-        </svg>
-      </button>
+  <button
+    class="closeBtn"
+    id="closeBtn"
+    type="button"
+    aria-label="Close menu"
+  >
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      aria-hidden="true"
+    >
+      <path d="M18 6L6 18M6 6l12 12"></path>
+    </svg>
+  </button>
 
-    </div>
+</div>
 
-    <div class="drawerNav">
 
-      <a href="index.html" data-nav="index">
-        <span>Home</span>
-        <small>Start</small>
-      </a>
+<div class="drawerNav">
 
-      <a href="about.html" data-nav="about">
-        <span>About</span>
-        <small>Me</small>
-      </a>
+  <a href="index.html" data-nav="index">
+    <span>Home</span>
+    <small>Start</small>
+  </a>
 
-      <a href="skills.html" data-nav="skills">
-        <span>Skills</span>
-        <small>Stack</small>
-      </a>
+  <a href="about.html" data-nav="about">
+    <span>About</span>
+    <small>Me</small>
+  </a>
 
-      <a href="projects.html" data-nav="projects">
-        <span>Projects</span>
-        <small>Work</small>
-      </a>
+  <a href="skills.html" data-nav="skills">
+    <span>Skills</span>
+    <small>Stack</small>
+  </a>
 
-      <a href="contact.html" data-nav="contact">
-        <span>Contact</span>
-        <small>Reach</small>
-      </a>
+  <a href="projects.html" data-nav="projects">
+    <span>Projects</span>
+    <small>Work</small>
+  </a>
 
-    </div>
+  <a href="contact.html" data-nav="contact">
+    <span>Contact</span>
+    <small>Reach</small>
+  </a>
+
+</div>
+```
 
   </div>
 
 </header>
 
-
-<section class="page">
+<main class="page">
 
   <div class="bg" aria-hidden="true"></div>
 
   <div class="container">
 
-    <div class="top">
-
-      <div>
-
-        <h1>
-          Technical <span class="grad">Skills</span>
-        </h1>
-
-        <p class="lead">
-          A structured overview of the technologies, programming concepts,
-          development tools, and engineering practices I use to build
-          software and full-stack applications.
-        </p>
-
-      </div>
-
-      <div class="pillRow">
-        <span class="pill">Full-Stack Development</span>
-        <span class="pill">AI & Data</span>
-        <span class="pill">Software Engineering</span>
-        <span class="pill">Embedded Systems</span>
-      </div>
-
-    </div>
-
-
-    <div class="grid">
-
-
-      <!-- PROGRAMMING -->
-
-      <article class="card span6" data-reveal>
-
-        <p class="kicker">Core</p>
-
-        <h2 class="title">
-          Programming Languages
-        </h2>
-
-        <p class="desc">
-          Programming languages used across software development,
-          web applications, backend systems, graphics, and embedded projects.
-        </p>
-
-        <div class="chips">
-
-          <span class="chip">Java</span>
-          <span class="chip">Python</span>
-          <span class="chip">JavaScript</span>
-          <span class="chip">C++</span>
-          <span class="chip">C</span>
-
-        </div>
-
-        <div class="matrix">
-
-          <div class="row">
-            <strong>Java</strong>
-            <span>OOP / Backend</span>
-          </div>
-
-          <div class="row">
-            <strong>Python</strong>
-            <span>AI / Services</span>
-          </div>
-
-          <div class="row">
-            <strong>JavaScript</strong>
-            <span>Web Development</span>
-          </div>
-
-          <div class="row">
-            <strong>C / C++</strong>
-            <span>Graphics / Embedded</span>
-          </div>
-
-        </div>
-
-      </article>
-
-
-      <!-- WEB -->
-
-      <article class="card span6" data-reveal>
-
-        <p class="kicker">Frontend</p>
-
-        <h2 class="title">
-          Web Development
-        </h2>
-
-        <p class="desc">
-          Building responsive and interactive web applications using
-          modern frontend frameworks and component-based development.
-        </p>
-
-        <div class="chips">
-
-          <span class="chip">React</span>
-          <span class="chip">Next.js</span>
-          <span class="chip">JavaScript</span>
-          <span class="chip">HTML5</span>
-          <span class="chip">CSS3</span>
-          <span class="chip">Tailwind CSS</span>
-          <span class="chip">Responsive Design</span>
-          <span class="chip">Component-Based UI</span>
-
-        </div>
-
-      </article>
-
-
-      <!-- BACKEND -->
-
-      <article class="card span8" data-reveal>
-
-        <p class="kicker">Backend</p>
-
-        <h2 class="title">
-          Backend & API Development
-        </h2>
-
-        <p class="desc">
-          Developing backend services, REST APIs, business logic,
-          authentication flows, and API-driven applications.
-        </p>
-
-        <div class="chips">
-
-          <span class="chip">Spring Boot</span>
-          <span class="chip">Node.js</span>
-          <span class="chip">Next.js API Routes</span>
-          <span class="chip">PHP</span>
-          <span class="chip">FastAPI</span>
-          <span class="chip">REST APIs</span>
-          <span class="chip">WebSockets</span>
-          <span class="chip">API Integration</span>
-          <span class="chip">Authentication</span>
-
-        </div>
-
-        <div class="matrix">
-
-          <div class="row">
-            <strong>Spring Boot</strong>
-            <span>Backend Services</span>
-          </div>
-
-          <div class="row">
-            <strong>REST APIs</strong>
-            <span>API Development</span>
-          </div>
-
-          <div class="row">
-            <strong>FastAPI</strong>
-            <span>Python Services</span>
-          </div>
-
-          <div class="row">
-            <strong>WebSockets</strong>
-            <span>Real-Time Features</span>
-          </div>
-
-        </div>
-
-      </article>
-
-
-      <!-- DATABASE -->
-
-      <article class="card span4" data-reveal>
-
-        <p class="kicker">Data</p>
-
-        <h2 class="title">
-          Databases
-        </h2>
-
-        <p class="desc">
-          Working with relational and NoSQL databases for application
-          data management, persistence, and backend development.
-        </p>
-
-        <div class="chips">
-
-          <span class="chip">PostgreSQL</span>
-          <span class="chip">MySQL</span>
-          <span class="chip">MongoDB</span>
-          <span class="chip">Prisma ORM</span>
-          <span class="chip">SQL</span>
-          <span class="chip">Database Design</span>
-
-        </div>
-
-      </article>
-
-
-      <!-- AI -->
-
-      <article class="card span6" data-reveal>
-
-        <p class="kicker">AI & Data</p>
-
-        <h2 class="title">
-          AI & Data Science
-        </h2>
-
-        <p class="desc">
-          Applying data and machine learning fundamentals to
-          AI-enhanced applications and data-driven software features.
-        </p>
-
-        <div class="chips">
-
-          <span class="chip">Pandas</span>
-          <span class="chip">NumPy</span>
-          <span class="chip">Scikit-learn</span>
-          <span class="chip">Data Preprocessing</span>
-          <span class="chip">Machine Learning Fundamentals</span>
-          <span class="chip">AI API Integration</span>
-          <span class="chip">Groq API</span>
-
-        </div>
-
-        <div class="matrix">
-
-          <div class="row">
-            <strong>Pandas</strong>
-            <span>Data Handling</span>
-          </div>
-
-          <div class="row">
-            <strong>NumPy</strong>
-            <span>Numerical Computing</span>
-          </div>
-
-          <div class="row">
-            <strong>Scikit-learn</strong>
-            <span>ML Fundamentals</span>
-          </div>
-
-          <div class="row">
-            <strong>Groq API</strong>
-            <span>AI Integration</span>
-          </div>
-
-        </div>
-
-      </article>
-
-
-      <!-- TOOLS -->
-
-      <article class="card span6" data-reveal>
-
-        <p class="kicker">Workflow</p>
-
-        <h2 class="title">
-          Tools & Development
-        </h2>
-
-        <p class="desc">
-          Tools and platforms used for software development,
-          version control, containerization, deployment, and collaboration.
-        </p>
-
-        <div class="chips">
-
-          <span class="chip">Git</span>
-          <span class="chip">GitHub</span>
-          <span class="chip">Docker</span>
-          <span class="chip">VS Code</span>
-          <span class="chip">Vercel</span>
-          <span class="chip">Render</span>
-          <span class="chip">Maven</span>
-          <span class="chip">Postman</span>
-
-        </div>
-
-      </article>
-
-
-      <!-- COMPUTER GRAPHICS -->
-
-      <article class="card span6" data-reveal>
-
-        <p class="kicker">Graphics</p>
-
-        <h2 class="title">
-          Computer Graphics
-        </h2>
-
-        <p class="desc">
-          Graphics programming experience developed through the
-          Solar computer graphics animation project.
-        </p>
-
-        <div class="chips">
-
-          <span class="chip">OpenGL</span>
-          <span class="chip">GLSL</span>
-          <span class="chip">3D Rendering</span>
-          <span class="chip">Shaders</span>
-          <span class="chip">Textures</span>
-          <span class="chip">Visual Effects</span>
-          <span class="chip">C</span>
-          <span class="chip">C++</span>
-
-        </div>
-
-      </article>
-
-
-      <!-- EMBEDDED -->
-
-      <article class="card span6" data-reveal>
-
-        <p class="kicker">Hardware</p>
-
-        <h2 class="title">
-          Embedded Systems
-        </h2>
-
-        <p class="desc">
-          Hands-on experience developing interactive hardware systems
-          through embedded projects such as LaserTunes.
-        </p>
-
-        <div class="chips">
-
-          <span class="chip">Arduino Mega</span>
-          <span class="chip">ESP32</span>
-          <span class="chip">C++</span>
-          <span class="chip">VS1053B</span>
-          <span class="chip">Piezo Sensors</span>
-          <span class="chip">Embedded Systems</span>
-
-        </div>
-
-      </article>
-
-
-      <!-- SOFTWARE ENGINEERING -->
-
-      <article class="card span12" data-reveal>
-
-        <p class="kicker">Engineering</p>
-
-        <h2 class="title">
-          Software Engineering & Core CS
-        </h2>
-
-        <p class="desc">
-          Core computer science knowledge and engineering practices
-          applied throughout academic and individual software projects.
-        </p>
-
-        <div class="chips">
-
-          <span class="chip">Object-Oriented Programming</span>
-          <span class="chip">Data Structures & Algorithms</span>
-          <span class="chip">Software Engineering</span>
-          <span class="chip">Testing</span>
-          <span class="chip">Debugging</span>
-          <span class="chip">Problem Solving</span>
-          <span class="chip">Agile / Scrum</span>
-
-        </div>
-
-        <div class="matrix">
-
-          <div class="row">
-            <strong>Core CS</strong>
-            <span>OOP / DSA</span>
-          </div>
-
-          <div class="row">
-            <strong>Development</strong>
-            <span>Software Engineering</span>
-          </div>
-
-          <div class="row">
-            <strong>Quality</strong>
-            <span>Testing / Debugging</span>
-          </div>
-
-          <div class="row">
-            <strong>Team Development</strong>
-            <span>Agile / Scrum</span>
-          </div>
-
-        </div>
-
-      </article>
-
-
-      <!-- PROFESSIONAL -->
-
-      <article class="card span12" data-reveal>
-
-        <p class="kicker">Professional</p>
-
-        <h2 class="title">
-          Team & Communication
-        </h2>
-
-        <p class="desc">
-          Professional skills strengthened through university projects,
-          IEEE and Leo Club activities, event coordination, editorial work,
-          presentations, and collaborative software development.
-        </p>
-
-        <div class="chips">
-
-          <span class="chip">Teamwork</span>
-          <span class="chip">Leadership</span>
-          <span class="chip">Communication</span>
-          <span class="chip">Collaboration</span>
-          <span class="chip">Presentation</span>
-          <span class="chip">Event Coordination</span>
-          <span class="chip">Editorial Work</span>
-          <span class="chip">Time Management</span>
-
-        </div>
-
-      </article>
-
-
-    </div>
+```
+<div class="top">
+
+  <div>
+
+    <h1>
+      Technical <span class="grad">Skills</span>
+    </h1>
+
+    <p class="lead">
+      Technologies and engineering fundamentals I use to design,
+      develop, test, and deploy software applications.
+    </p>
 
   </div>
 
-</section>
+  <div class="pillRow" aria-label="Primary areas">
 
+    <span class="pill">Full-Stack Development</span>
+    <span class="pill">Backend Engineering</span>
+    <span class="pill">AI Integration</span>
+    <span class="pill">Software Engineering</span>
+
+  </div>
+
+</div>
+
+
+<div class="grid">
+
+
+  <!-- PROGRAMMING -->
+
+  <article class="card span6" data-reveal>
+
+    <p class="kicker">Core</p>
+
+    <h2 class="title">
+      Programming Languages
+    </h2>
+
+    <p class="desc">
+      Languages used across backend development, web applications,
+      data processing, graphics, and embedded systems.
+    </p>
+
+    <div class="chips">
+
+      <span class="chip">Java</span>
+      <span class="chip">Python</span>
+      <span class="chip">JavaScript</span>
+      <span class="chip">C++</span>
+      <span class="chip">C</span>
+
+    </div>
+
+    <div class="matrix">
+
+      <div class="row">
+        <strong>Java</strong>
+        <span>Backend / OOP</span>
+      </div>
+
+      <div class="row">
+        <strong>Python</strong>
+        <span>AI / Services</span>
+      </div>
+
+      <div class="row">
+        <strong>JavaScript</strong>
+        <span>Web</span>
+      </div>
+
+      <div class="row">
+        <strong>C / C++</strong>
+        <span>Systems / Graphics</span>
+      </div>
+
+    </div>
+
+  </article>
+
+
+  <!-- WEB DEVELOPMENT -->
+
+  <article class="card span6" data-reveal>
+
+    <p class="kicker">Frontend</p>
+
+    <h2 class="title">
+      Web Development
+    </h2>
+
+    <p class="desc">
+      Building responsive interfaces and modern web applications
+      using component-based frontend technologies.
+    </p>
+
+    <div class="chips">
+
+      <span class="chip">React</span>
+      <span class="chip">Next.js</span>
+      <span class="chip">JavaScript</span>
+      <span class="chip">HTML5</span>
+      <span class="chip">CSS3</span>
+      <span class="chip">Tailwind CSS</span>
+      <span class="chip">Responsive Design</span>
+      <span class="chip">Component-Based UI</span>
+
+    </div>
+
+  </article>
+
+
+  <!-- BACKEND -->
+
+  <article class="card span8" data-reveal>
+
+    <p class="kicker">Backend</p>
+
+    <h2 class="title">
+      Backend & API Development
+    </h2>
+
+    <p class="desc">
+      Developing backend services, REST APIs, business logic,
+      authentication, and real-time application features.
+    </p>
+
+    <div class="chips">
+
+      <span class="chip">Spring Boot</span>
+      <span class="chip">Node.js</span>
+      <span class="chip">FastAPI</span>
+      <span class="chip">PHP</span>
+      <span class="chip">REST APIs</span>
+      <span class="chip">WebSockets</span>
+      <span class="chip">API Integration</span>
+      <span class="chip">Authentication</span>
+
+    </div>
+
+    <div class="matrix">
+
+      <div class="row">
+        <strong>Spring Boot</strong>
+        <span>Backend Services</span>
+      </div>
+
+      <div class="row">
+        <strong>REST APIs</strong>
+        <span>API Design</span>
+      </div>
+
+      <div class="row">
+        <strong>FastAPI</strong>
+        <span>Python Services</span>
+      </div>
+
+      <div class="row">
+        <strong>WebSockets</strong>
+        <span>Real-Time</span>
+      </div>
+
+    </div>
+
+  </article>
+
+
+  <!-- DATABASES -->
+
+  <article class="card span4" data-reveal>
+
+    <p class="kicker">Data</p>
+
+    <h2 class="title">
+      Databases
+    </h2>
+
+    <p class="desc">
+      Database technologies used for persistence, application data
+      management, and backend development.
+    </p>
+
+    <div class="chips">
+
+      <span class="chip">PostgreSQL</span>
+      <span class="chip">MySQL</span>
+      <span class="chip">MongoDB</span>
+      <span class="chip">Prisma ORM</span>
+      <span class="chip">SQL</span>
+      <span class="chip">Database Design</span>
+
+    </div>
+
+  </article>
+
+
+  <!-- AI -->
+
+  <article class="card span6" data-reveal>
+
+    <p class="kicker">AI & Data</p>
+
+    <h2 class="title">
+      AI & Data
+    </h2>
+
+    <p class="desc">
+      Data processing and AI integration used to build
+      intelligent and data-driven application features.
+    </p>
+
+    <div class="chips">
+
+      <span class="chip">Pandas</span>
+      <span class="chip">NumPy</span>
+      <span class="chip">Scikit-learn</span>
+      <span class="chip">Data Preprocessing</span>
+      <span class="chip">Machine Learning Fundamentals</span>
+      <span class="chip">AI API Integration</span>
+      <span class="chip">Groq API</span>
+
+    </div>
+
+    <div class="matrix">
+
+      <div class="row">
+        <strong>Pandas</strong>
+        <span>Data Handling</span>
+      </div>
+
+      <div class="row">
+        <strong>NumPy</strong>
+        <span>Numerical Computing</span>
+      </div>
+
+      <div class="row">
+        <strong>Scikit-learn</strong>
+        <span>ML Fundamentals</span>
+      </div>
+
+      <div class="row">
+        <strong>Groq API</strong>
+        <span>AI Integration</span>
+      </div>
+
+    </div>
+
+  </article>
+
+
+  <!-- TOOLS -->
+
+  <article class="card span6" data-reveal>
+
+    <p class="kicker">Development</p>
+
+    <h2 class="title">
+      Tools & Platforms
+    </h2>
+
+    <p class="desc">
+      Development tools and platforms used for version control,
+      containerization, testing, deployment, and application development.
+    </p>
+
+    <div class="chips">
+
+      <span class="chip">Git</span>
+      <span class="chip">GitHub</span>
+      <span class="chip">Docker</span>
+      <span class="chip">VS Code</span>
+      <span class="chip">Maven</span>
+      <span class="chip">Postman</span>
+      <span class="chip">Vercel</span>
+      <span class="chip">Render</span>
+
+    </div>
+
+  </article>
+
+
+  <!-- COMPUTER GRAPHICS -->
+
+  <article class="card span6" data-reveal>
+
+    <p class="kicker">Graphics</p>
+
+    <h2 class="title">
+      Computer Graphics
+    </h2>
+
+    <p class="desc">
+      Foundations in graphics programming, 3D rendering,
+      shaders, textures, lighting, and visual effects.
+    </p>
+
+    <div class="chips">
+
+      <span class="chip">OpenGL</span>
+      <span class="chip">GLSL</span>
+      <span class="chip">3D Rendering</span>
+      <span class="chip">Shaders</span>
+      <span class="chip">Textures</span>
+      <span class="chip">Lighting</span>
+      <span class="chip">C</span>
+      <span class="chip">C++</span>
+
+    </div>
+
+  </article>
+
+
+  <!-- EMBEDDED -->
+
+  <article class="card span6" data-reveal>
+
+    <p class="kicker">Hardware</p>
+
+    <h2 class="title">
+      Embedded Systems
+    </h2>
+
+    <p class="desc">
+      Hands-on experience with microcontrollers, sensors,
+      hardware interfaces, and embedded programming.
+    </p>
+
+    <div class="chips">
+
+      <span class="chip">Arduino Mega</span>
+      <span class="chip">ESP32</span>
+      <span class="chip">C++</span>
+      <span class="chip">VS1053B</span>
+      <span class="chip">Piezo Sensors</span>
+      <span class="chip">Embedded Systems</span>
+
+    </div>
+
+  </article>
+
+
+  <!-- SOFTWARE ENGINEERING -->
+
+  <article class="card span12" data-reveal>
+
+    <p class="kicker">Engineering</p>
+
+    <h2 class="title">
+      Software Engineering & Core CS
+    </h2>
+
+    <p class="desc">
+      Core computer science concepts and engineering practices
+      applied throughout software development.
+    </p>
+
+    <div class="chips">
+
+      <span class="chip">Object-Oriented Programming</span>
+      <span class="chip">Data Structures & Algorithms</span>
+      <span class="chip">Software Engineering</span>
+      <span class="chip">Testing</span>
+      <span class="chip">Debugging</span>
+      <span class="chip">Problem Solving</span>
+      <span class="chip">Agile / Scrum</span>
+
+    </div>
+
+    <div class="matrix">
+
+      <div class="row">
+        <strong>Core CS</strong>
+        <span>OOP / DSA</span>
+      </div>
+
+      <div class="row">
+        <strong>Development</strong>
+        <span>Software Engineering</span>
+      </div>
+
+      <div class="row">
+        <strong>Quality</strong>
+        <span>Testing / Debugging</span>
+      </div>
+
+      <div class="row">
+        <strong>Team Development</strong>
+        <span>Agile / Scrum</span>
+      </div>
+
+    </div>
+
+  </article>
+
+
+  <!-- PROFESSIONAL -->
+
+  <article class="card span12" data-reveal>
+
+    <p class="kicker">Professional</p>
+
+    <h2 class="title">
+      Collaboration & Communication
+    </h2>
+
+    <p class="desc">
+      Professional skills developed through collaborative software
+      development, university activities, presentations, and team-based work.
+    </p>
+
+    <div class="chips">
+
+      <span class="chip">Teamwork</span>
+      <span class="chip">Leadership</span>
+      <span class="chip">Communication</span>
+      <span class="chip">Collaboration</span>
+      <span class="chip">Presentation</span>
+      <span class="chip">Event Coordination</span>
+      <span class="chip">Time Management</span>
+
+    </div>
+
+  </article>
+
+
+</div>
+```
+
+  </div>
+
+</main>
 
 <footer>
 
   <div class="footerWrap">
 
-    <div>
-      © <span id="yr"></span> Sajini Tharushika ·
-      Built with HTML, CSS & JavaScript
-    </div>
+```
+<div>
+  © <span id="yr"></span> Sajini Tharushika
+</div>
 
-    <div class="footerLinks">
+<div class="footerLinks">
 
-      <a href="projects.html">
-        Projects
-      </a>
+  <a href="projects.html">
+    Projects
+  </a>
 
-      <a href="contact.html">
-        Contact
-      </a>
+  <a href="contact.html">
+    Contact
+  </a>
 
-      <a
-        href="https://www.linkedin.com/in/sajini-tharushika-15990234b/"
-        target="_blank"
-        rel="noreferrer"
-      >
-        LinkedIn
-      </a>
+  <a
+    href="https://www.linkedin.com/in/sajini-tharushika-15990234/"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    LinkedIn
+  </a>
 
-    </div>
+</div>
+```
 
   </div>
 
 </footer>
-
 
 <script>
 
@@ -1239,12 +1303,14 @@
       "(prefers-reduced-motion: reduce)"
     ).matches;
 
-  const els =
-    document.querySelectorAll("[data-reveal]");
+  const elements =
+    document.querySelectorAll(
+      "[data-reveal]"
+    );
 
   if(!reduce){
 
-    const io =
+    const observer =
       new IntersectionObserver(
         (entries)=>{
 
@@ -1254,7 +1320,9 @@
 
               entry.target.classList.add("in");
 
-              io.unobserve(entry.target);
+              observer.unobserve(
+                entry.target
+              );
 
             }
 
@@ -1266,19 +1334,19 @@
         }
       );
 
-    els.forEach((el,index)=>{
+    elements.forEach((element,index)=>{
 
-      el.style.transitionDelay =
+      element.style.transitionDelay =
         (70 + index * 70) + "ms";
 
-      io.observe(el);
+      observer.observe(element);
 
     });
 
   }else{
 
-    els.forEach(el=>{
-      el.classList.add("in");
+    elements.forEach(element=>{
+      element.classList.add("in");
     });
 
   }
@@ -1333,7 +1401,8 @@
       (
         location.pathname
           .split("/")
-          .pop() || "index.html"
+          .pop() ||
+        "index.html"
       ).toLowerCase();
 
     const key =
@@ -1427,6 +1496,16 @@
       );
 
     });
+
+
+    window.addEventListener(
+      "resize",
+      ()=>{
+        if(window.innerWidth > 980){
+          closeMenu();
+        }
+      }
+    );
 
   })();
 
