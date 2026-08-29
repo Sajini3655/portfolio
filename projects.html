@@ -731,6 +731,7 @@
       .media img{
         transition:none !important;
       }
+
     }
   </style>
 </head>
@@ -775,13 +776,11 @@
 
   </div>
 
-
   <div
     class="drawerBack"
     id="drawerBack"
     aria-hidden="true"
   ></div>
-
 
   <div
     class="drawer"
@@ -815,7 +814,6 @@
       </button>
 
     </div>
-
 
     <div class="drawerNav">
 
@@ -858,7 +856,6 @@
     aria-hidden="true"
   ></div>
 
-
   <div class="container">
 
     <div class="top">
@@ -870,13 +867,12 @@
         </h1>
 
         <p class="lead">
-          A selection of projects showcasing my experience in
-          full-stack development, AI-enhanced applications,
-          web development, computer graphics, and embedded systems.
+          A selection of software and engineering projects spanning
+          full-stack development, distributed systems, API management,
+          AI-enhanced applications, computer graphics, and embedded systems.
         </p>
 
       </div>
-
 
       <div
         class="filters"
@@ -897,6 +893,14 @@
           type="button"
         >
           Full-Stack
+        </button>
+
+        <button
+          class="chipBtn"
+          data-filter="distributed"
+          type="button"
+        >
+          Distributed
         </button>
 
         <button
@@ -1001,9 +1005,10 @@
 
 
           <p class="desc">
-            An AI-enhanced project management system with
-            project planning, task management, team collaboration,
-            real-time notifications, and AI-assisted workflows.
+            An AI-enhanced project management system supporting
+            task management, team collaboration, real-time notifications,
+            AI-assisted conversation summarization, and automated
+            ticket creation.
           </p>
 
 
@@ -1014,9 +1019,114 @@
             <span>React</span>
             <span>PostgreSQL</span>
             <span>Python</span>
-            <span>REST APIs</span>
-            <span>WebSocket</span>
+            <span>RabbitMQ</span>
+            <span>WebSockets</span>
+            <span>JWT</span>
             <span>Docker</span>
+
+          </div>
+
+
+          <div class="links">
+
+            <a
+              class="link primary"
+              href="https://github.com/Sajini3655"
+              target="_blank"
+              rel="noreferrer"
+            >
+              GitHub
+            </a>
+
+            <a
+              class="link"
+              href="contact.html"
+            >
+              Contact me
+            </a>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- ================= FLOWFORGE ================= -->
+
+      <article
+        class="card"
+        data-reveal
+        data-tags="fullstack distributed web"
+      >
+
+        <div class="media">
+
+          <img
+            src="./images/flowforge.png"
+            alt="FlowForge — API management and distributed workflow platform"
+          >
+
+          <div
+            class="overlay"
+            aria-hidden="true"
+          ></div>
+
+          <div class="badgeRow">
+
+            <span class="badge">
+              Distributed Systems
+            </span>
+
+            <span class="badge">
+              Spring Boot
+            </span>
+
+            <span class="badge">
+              WSO2 API Manager
+            </span>
+
+            <span class="badge">
+              Kubernetes
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="content">
+
+          <div class="titleRow">
+
+            <h2>
+              FlowForge — API Management &amp; Distributed Workflow Platform
+            </h2>
+
+            <span class="typeTag">
+              Individual Project
+            </span>
+
+          </div>
+
+
+          <p class="desc">
+            A production-oriented platform combining API management
+            with distributed workflow processing for reliable,
+            asynchronous job execution.
+          </p>
+
+
+          <div class="tech">
+
+            <span>Java</span>
+            <span>Spring Boot</span>
+            <span>PostgreSQL</span>
+            <span>WSO2 API Manager</span>
+            <span>RabbitMQ</span>
+            <span>Redis</span>
+            <span>Docker</span>
+            <span>Kubernetes</span>
 
           </div>
 
@@ -1106,8 +1216,8 @@
 
           <p class="desc">
             A full-stack fashion e-commerce application featuring
-            product browsing, cart management, checkout, rewards,
-            and voucher redemption.
+            product browsing, cart management, checkout, authentication,
+            rewards, and voucher redemption.
           </p>
 
 
@@ -1119,6 +1229,8 @@
             <span>Tailwind CSS</span>
             <span>MongoDB</span>
             <span>Prisma ORM</span>
+            <span>JWT</span>
+            <span>bcrypt</span>
 
           </div>
 
@@ -1199,9 +1311,8 @@
 
           <p class="desc">
             An interactive laser-based musical instrument using
-            12 laser beams to trigger musical notes, with
-            instrument switching, percussion effects, and
-            loop recording.
+            12 laser beams to trigger musical notes, with instrument
+            switching, percussion effects, and loop recording.
           </p>
 
 
@@ -1292,7 +1403,7 @@
 
 
           <p class="desc">
-            A computer graphics project featuring 3D rendering,
+            A 3D computer graphics project featuring rendering,
             shaders, textures, lighting, and visual effects
             to create an interactive solar-themed scene.
           </p>
@@ -1385,9 +1496,9 @@
 
 
           <p class="desc">
-            A fitness-focused website featuring trainer details,
-            service information, and an interactive BMI calculator
-            with a clean and user-friendly interface.
+            A fitness-focused web application featuring trainer
+            information, services, user authentication, and an
+            interactive BMI calculator.
           </p>
 
 
@@ -1395,9 +1506,9 @@
 
             <span>HTML</span>
             <span>CSS</span>
+            <span>JavaScript</span>
             <span>PHP</span>
-            <span>Responsive Design</span>
-            <span>UI Design</span>
+            <span>MySQL</span>
 
           </div>
 
@@ -1439,8 +1550,6 @@
       "[data-reveal]"
     );
 
-
-  /* Reveal animation */
 
   if(!reduce){
 
@@ -1486,8 +1595,6 @@
 
   }
 
-
-  /* Filtering */
 
   const btns =
     document.querySelectorAll(
@@ -1573,7 +1680,7 @@
     <div>
       © <span id="yr"></span>
       Sajini Tharushika ·
-      Built with HTML, CSS & JavaScript
+      Built with HTML, CSS &amp; JavaScript
     </div>
 
 
@@ -1778,3 +1885,4 @@
 
 </body>
 </html>
+
