@@ -10,1986 +10,1194 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    :root{
-      --bg:#050817;
-      --fg:rgba(255,255,255,.92);
-      --muted:rgba(255,255,255,.65);
-      --stroke:rgba(255,255,255,.12);
-      --panel:rgba(0,0,0,.26);
-      --accent:#38bdf8;
-      --accent2:#a855f7;
-      --ease:cubic-bezier(.16,1,.3,1);
-      --shadow:0 24px 100px rgba(0,0,0,.45);
+    :root {
+      --bg: #050817;
+      --fg: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.65);
+      --stroke: rgba(255,255,255,.12);
+      --panel: rgba(0,0,0,.26);
+      --accent: #38bdf8;
+      --accent2: #a855f7;
+      --ease: cubic-bezier(.16,1,.3,1);
+      --shadow: 0 24px 100px rgba(0,0,0,.45);
     }
 
-    *{box-sizing:border-box}
+    * { box-sizing: border-box; }
 
-    body{
-      margin:0;
-      font-family:Inter,system-ui;
-      background:linear-gradient(180deg,#050817,#060a14);
-      color:var(--fg);
-      overflow-x:hidden;
+    body {
+      margin: 0;
+      font-family: Inter, system-ui;
+      background: linear-gradient(180deg,#050817,#060a14);
+      color: var(--fg);
+      overflow-x: hidden;
     }
 
-    a{
-      color:inherit;
-      text-decoration:none;
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
-    .container{
-      max-width:1120px;
-      margin:auto;
-      padding:0 22px;
+    .container {
+      max-width: 1120px;
+      margin: auto;
+      padding: 0 22px;
     }
 
-    /* ================= NAV ================= */
+    /* Navigation */
 
-    header{
-      position:sticky;
-      top:0;
-      z-index:30;
-      backdrop-filter:blur(14px);
-      background:rgba(5,8,23,.72);
-      border-bottom:1px solid rgba(255,255,255,.06);
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      backdrop-filter: blur(14px);
+      background: rgba(5,8,23,.72);
+      border-bottom: 1px solid rgba(255,255,255,.06);
     }
 
-    .nav{
-      height:70px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
+    .nav {
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
     }
 
-    .brand{
-      display:flex;
-      gap:12px;
-      align-items:center;
-      font-weight:800;
+    .brand {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      font-weight: 800;
     }
 
-    .logo{
-      width:38px;
-      height:38px;
-      border-radius:14px;
+    .logo {
+      width: 38px;
+      height: 38px;
+      border-radius: 14px;
       background:
-        radial-gradient(
-          circle at 30% 30%,
-          rgba(255,255,255,.22),
-          transparent 55%
-        ),
-        linear-gradient(
-          135deg,
-          var(--accent),
-          var(--accent2)
-        );
-      box-shadow:0 0 28px rgba(56,189,248,.14);
+        radial-gradient(circle at 30% 30%,rgba(255,255,255,.22),transparent 55%),
+        linear-gradient(135deg,var(--accent),var(--accent2));
+      box-shadow: 0 0 28px rgba(56,189,248,.14);
     }
 
-    nav a{
-      margin-left:18px;
-      font-size:13px;
-      color:rgba(255,255,255,.75);
-      padding:8px 10px;
-      border-radius:12px;
+    nav a {
+      margin-left: 18px;
+      font-size: 13px;
+      color: rgba(255,255,255,.75);
+      padding: 8px 10px;
+      border-radius: 12px;
       transition:
         background .2s var(--ease),
         transform .2s var(--ease),
         color .2s var(--ease);
     }
 
-    nav a:hover{
-      background:rgba(255,255,255,.06);
-      transform:translateY(-1px);
-      color:white;
+    nav a:hover {
+      background: rgba(255,255,255,.06);
+      transform: translateY(-1px);
+      color: white;
     }
 
-    nav a.active{
-      color:white;
-      background:rgba(255,255,255,.06);
+    nav a.active {
+      color: white;
+      background: rgba(255,255,255,.06);
     }
 
-    /* ================= MOBILE NAV ================= */
+    /* Mobile navigation */
 
-    .menuBtn{
-      height:44px;
-      width:44px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(255,255,255,.06);
-      display:none;
-      align-items:center;
-      justify-content:center;
-      cursor:pointer;
+    .menuBtn {
+      height: 44px;
+      width: 44px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
       transition:
         transform .18s var(--ease),
         border-color .18s var(--ease),
         background .18s var(--ease);
-      -webkit-tap-highlight-color:transparent;
+      -webkit-tap-highlight-color: transparent;
     }
 
-    .menuBtn:hover{
-      transform:translateY(-1px);
-      background:rgba(255,255,255,.08);
-      border-color:rgba(56,189,248,.22);
+    .menuBtn:hover {
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.08);
+      border-color: rgba(56,189,248,.22);
     }
 
-    .menuBtn svg{
-      width:20px;
-      height:20px;
-      opacity:.9;
+    .menuBtn svg {
+      width: 20px;
+      height: 20px;
+      opacity: .9;
     }
 
-    .drawerBack{
-      position:fixed;
-      inset:0;
-      background:rgba(0,0,0,.55);
-      backdrop-filter:blur(10px);
-      z-index:60;
-      opacity:0;
-      pointer-events:none;
-      transition:opacity .25s var(--ease);
+    .drawerBack {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.55);
+      backdrop-filter: blur(10px);
+      z-index: 60;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .25s var(--ease);
     }
 
-    .drawerBack.open{
-      opacity:1;
-      pointer-events:auto;
+    .drawerBack.open {
+      opacity: 1;
+      pointer-events: auto;
     }
 
-    .drawer{
-      position:fixed;
-      right:14px;
-      top:82px;
-      width:min(360px,calc(100vw - 28px));
-      border-radius:20px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(5,8,23,.88);
-      box-shadow:0 24px 100px rgba(0,0,0,.55);
-      z-index:70;
-      transform:translateY(-8px) scale(.98);
-      opacity:0;
-      pointer-events:none;
+    .drawer {
+      position: fixed;
+      right: 14px;
+      top: 82px;
+      width: min(360px,calc(100vw - 28px));
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(5,8,23,.88);
+      box-shadow: 0 24px 100px rgba(0,0,0,.55);
+      z-index: 70;
+      transform: translateY(-8px) scale(.98);
+      opacity: 0;
+      pointer-events: none;
       transition:
         opacity .25s var(--ease),
         transform .25s var(--ease);
     }
 
-    .drawer.open{
-      opacity:1;
-      pointer-events:auto;
-      transform:translateY(0) scale(1);
+    .drawer.open {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0) scale(1);
     }
 
-    .drawerHeader{
-      padding:14px 14px 10px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:10px;
-      border-bottom:1px solid rgba(255,255,255,.08);
+    .drawerHeader {
+      padding: 14px 14px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
     }
 
-    .drawerTitle{
-      font-weight:800;
-      font-size:13px;
-      color:rgba(255,255,255,.88);
-      letter-spacing:.01em;
+    .drawerTitle {
+      font-weight: 800;
+      font-size: 13px;
+      color: rgba(255,255,255,.88);
+      letter-spacing: .01em;
     }
 
-    .closeBtn{
-      height:38px;
-      width:38px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.06);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      cursor:pointer;
+    .closeBtn {
+      height: 38px;
+      width: 38px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
       transition:
         transform .18s var(--ease),
         border-color .18s var(--ease),
         background .18s var(--ease);
     }
 
-    .closeBtn:hover{
-      transform:translateY(-1px);
-      background:rgba(255,255,255,.08);
-      border-color:rgba(168,85,247,.22);
+    .closeBtn:hover {
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.08);
+      border-color: rgba(168,85,247,.22);
     }
 
-    .closeBtn svg{
-      width:18px;
-      height:18px;
-      opacity:.9;
+    .closeBtn svg {
+      width: 18px;
+      height: 18px;
+      opacity: .9;
     }
 
-    .drawerNav{
-      padding:12px;
-      display:grid;
-      gap:10px;
+    .drawerNav {
+      padding: 12px;
+      display: grid;
+      gap: 10px;
     }
 
-    .drawerNav a{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:10px;
-      padding:12px;
-      border-radius:16px;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.05);
-      color:rgba(255,255,255,.82);
-      font-size:13px;
-      font-weight:700;
+    .drawerNav a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 12px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+      color: rgba(255,255,255,.82);
+      font-size: 13px;
+      font-weight: 700;
       transition:
         transform .18s var(--ease),
         border-color .18s var(--ease),
         background .18s var(--ease);
     }
 
-    .drawerNav a:hover{
-      transform:translateY(-1px);
-      background:rgba(255,255,255,.07);
-      border-color:rgba(56,189,248,.22);
-      color:white;
+    .drawerNav a:hover {
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.07);
+      border-color: rgba(56,189,248,.22);
+      color: white;
     }
 
-    .drawerNav a.active{
-      border-color:rgba(56,189,248,.40);
-      background:rgba(56,189,248,.12);
-      color:white;
+    .drawerNav a.active {
+      border-color: rgba(56,189,248,.40);
+      background: rgba(56,189,248,.12);
+      color: white;
     }
 
-    .drawerNav small{
-      font-weight:700;
-      color:rgba(255,255,255,.55);
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(0,0,0,.20);
-      padding:6px 10px;
-      border-radius:999px;
+    .drawerNav small {
+      font-weight: 700;
+      color: rgba(255,255,255,.55);
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.20);
+      padding: 6px 10px;
+      border-radius: 999px;
     }
 
-    /* ================= PAGE ================= */
+    /* Page introduction */
 
-    .page{
-      padding:28px 0 80px;
-      position:relative;
+    .page {
+      padding: 28px 0 80px;
+      position: relative;
     }
 
-    .bg{
-      position:absolute;
-      inset:0;
+    .bg {
+      position: absolute;
+      inset: 0;
       background:
-        radial-gradient(
-          900px 520px at 18% 10%,
-          rgba(56,189,248,.10),
-          transparent 62%
-        ),
-        radial-gradient(
-          980px 600px at 86% 18%,
-          rgba(168,85,247,.10),
-          transparent 65%
-        ),
-        linear-gradient(
-          rgba(255,255,255,.06) 1px,
-          transparent 1px
-        ),
-        linear-gradient(
-          90deg,
-          rgba(255,255,255,.06) 1px,
-          transparent 1px
-        );
-      background-size:auto,auto,64px 64px,64px 64px;
-      opacity:.34;
-      mask-image:radial-gradient(
+        radial-gradient(900px 520px at 18% 10%,rgba(56,189,248,.10),transparent 62%),
+        radial-gradient(980px 600px at 86% 18%,rgba(168,85,247,.10),transparent 65%),
+        linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);
+      background-size: auto,auto,64px 64px,64px 64px;
+      opacity: .34;
+      mask-image: radial-gradient(
         ellipse at 42% 14%,
         rgba(0,0,0,1) 22%,
         rgba(0,0,0,.85) 45%,
         rgba(0,0,0,0) 78%
       );
-      pointer-events:none;
+      pointer-events: none;
     }
 
-    .top{
-      position:relative;
-      display:flex;
-      align-items:flex-end;
-      justify-content:space-between;
-      gap:18px;
-      flex-wrap:wrap;
-      margin-bottom:18px;
+    .top {
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
     }
 
-    h1{
-      margin:0;
-      font-size:clamp(34px,4.8vw,54px);
-      letter-spacing:-.03em;
-      line-height:1.08;
+    h1 {
+      margin: 0;
+      font-size: clamp(34px,4.8vw,54px);
+      letter-spacing: -.03em;
+      line-height: 1.08;
     }
 
-    .grad{
-      background:linear-gradient(
-        90deg,
-        var(--accent),
-        var(--accent2)
-      );
-      -webkit-background-clip:text;
-      color:transparent;
+    .grad {
+      background: linear-gradient(90deg,var(--accent),var(--accent2));
+      -webkit-background-clip: text;
+      color: transparent;
     }
 
-    .lead{
-      margin:10px 0 0;
-      color:var(--muted);
-      line-height:1.9;
-      font-size:15px;
-      max-width:82ch;
+    .lead {
+      margin: 10px 0 0;
+      color: var(--muted);
+      line-height: 1.9;
+      font-size: 15px;
+      max-width: 82ch;
     }
 
-    /* ================= FILTERS ================= */
+    /* Project filters */
 
-    .filters{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
+    .filters {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
     }
 
-    .chipBtn{
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(255,255,255,.05);
-      color:rgba(255,255,255,.80);
-      font-size:12px;
-      padding:9px 12px;
-      cursor:pointer;
+    .chipBtn {
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      color: rgba(255,255,255,.80);
+      font-size: 12px;
+      padding: 9px 12px;
+      cursor: pointer;
       transition:
         transform .18s var(--ease),
         border-color .18s var(--ease),
         background .18s var(--ease);
-      user-select:none;
-      -webkit-tap-highlight-color:transparent;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
     }
 
-    .chipBtn:hover{
-      transform:translateY(-1px);
-      border-color:rgba(168,85,247,.22);
+    .chipBtn:hover {
+      transform: translateY(-1px);
+      border-color: rgba(168,85,247,.22);
     }
 
-    .chipBtn.active{
-      border-color:rgba(56,189,248,.45);
-      background:rgba(56,189,248,.12);
-      color:white;
+    .chipBtn.active {
+      border-color: rgba(56,189,248,.45);
+      background: rgba(56,189,248,.12);
+      color: white;
     }
 
-    /* ================= PROJECT GRID ================= */
+    /* Project cards */
 
-    .grid{
-      position:relative;
-      display:grid;
-      grid-template-columns:repeat(12,minmax(0,1fr));
-      gap:16px;
+    .grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(12,minmax(0,1fr));
+      gap: 16px;
     }
 
-    .card{
-      grid-column:span 6;
-      border-radius:22px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(0,0,0,.26);
-      overflow:hidden;
-      box-shadow:var(--shadow);
+    .card {
+      grid-column: span 6;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.26);
+      overflow: hidden;
+      box-shadow: var(--shadow);
       transition:
         transform .25s var(--ease),
         border-color .2s var(--ease),
         background .2s var(--ease);
-      opacity:0;
-      transform:translateY(10px);
+      opacity: 0;
+      transform: translateY(10px);
     }
 
-    .card.in{
-      opacity:1;
-      transform:translateY(0);
+    .card.in {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    .card:hover{
-      transform:translateY(-4px);
-      border-color:rgba(56,189,248,.22);
-      background:rgba(255,255,255,.06);
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(56,189,248,.22);
+      background: rgba(255,255,255,.06);
     }
 
-    /* ================= PROJECT IMAGE ================= */
-
-    .media{
-      position:relative;
-      height:260px;
-      overflow:hidden;
-      background:rgba(255,255,255,.03);
+    .media {
+      position: relative;
+      height: 260px;
+      overflow: hidden;
+      background: rgba(255,255,255,.03);
     }
 
-    .media img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
-      transform:scale(1.02);
+    .media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transform: scale(1.02);
       transition:
         transform .55s var(--ease),
         filter .55s var(--ease);
-      filter:saturate(1.05) contrast(1.05);
+      filter: saturate(1.05) contrast(1.05);
     }
 
-    .card:hover .media img{
-      transform:scale(1.08);
-      filter:saturate(1.15) contrast(1.08);
+    .card:hover .media img {
+      transform: scale(1.08);
+      filter: saturate(1.15) contrast(1.08);
     }
 
-    .overlay{
-      position:absolute;
-      inset:0;
+    .overlay {
+      position: absolute;
+      inset: 0;
       background:
-        radial-gradient(
-          600px 280px at 20% 15%,
-          rgba(56,189,248,.20),
-          transparent 60%
-        ),
-        radial-gradient(
-          600px 300px at 85% 80%,
-          rgba(168,85,247,.18),
-          transparent 62%
-        ),
-        linear-gradient(
-          180deg,
-          rgba(0,0,0,.05),
-          rgba(0,0,0,.55)
-        );
-      opacity:.95;
-      pointer-events:none;
+        radial-gradient(600px 280px at 20% 15%,rgba(56,189,248,.20),transparent 60%),
+        radial-gradient(600px 300px at 85% 80%,rgba(168,85,247,.18),transparent 62%),
+        linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.55));
+      opacity: .95;
+      pointer-events: none;
     }
 
-    .badgeRow{
-      position:absolute;
-      left:14px;
-      right:14px;
-      bottom:14px;
-      display:flex;
-      gap:8px;
-      flex-wrap:wrap;
-      align-items:center;
-      z-index:2;
+    .badgeRow {
+      position: absolute;
+      left: 14px;
+      right: 14px;
+      bottom: 14px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+      z-index: 2;
     }
 
-    .badge{
-      font-size:11px;
-      padding:7px 10px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(0,0,0,.35);
-      color:rgba(255,255,255,.86);
-      backdrop-filter:blur(10px);
+    .badge {
+      font-size: 11px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.35);
+      color: rgba(255,255,255,.86);
+      backdrop-filter: blur(10px);
     }
 
-    /* ================= CONTENT ================= */
-
-    .content{
-      padding:16px 16px 18px;
+    .content {
+      padding: 16px 16px 18px;
     }
 
-    .titleRow{
-      display:flex;
-      justify-content:space-between;
-      align-items:flex-start;
-      gap:12px;
-      margin-bottom:8px;
+    .titleRow {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 8px;
     }
 
-    .titleRow h2{
-      margin:0;
-      font-size:16px;
-      letter-spacing:-.01em;
-      line-height:1.35;
+    .titleRow h2 {
+      margin: 0;
+      font-size: 16px;
+      letter-spacing: -.01em;
+      line-height: 1.35;
     }
 
-    .typeTag{
-      font-size:11px;
-      padding:7px 10px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(255,255,255,.05);
-      color:rgba(255,255,255,.78);
-      white-space:nowrap;
+    .typeTag {
+      font-size: 11px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      color: rgba(255,255,255,.78);
+      white-space: nowrap;
     }
 
-    .desc{
-      margin:0;
-      color:var(--muted);
-      font-size:13px;
-      line-height:1.75;
+    .desc {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.75;
     }
 
-    .tech{
-      margin-top:12px;
-      display:flex;
-      gap:7px;
-      flex-wrap:wrap;
+    .tech {
+      margin-top: 12px;
+      display: flex;
+      gap: 7px;
+      flex-wrap: wrap;
     }
 
-    .tech span{
-      font-size:10.5px;
-      padding:6px 9px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.04);
-      color:rgba(255,255,255,.65);
+    .tech span {
+      font-size: 10.5px;
+      padding: 6px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      color: rgba(255,255,255,.65);
     }
 
-    .links{
-      margin-top:14px;
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      align-items:center;
+    .links {
+      margin-top: 14px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
     }
 
-    .link{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      height:38px;
-      padding:0 12px;
-      border-radius:12px;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(255,255,255,.06);
-      font-size:12px;
-      font-weight:800;
+    .link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 38px;
+      padding: 0 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      font-size: 12px;
+      font-weight: 800;
       transition:
         transform .18s var(--ease),
         border-color .18s var(--ease),
         background .18s var(--ease);
     }
 
-    .link:hover{
-      transform:translateY(-1px);
-      background:rgba(255,255,255,.08);
-      border-color:rgba(56,189,248,.22);
+    .link:hover {
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.08);
+      border-color: rgba(56,189,248,.22);
     }
 
-    .link.primary{
-      background:rgba(56,189,248,.14);
-      border-color:rgba(56,189,248,.35);
+    .link.primary {
+      background: rgba(56,189,248,.14);
+      border-color: rgba(56,189,248,.35);
     }
 
-    .link.primary:hover{
-      background:rgba(56,189,248,.18);
-      border-color:rgba(56,189,248,.55);
+    .link.primary:hover {
+      background: rgba(56,189,248,.18);
+      border-color: rgba(56,189,248,.55);
     }
 
-    .hidden{
-      display:none !important;
+    .hidden {
+      display: none !important;
     }
 
-    /* ================= FOOTER ================= */
+    /* Footer */
 
-    footer{
-      border-top:1px solid rgba(255,255,255,.08);
-      background:rgba(5,8,23,.55);
-      backdrop-filter:blur(12px);
+    footer {
+      border-top: 1px solid rgba(255,255,255,.08);
+      background: rgba(5,8,23,.55);
+      backdrop-filter: blur(12px);
     }
 
-    .footerWrap{
-      max-width:1120px;
-      margin:auto;
-      padding:18px 22px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      flex-wrap:wrap;
-      color:rgba(255,255,255,.60);
-      font-size:12px;
+    .footerWrap {
+      max-width: 1120px;
+      margin: auto;
+      padding: 18px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      color: rgba(255,255,255,.60);
+      font-size: 12px;
     }
 
-    .footerLinks{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
+    .footerLinks {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
     }
 
-    .footerLinks a{
-      color:rgba(255,255,255,.70);
-      border-bottom:1px solid rgba(255,255,255,.16);
-      padding-bottom:2px;
+    .footerLinks a {
+      color: rgba(255,255,255,.70);
+      border-bottom: 1px solid rgba(255,255,255,.16);
+      padding-bottom: 2px;
     }
 
-    .footerLinks a:hover{
-      color:white;
-      border-bottom-color:rgba(56,189,248,.45);
+    .footerLinks a:hover {
+      color: white;
+      border-bottom-color: rgba(56,189,248,.45);
     }
 
-    /* ================= RESPONSIVE ================= */
+    /* Responsive layout */
 
-    @media(max-width:980px){
+    @media (max-width: 980px) {
+      nav { display: none; }
+      .menuBtn { display: flex; }
+      .container { padding: 0 16px; }
+      .page { padding: 20px 0 64px; }
+      .top { margin-bottom: 14px; }
+      .lead { font-size: 14px; }
+      .filters { justify-content: flex-start; }
+      .chipBtn { padding: 10px 12px; }
+      .grid { gap: 12px; }
 
-      nav{
-        display:none;
+      .card {
+        grid-column: span 12;
+        border-radius: 20px;
       }
 
-      .menuBtn{
-        display:flex;
+      .media { height: 210px; }
+      .content { padding: 14px 14px 16px; }
+
+      .titleRow {
+        flex-direction: column;
+        align-items: flex-start;
       }
 
-      .card{
-        grid-column:span 12;
-      }
+      .typeTag { margin-top: 6px; }
 
-      .container{
-        padding:0 16px;
-      }
-
-      .page{
-        padding:20px 0 64px;
-      }
-
-      .top{
-        margin-bottom:14px;
-      }
-
-      .lead{
-        font-size:14px;
-      }
-
-      .filters{
-        justify-content:flex-start;
-      }
-
-      .chipBtn{
-        padding:10px 12px;
-      }
-
-      .grid{
-        gap:12px;
-      }
-
-      .card{
-        border-radius:20px;
-      }
-
-      .media{
-        height:210px;
-      }
-
-      .content{
-        padding:14px 14px 16px;
-      }
-
-      .titleRow{
-        flex-direction:column;
-        align-items:flex-start;
-      }
-
-      .typeTag{
-        margin-top:6px;
-      }
-
-      .badgeRow{
-        left:12px;
-        right:12px;
-        bottom:12px;
+      .badgeRow {
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
       }
     }
 
-    @media(max-width:420px){
-
-      h1{
-        font-size:clamp(30px,10.5vw,42px);
-        line-height:1.1;
+    @media (max-width: 420px) {
+      h1 {
+        font-size: clamp(30px,10.5vw,42px);
+        line-height: 1.1;
       }
 
-      .media{
-        height:190px;
+      .media { height: 190px; }
+
+      .badge {
+        font-size: 10.5px;
+        padding: 6px 9px;
       }
 
-      .badge{
-        font-size:10.5px;
-        padding:6px 9px;
-      }
-
-      .link{
-        height:40px;
-        padding:0 12px;
+      .link {
+        height: 40px;
+        padding: 0 12px;
       }
     }
 
-    @media(prefers-reduced-motion:reduce){
-
-      .card{
-        opacity:1 !important;
-        transform:none !important;
-        transition:none !important;
+    @media (prefers-reduced-motion: reduce) {
+      .card {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
       }
 
-      .media img{
-        transition:none !important;
+      .media img {
+        transition: none !important;
       }
-
     }
   </style>
 </head>
 
 <body>
-
-<header>
-
-  <div class="container nav">
-
-    <div class="brand">
-      <div class="logo"></div>
-      Sajini Tharushika
-    </div>
-
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="skills.html">Skills</a>
-      <a href="projects.html" class="active">Projects</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-
-    <button
-      class="menuBtn"
-      id="menuBtn"
-      type="button"
-      aria-label="Open menu"
-      aria-controls="drawer"
-      aria-expanded="false"
-    >
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-      >
-        <path d="M4 7h16M4 12h16M4 17h16"></path>
-      </svg>
-    </button>
-
-  </div>
-
-  <div
-    class="drawerBack"
-    id="drawerBack"
-    aria-hidden="true"
-  ></div>
-
-  <div
-    class="drawer"
-    id="drawer"
-    role="dialog"
-    aria-modal="true"
-    aria-label="Mobile navigation"
-  >
-
-    <div class="drawerHeader">
-
-      <div class="drawerTitle">
-        Navigation
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo"></div>
+        Sajini Tharushika
       </div>
+
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="skills.html">Skills</a>
+        <a href="projects.html" class="active">Projects</a>
+        <a href="contact.html">Contact</a>
+      </nav>
 
       <button
-        class="closeBtn"
-        id="closeBtn"
+        class="menuBtn"
+        id="menuBtn"
         type="button"
-        aria-label="Close menu"
+        aria-label="Open menu"
+        aria-controls="drawer"
+        aria-expanded="false"
       >
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-        >
-          <path d="M18 6L6 18M6 6l12 12"></path>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round">
+          <path d="M4 7h16M4 12h16M4 17h16"></path>
         </svg>
       </button>
-
     </div>
 
-    <div class="drawerNav">
+    <div class="drawerBack" id="drawerBack" aria-hidden="true"></div>
 
-      <a href="index.html" data-nav="index">
-        <span>Home</span>
-        <small>Start</small>
-      </a>
-
-      <a href="about.html" data-nav="about">
-        <span>About</span>
-        <small>Me</small>
-      </a>
-
-      <a href="skills.html" data-nav="skills">
-        <span>Skills</span>
-        <small>Stack</small>
-      </a>
-
-      <a href="projects.html" data-nav="projects">
-        <span>Projects</span>
-        <small>Work</small>
-      </a>
-
-      <a href="contact.html" data-nav="contact">
-        <span>Contact</span>
-        <small>Reach</small>
-      </a>
-
-    </div>
-
-  </div>
-
-</header>
-
-
-<section class="page">
-
-  <div
-    class="bg"
-    aria-hidden="true"
-  ></div>
-
-  <div class="container">
-
-    <div class="top">
-
-      <div>
-
-        <h1>
-          My <span class="grad">Projects</span>
-        </h1>
-
-        <p class="lead">
-          A selection of software and engineering projects spanning
-          full-stack development, distributed systems, API management,
-          AI-enhanced applications, computer graphics, GPU computing,
-          computational physics, and embedded systems.
-        </p>
-
+    <div class="drawer" id="drawer" role="dialog"
+      aria-modal="true" aria-label="Mobile navigation">
+      <div class="drawerHeader">
+        <div class="drawerTitle">Navigation</div>
+        <button class="closeBtn" id="closeBtn" type="button" aria-label="Close menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round">
+            <path d="M18 6L6 18M6 6l12 12"></path>
+          </svg>
+        </button>
       </div>
 
-      <div
-        class="filters"
-        aria-label="Project filters"
-      >
+      <div class="drawerNav">
+        <a href="index.html" data-nav="index"><span>Home</span><small>Start</small></a>
+        <a href="about.html" data-nav="about"><span>About</span><small>Me</small></a>
+        <a href="skills.html" data-nav="skills"><span>Skills</span><small>Stack</small></a>
+        <a href="projects.html" data-nav="projects"><span>Projects</span><small>Work</small></a>
+        <a href="contact.html" data-nav="contact"><span>Contact</span><small>Reach</small></a>
+      </div>
+    </div>
+  </header>
 
-        <button
-          class="chipBtn active"
-          data-filter="all"
-          type="button"
-        >
-          All
-        </button>
+  <section class="page">
+    <div class="bg" aria-hidden="true"></div>
 
-        <button
-          class="chipBtn"
-          data-filter="fullstack"
-          type="button"
-        >
-          Full-Stack
-        </button>
+    <div class="container">
+      <div class="top">
+        <div>
+          <h1>My <span class="grad">Projects</span></h1>
+          <p class="lead">
+            A selection of software and engineering projects spanning
+            full-stack development, distributed systems, API management,
+            AI-enhanced applications, computer graphics, GPU computing,
+            computational physics, and embedded systems.
+          </p>
+        </div>
 
-        <button
-          class="chipBtn"
-          data-filter="distributed"
-          type="button"
-        >
-          Distributed
-        </button>
-
-        <button
-          class="chipBtn"
-          data-filter="ai"
-          type="button"
-        >
-          AI-Enhanced
-        </button>
-
-        <button
-          class="chipBtn"
-          data-filter="web"
-          type="button"
-        >
-          Web
-        </button>
-
-        <button
-          class="chipBtn"
-          data-filter="graphics"
-          type="button"
-        >
-          Graphics
-        </button>
-
-        <button
-          class="chipBtn"
-          data-filter="embedded"
-          type="button"
-        >
-          Embedded
-        </button>
-
+        <div class="filters" aria-label="Project filters">
+          <button class="chipBtn active" data-filter="all" type="button">All</button>
+          <button class="chipBtn" data-filter="fullstack" type="button">Full-Stack</button>
+          <button class="chipBtn" data-filter="distributed" type="button">Distributed</button>
+          <button class="chipBtn" data-filter="ai" type="button">AI-Enhanced</button>
+          <button class="chipBtn" data-filter="web" type="button">Web</button>
+          <button class="chipBtn" data-filter="graphics" type="button">Graphics</button>
+          <button class="chipBtn" data-filter="embedded" type="button">Embedded</button>
+        </div>
       </div>
 
+      <div class="grid" id="grid">
+        <!-- Nexora -->
+        <article class="card" data-reveal data-tags="ai fullstack web">
+          <div class="media">
+            <img src="./images/nexora.png" alt="Nexora — AI-enhanced project management system">
+            <div class="overlay" aria-hidden="true"></div>
+            <div class="badgeRow">
+              <span class="badge">AI-Enhanced</span>
+              <span class="badge">Spring Boot</span>
+              <span class="badge">React</span>
+              <span class="badge">Full-Stack</span>
+            </div>
+          </div>
+
+          <div class="content">
+            <div class="titleRow">
+              <h2>Nexora — AI-Enhanced Project Management System</h2>
+              <span class="typeTag">Group Project</span>
+            </div>
+            <p class="desc">
+              An AI-enhanced project management system supporting task management,
+              team collaboration, real-time notifications, AI-assisted conversation
+              summarization, and automated ticket creation.
+            </p>
+            <div class="tech">
+              <span>Java</span>
+              <span>Spring Boot</span>
+              <span>React</span>
+              <span>PostgreSQL</span>
+              <span>Python</span>
+              <span>RabbitMQ</span>
+              <span>WebSockets</span>
+              <span>JWT</span>
+              <span>Docker</span>
+            </div>
+            <div class="links">
+              <a class="link primary" href="https://github.com/Sajini3655"
+                target="_blank" rel="noreferrer">GitHub</a>
+              <a class="link" href="contact.html">Contact me</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- PhysicsLab -->
+        <article class="card" data-reveal data-tags="ai fullstack web">
+          <div class="media">
+            <svg
+              viewBox="0 0 640 320"
+              preserveAspectRatio="xMidYMid slice"
+              width="100%"
+              height="100%"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <defs>
+                <linearGradient id="physicslab-background" x2="1" y2="1">
+                  <stop stop-color="#10233e" />
+                  <stop offset="1" stop-color="#201239" />
+                </linearGradient>
+                <pattern id="physicslab-grid" width="32" height="32" patternUnits="userSpaceOnUse">
+                  <path d="M32 0H0V32" fill="none" stroke="#8bb6d7" stroke-opacity=".18" />
+                </pattern>
+              </defs>
+              <path d="M0 0H640V320H0Z" fill="url(#physicslab-background)" />
+              <path d="M0 0H640V320H0Z" fill="url(#physicslab-grid)" />
+              <path d="M104 70V242H546" fill="none" stroke="#8bb6d7" stroke-width="2" />
+              <path d="M104 242Q320 -40 536 242" fill="none" stroke="#38bdf8" stroke-width="4" />
+              <path d="M320 101V242" stroke="#a855f7" stroke-width="2" stroke-dasharray="6 8" />
+              <g fill="#c4f0ff">
+                <circle cx="104" cy="242" r="5" />
+                <circle cx="320" cy="101" r="7" />
+                <circle cx="536" cy="242" r="5" />
+              </g>
+            </svg>
+
+            <div class="overlay" aria-hidden="true"></div>
+            <div class="badgeRow">
+              <span class="badge">AI-Enhanced</span>
+              <span class="badge">Next.js</span>
+              <span class="badge">EdTech</span>
+            </div>
+          </div>
+
+          <div class="content">
+            <div class="titleRow">
+              <h2>PhysicsLab — Interactive A/L Physics Learning Platform</h2>
+              <span class="typeTag">Group Project</span>
+            </div>
+            <p class="desc">
+              A bilingual English and Sinhala platform for Sri Lankan A/L Physics,
+              with interactive practicals, assessments, and progress tracking.
+              For uniform-motion questions, students can review and correct an
+              AI-generated interpretation before running a simulation.
+            </p>
+            <div class="tech">
+              <span>Next.js</span>
+              <span>React</span>
+              <span>TypeScript</span>
+              <span>Groq API</span>
+            </div>
+            <div class="links">
+              <a class="link primary" href="https://github.com/vishiiboy/physicslab"
+                target="_blank" rel="noreferrer">GitHub</a>
+              <a class="link" href="contact.html">Contact me</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- FlowForge -->
+        <article class="card" data-reveal data-tags="fullstack distributed web">
+          <div class="media">
+            <img src="./images/flowforge.png" alt="FlowForge — API management and distributed workflow platform">
+            <div class="overlay" aria-hidden="true"></div>
+            <div class="badgeRow">
+              <span class="badge">Distributed Systems</span>
+              <span class="badge">Spring Boot</span>
+              <span class="badge">WSO2 API Manager</span>
+              <span class="badge">Kubernetes</span>
+            </div>
+          </div>
+
+          <div class="content">
+            <div class="titleRow">
+              <h2>FlowForge — API Management &amp; Distributed Workflow Platform</h2>
+              <span class="typeTag">Individual Project</span>
+            </div>
+            <p class="desc">
+              A production-oriented platform combining API management with
+              distributed workflow processing for reliable, asynchronous job execution.
+            </p>
+            <div class="tech">
+              <span>Java</span>
+              <span>Spring Boot</span>
+              <span>PostgreSQL</span>
+              <span>WSO2 API Manager</span>
+              <span>RabbitMQ</span>
+              <span>Redis</span>
+              <span>Docker</span>
+              <span>Kubernetes</span>
+            </div>
+            <div class="links">
+              <a class="link primary" href="https://github.com/Sajini3655"
+                target="_blank" rel="noreferrer">GitHub</a>
+              <a class="link" href="contact.html">Contact me</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- FabricLab -->
+        <article class="card" data-reveal data-tags="graphics web">
+          <div class="media">
+            <img src="./images/fabriclab.png" alt="FabricLab — interactive material and physics laboratory">
+            <div class="overlay" aria-hidden="true"></div>
+            <div class="badgeRow">
+              <span class="badge">WebGPU</span>
+              <span class="badge">WGSL</span>
+              <span class="badge">XPBD</span>
+              <span class="badge">GPU Compute</span>
+            </div>
+          </div>
+
+          <div class="content">
+            <div class="titleRow">
+              <h2>FabricLab — Interactive Material &amp; Physics Laboratory</h2>
+              <span class="typeTag">Individual Project</span>
+            </div>
+            <p class="desc">
+              A browser-based computational material physics laboratory featuring
+              real-time cloth simulation, parameterized materials, interactive 3D
+              manipulation, deformation visualization, reproducible experiments,
+              and GPU performance benchmarking.
+            </p>
+            <div class="tech">
+              <span>TypeScript</span>
+              <span>WebGPU</span>
+              <span>WGSL</span>
+              <span>XPBD</span>
+              <span>GPU Compute</span>
+              <span>Webpack</span>
+              <span>Node.js</span>
+              <span>GitHub Actions</span>
+            </div>
+            <div class="links">
+              <a class="link primary" href="https://sajini3655.github.io/fabriclab/"
+                target="_blank" rel="noreferrer">Live Demo</a>
+              <a class="link" href="https://github.com/Sajini3655/fabriclab"
+                target="_blank" rel="noreferrer">GitHub</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- AURA -->
+        <article class="card" data-reveal data-tags="fullstack web">
+          <div class="media">
+            <img src="./images/aura.png" alt="AURA — full-stack fashion e-commerce web application">
+            <div class="overlay" aria-hidden="true"></div>
+            <div class="badgeRow">
+              <span class="badge">Full-Stack</span>
+              <span class="badge">Next.js</span>
+              <span class="badge">E-Commerce</span>
+              <span class="badge">Prisma ORM</span>
+            </div>
+          </div>
+
+          <div class="content">
+            <div class="titleRow">
+              <h2>AURA — Full-Stack Fashion E-Commerce Web Application</h2>
+              <span class="typeTag">Individual Project</span>
+            </div>
+            <p class="desc">
+              A full-stack fashion e-commerce application featuring product browsing,
+              cart management, checkout, authentication, rewards, and voucher redemption.
+            </p>
+            <div class="tech">
+              <span>Next.js 15</span>
+              <span>React</span>
+              <span>JavaScript</span>
+              <span>Tailwind CSS</span>
+              <span>MongoDB</span>
+              <span>Prisma ORM</span>
+              <span>JWT</span>
+              <span>bcrypt</span>
+            </div>
+            <div class="links">
+              <a class="link" href="contact.html">Contact me</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- LaserTunes -->
+        <article class="card" data-reveal data-tags="embedded">
+          <div class="media">
+            <img src="./images/lasertunes.jpg" alt="LaserTunes — laser-based musical instrument">
+            <div class="overlay" aria-hidden="true"></div>
+            <div class="badgeRow">
+              <span class="badge">Arduino Mega</span>
+              <span class="badge">ESP32</span>
+              <span class="badge">C++</span>
+              <span class="badge">Embedded</span>
+            </div>
+          </div>
+
+          <div class="content">
+            <div class="titleRow">
+              <h2>LaserTunes — Laser-Based Musical Instrument</h2>
+              <span class="typeTag">Group Project</span>
+            </div>
+            <p class="desc">
+              An interactive laser-based musical instrument using 12 laser beams
+              to trigger musical notes, with instrument switching, percussion
+              effects, and loop recording.
+            </p>
+            <div class="tech">
+              <span>Arduino Mega</span>
+              <span>ESP32</span>
+              <span>C++</span>
+              <span>VS1053B</span>
+              <span>Piezo Sensors</span>
+              <span>Embedded Systems</span>
+            </div>
+            <div class="links">
+              <a class="link" href="contact.html">Ask for details</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Solar -->
+        <article class="card" data-reveal data-tags="graphics">
+          <div class="media">
+            <img src="./images/solar.png" alt="Solar — computer graphics animation project">
+            <div class="overlay" aria-hidden="true"></div>
+            <div class="badgeRow">
+              <span class="badge">OpenGL</span>
+              <span class="badge">GLSL</span>
+              <span class="badge">3D Graphics</span>
+              <span class="badge">Shaders</span>
+            </div>
+          </div>
+
+          <div class="content">
+            <div class="titleRow">
+              <h2>Solar — Computer Graphics Animation Project</h2>
+              <span class="typeTag">Group Project</span>
+            </div>
+            <p class="desc">
+              A 3D computer graphics project featuring rendering, shaders,
+              textures, lighting, and visual effects to create an interactive
+              solar-themed scene.
+            </p>
+            <div class="tech">
+              <span>C++</span>
+              <span>OpenGL</span>
+              <span>GLSL</span>
+              <span>3D Rendering</span>
+              <span>Shaders</span>
+              <span>Textures</span>
+            </div>
+            <div class="links">
+              <a class="link" href="contact.html">Ask for details</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Fitness First -->
+        <article class="card" data-reveal data-tags="web">
+          <div class="media">
+            <img src="./images/fitness.png" alt="Fitness First — gym website">
+            <div class="overlay" aria-hidden="true"></div>
+            <div class="badgeRow">
+              <span class="badge">HTML</span>
+              <span class="badge">CSS</span>
+              <span class="badge">PHP</span>
+              <span class="badge">Web</span>
+            </div>
+          </div>
+
+          <div class="content">
+            <div class="titleRow">
+              <h2>Fitness First — Gym Website</h2>
+              <span class="typeTag">Individual Project</span>
+            </div>
+            <p class="desc">
+              A fitness-focused web application featuring trainer information,
+              services, user authentication, and an interactive BMI calculator.
+            </p>
+            <div class="tech">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
+              <span>PHP</span>
+              <span>MySQL</span>
+            </div>
+            <div class="links">
+              <a class="link" href="contact.html">Contact me</a>
+            </div>
+          </div>
+        </article>
+      </div>
     </div>
-
-
-    <div
-      class="grid"
-      id="grid"
-    >
-
-
-      <!-- ================= NEXORA ================= -->
-
-      <article
-        class="card"
-        data-reveal
-        data-tags="ai fullstack web"
-      >
-
-        <div class="media">
-
-          <img
-            src="./images/nexora.png"
-            alt="Nexora — AI-enhanced project management system"
-          >
-
-          <div
-            class="overlay"
-            aria-hidden="true"
-          ></div>
-
-          <div class="badgeRow">
-
-            <span class="badge">
-              AI-Enhanced
-            </span>
-
-            <span class="badge">
-              Spring Boot
-            </span>
-
-            <span class="badge">
-              React
-            </span>
-
-            <span class="badge">
-              Full-Stack
-            </span>
-
-          </div>
-
-        </div>
-
-
-        <div class="content">
-
-          <div class="titleRow">
-
-            <h2>
-              Nexora — AI-Enhanced Project Management System
-            </h2>
-
-            <span class="typeTag">
-              Group Project
-            </span>
-
-          </div>
-
-
-          <p class="desc">
-            An AI-enhanced project management system supporting
-            task management, team collaboration, real-time notifications,
-            AI-assisted conversation summarization, and automated
-            ticket creation.
-          </p>
-
-
-          <div class="tech">
-
-            <span>Java</span>
-            <span>Spring Boot</span>
-            <span>React</span>
-            <span>PostgreSQL</span>
-            <span>Python</span>
-            <span>RabbitMQ</span>
-            <span>WebSockets</span>
-            <span>JWT</span>
-            <span>Docker</span>
-
-          </div>
-
-
-          <div class="links">
-
-            <a
-              class="link primary"
-              href="https://github.com/Sajini3655"
-              target="_blank"
-              rel="noreferrer"
-            >
-              GitHub
-            </a>
-
-            <a
-              class="link"
-              href="contact.html"
-            >
-              Contact me
-            </a>
-
-          </div>
-
-        </div>
-
-      </article>
-
-
-      <!-- ================= FLOWFORGE ================= -->
-
-      <article
-        class="card"
-        data-reveal
-        data-tags="fullstack distributed web"
-      >
-
-        <div class="media">
-
-          <img
-            src="./images/flowforge.png"
-            alt="FlowForge — API management and distributed workflow platform"
-          >
-
-          <div
-            class="overlay"
-            aria-hidden="true"
-          ></div>
-
-          <div class="badgeRow">
-
-            <span class="badge">
-              Distributed Systems
-            </span>
-
-            <span class="badge">
-              Spring Boot
-            </span>
-
-            <span class="badge">
-              WSO2 API Manager
-            </span>
-
-            <span class="badge">
-              Kubernetes
-            </span>
-
-          </div>
-
-        </div>
-
-
-        <div class="content">
-
-          <div class="titleRow">
-
-            <h2>
-              FlowForge — API Management &amp; Distributed Workflow Platform
-            </h2>
-
-            <span class="typeTag">
-              Individual Project
-            </span>
-
-          </div>
-
-
-          <p class="desc">
-            A production-oriented platform combining API management
-            with distributed workflow processing for reliable,
-            asynchronous job execution.
-          </p>
-
-
-          <div class="tech">
-
-            <span>Java</span>
-            <span>Spring Boot</span>
-            <span>PostgreSQL</span>
-            <span>WSO2 API Manager</span>
-            <span>RabbitMQ</span>
-            <span>Redis</span>
-            <span>Docker</span>
-            <span>Kubernetes</span>
-
-          </div>
-
-
-          <div class="links">
-
-            <a
-              class="link primary"
-              href="https://github.com/Sajini3655"
-              target="_blank"
-              rel="noreferrer"
-            >
-              GitHub
-            </a>
-
-            <a
-              class="link"
-              href="contact.html"
-            >
-              Contact me
-            </a>
-
-          </div>
-
-        </div>
-
-      </article>
-
-
-      <!-- ================= FABRICLAB ================= -->
-
-      <article
-        class="card"
-        data-reveal
-        data-tags="graphics web"
-      >
-
-        <div class="media">
-
-          <img
-            src="./images/fabriclab.png"
-            alt="FabricLab — interactive material and physics laboratory"
-          >
-
-          <div
-            class="overlay"
-            aria-hidden="true"
-          ></div>
-
-          <div class="badgeRow">
-
-            <span class="badge">
-              WebGPU
-            </span>
-
-            <span class="badge">
-              WGSL
-            </span>
-
-            <span class="badge">
-              XPBD
-            </span>
-
-            <span class="badge">
-              GPU Compute
-            </span>
-
-          </div>
-
-        </div>
-
-
-        <div class="content">
-
-          <div class="titleRow">
-
-            <h2>
-              FabricLab — Interactive Material &amp; Physics Laboratory
-            </h2>
-
-            <span class="typeTag">
-              Individual Project
-            </span>
-
-          </div>
-
-
-          <p class="desc">
-            A browser-based computational material physics laboratory
-            featuring real-time cloth simulation, parameterized materials,
-            interactive 3D manipulation, deformation visualization,
-            reproducible experiments, and GPU performance benchmarking.
-          </p>
-
-
-          <div class="tech">
-
-            <span>TypeScript</span>
-            <span>WebGPU</span>
-            <span>WGSL</span>
-            <span>XPBD</span>
-            <span>GPU Compute</span>
-            <span>Webpack</span>
-            <span>Node.js</span>
-            <span>GitHub Actions</span>
-
-          </div>
-
-
-          <div class="links">
-
-            <a
-              class="link primary"
-              href="https://sajini3655.github.io/fabriclab/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Live Demo
-            </a>
-
-            <a
-              class="link"
-              href="https://github.com/Sajini3655/fabriclab"
-              target="_blank"
-              rel="noreferrer"
-            >
-              GitHub
-            </a>
-
-          </div>
-
-        </div>
-
-      </article>
-
-
-      <!-- ================= AURA ================= -->
-
-      <article
-        class="card"
-        data-reveal
-        data-tags="fullstack web"
-      >
-
-        <div class="media">
-
-          <img
-            src="./images/aura.png"
-            alt="AURA — full-stack fashion e-commerce web application"
-          >
-
-          <div
-            class="overlay"
-            aria-hidden="true"
-          ></div>
-
-          <div class="badgeRow">
-
-            <span class="badge">
-              Full-Stack
-            </span>
-
-            <span class="badge">
-              Next.js
-            </span>
-
-            <span class="badge">
-              E-Commerce
-            </span>
-
-            <span class="badge">
-              Prisma ORM
-            </span>
-
-          </div>
-
-        </div>
-
-
-        <div class="content">
-
-          <div class="titleRow">
-
-            <h2>
-              AURA — Full-Stack Fashion E-Commerce Web Application
-            </h2>
-
-            <span class="typeTag">
-              Individual Project
-            </span>
-
-          </div>
-
-
-          <p class="desc">
-            A full-stack fashion e-commerce application featuring
-            product browsing, cart management, checkout, authentication,
-            rewards, and voucher redemption.
-          </p>
-
-
-          <div class="tech">
-
-            <span>Next.js 15</span>
-            <span>React</span>
-            <span>JavaScript</span>
-            <span>Tailwind CSS</span>
-            <span>MongoDB</span>
-            <span>Prisma ORM</span>
-            <span>JWT</span>
-            <span>bcrypt</span>
-
-          </div>
-
-
-          <div class="links">
-
-            <a
-              class="link"
-              href="contact.html"
-            >
-              Contact me
-            </a>
-
-          </div>
-
-        </div>
-
-      </article>
-
-
-      <!-- ================= LASERTUNES ================= -->
-
-      <article
-        class="card"
-        data-reveal
-        data-tags="embedded"
-      >
-
-        <div class="media">
-
-          <img
-            src="./images/lasertunes.jpg"
-            alt="LaserTunes — laser-based musical instrument"
-          >
-
-          <div
-            class="overlay"
-            aria-hidden="true"
-          ></div>
-
-          <div class="badgeRow">
-
-            <span class="badge">
-              Arduino Mega
-            </span>
-
-            <span class="badge">
-              ESP32
-            </span>
-
-            <span class="badge">
-              C++
-            </span>
-
-            <span class="badge">
-              Embedded
-            </span>
-
-          </div>
-
-        </div>
-
-
-        <div class="content">
-
-          <div class="titleRow">
-
-            <h2>
-              LaserTunes — Laser-Based Musical Instrument
-            </h2>
-
-            <span class="typeTag">
-              Group Project
-            </span>
-
-          </div>
-
-
-          <p class="desc">
-            An interactive laser-based musical instrument using
-            12 laser beams to trigger musical notes, with instrument
-            switching, percussion effects, and loop recording.
-          </p>
-
-
-          <div class="tech">
-
-            <span>Arduino Mega</span>
-            <span>ESP32</span>
-            <span>C++</span>
-            <span>VS1053B</span>
-            <span>Piezo Sensors</span>
-            <span>Embedded Systems</span>
-
-          </div>
-
-
-          <div class="links">
-
-            <a
-              class="link"
-              href="contact.html"
-            >
-              Ask for details
-            </a>
-
-          </div>
-
-        </div>
-
-      </article>
-
-
-      <!-- ================= SOLAR ================= -->
-
-      <article
-        class="card"
-        data-reveal
-        data-tags="graphics"
-      >
-
-        <div class="media">
-
-          <img
-            src="./images/solar.png"
-            alt="Solar — computer graphics animation project"
-          >
-
-          <div
-            class="overlay"
-            aria-hidden="true"
-          ></div>
-
-          <div class="badgeRow">
-
-            <span class="badge">
-              OpenGL
-            </span>
-
-            <span class="badge">
-              GLSL
-            </span>
-
-            <span class="badge">
-              3D Graphics
-            </span>
-
-            <span class="badge">
-              Shaders
-            </span>
-
-          </div>
-
-        </div>
-
-
-        <div class="content">
-
-          <div class="titleRow">
-
-            <h2>
-              Solar — Computer Graphics Animation Project
-            </h2>
-
-            <span class="typeTag">
-              Group Project
-            </span>
-
-          </div>
-
-
-          <p class="desc">
-            A 3D computer graphics project featuring rendering,
-            shaders, textures, lighting, and visual effects
-            to create an interactive solar-themed scene.
-          </p>
-
-
-          <div class="tech">
-
-            <span>C++</span>
-            <span>OpenGL</span>
-            <span>GLSL</span>
-            <span>3D Rendering</span>
-            <span>Shaders</span>
-            <span>Textures</span>
-
-          </div>
-
-
-          <div class="links">
-
-            <a
-              class="link"
-              href="contact.html"
-            >
-              Ask for details
-            </a>
-
-          </div>
-
-        </div>
-
-      </article>
-
-
-      <!-- ================= FITNESS FIRST ================= -->
-
-      <article
-        class="card"
-        data-reveal
-        data-tags="web"
-      >
-
-        <div class="media">
-
-          <img
-            src="./images/fitness.png"
-            alt="Fitness First — gym website"
-          >
-
-          <div
-            class="overlay"
-            aria-hidden="true"
-          ></div>
-
-          <div class="badgeRow">
-
-            <span class="badge">
-              HTML
-            </span>
-
-            <span class="badge">
-              CSS
-            </span>
-
-            <span class="badge">
-              PHP
-            </span>
-
-            <span class="badge">
-              Web
-            </span>
-
-          </div>
-
-        </div>
-
-
-        <div class="content">
-
-          <div class="titleRow">
-
-            <h2>
-              Fitness First — Gym Website
-            </h2>
-
-            <span class="typeTag">
-              Individual Project
-            </span>
-
-          </div>
-
-
-          <p class="desc">
-            A fitness-focused web application featuring trainer
-            information, services, user authentication, and an
-            interactive BMI calculator.
-          </p>
-
-
-          <div class="tech">
-
-            <span>HTML</span>
-            <span>CSS</span>
-            <span>JavaScript</span>
-            <span>PHP</span>
-            <span>MySQL</span>
-
-          </div>
-
-
-          <div class="links">
-
-            <a
-              class="link"
-              href="contact.html"
-            >
-              Contact me
-            </a>
-
-          </div>
-
-        </div>
-
-      </article>
-
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- ================= REVEAL + FILTER ================= -->
-
-<script>
-
-  const reduce =
-    window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-
-  const cards =
-    document.querySelectorAll(
-      "[data-reveal]"
-    );
-
-
-  if(!reduce){
-
-    const io =
-      new IntersectionObserver(
-        (entries)=>{
-
-          entries.forEach(entry=>{
-
-            if(entry.isIntersecting){
-
-              entry.target.classList.add("in");
-
-              io.unobserve(
-                entry.target
-              );
-
-            }
-
-          });
-
-        },
-        {
-          threshold:.12
-        }
-      );
-
-
-    cards.forEach((el,index)=>{
-
-      el.style.transitionDelay =
-        (70 + index * 70) + "ms";
-
-      io.observe(el);
-
-    });
-
-  }else{
-
-    cards.forEach(el=>{
-      el.classList.add("in");
-    });
-
-  }
-
-
-  const btns =
-    document.querySelectorAll(
-      ".chipBtn"
-    );
-
-  const items =
-    document.querySelectorAll(
-      ".card[data-tags]"
-    );
-
-
-  function setActive(btn){
-
-    btns.forEach(b=>{
-      b.classList.remove(
-        "active"
-      );
-    });
-
-    btn.classList.add(
-      "active"
-    );
-
-  }
-
-
-  function applyFilter(tag){
-
-    items.forEach(card=>{
-
-      const tags =
-        (
-          card.getAttribute(
-            "data-tags"
-          ) || ""
-        )
-        .split(/\s+/)
-        .filter(Boolean);
-
-      const show =
-        tag === "all" ||
-        tags.includes(tag);
-
-      card.classList.toggle(
-        "hidden",
-        !show
-      );
-
-    });
-
-  }
-
-
-  btns.forEach(btn=>{
-
-    btn.addEventListener(
-      "click",
-      ()=>{
-
-        setActive(btn);
-
-        applyFilter(
-          btn.getAttribute(
-            "data-filter"
-          )
-        );
-
-      }
-    );
-
-  });
-
-</script>
-
-
-<!-- ================= FOOTER ================= -->
-
-<footer>
-
-  <div class="footerWrap">
-
-    <div>
-      © <span id="yr"></span>
-      Sajini Tharushika ·
-      Built with HTML, CSS &amp; JavaScript
-    </div>
-
-
-    <div class="footerLinks">
-
-      <a href="projects.html">
-        Projects
-      </a>
-
-      <a href="contact.html">
-        Contact
-      </a>
-
-      <a
-        href="https://www.linkedin.com/in/sajini-tharushika-15990234/"
-        target="_blank"
-        rel="noreferrer"
-      >
-        LinkedIn
-      </a>
-
-    </div>
-
-  </div>
-
-</footer>
-
-
-<!-- ================= FOOTER YEAR ================= -->
-
-<script>
-
-  const year =
-    document.getElementById(
-      "yr"
-    );
-
-  if(year){
-    year.textContent =
-      new Date().getFullYear();
-  }
-
-</script>
-
-
-<!-- ================= MOBILE NAV ================= -->
-
-<script>
-
-(function(){
-
-  const menuBtn =
-    document.getElementById(
-      "menuBtn"
-    );
-
-  const closeBtn =
-    document.getElementById(
-      "closeBtn"
-    );
-
-  const drawer =
-    document.getElementById(
-      "drawer"
-    );
-
-  const back =
-    document.getElementById(
-      "drawerBack"
-    );
-
-
-  if(
-    !menuBtn ||
-    !drawer ||
-    !back ||
-    !closeBtn
-  ){
-    return;
-  }
-
-
-  const links =
-    drawer.querySelectorAll(
-      "a[data-nav]"
-    );
-
-
-  const path =
-    (
-      location.pathname
-        .split("/")
-        .pop() ||
-      "index.html"
-    ).toLowerCase();
-
-
-  const key =
-    path.includes("about") ? "about" :
-    path.includes("skills") ? "skills" :
-    path.includes("projects") ? "projects" :
-    path.includes("contact") ? "contact" :
-    "index";
-
-
-  links.forEach(link=>{
-
-    link.classList.toggle(
-      "active",
-      link.getAttribute(
-        "data-nav"
-      ) === key
-    );
-
-  });
-
-
-  function openMenu(){
-
-    drawer.classList.add(
-      "open"
-    );
-
-    back.classList.add(
-      "open"
-    );
-
-    menuBtn.setAttribute(
-      "aria-expanded",
-      "true"
-    );
-
-    document.body.style.overflow =
-      "hidden";
-
-  }
-
-
-  function closeMenu(){
-
-    drawer.classList.remove(
-      "open"
-    );
-
-    back.classList.remove(
-      "open"
-    );
-
-    menuBtn.setAttribute(
-      "aria-expanded",
-      "false"
-    );
-
-    document.body.style.overflow =
-      "";
-
-  }
-
-
-  menuBtn.addEventListener(
-    "click",
-    openMenu
-  );
-
-
-  closeBtn.addEventListener(
-    "click",
-    closeMenu
-  );
-
-
-  back.addEventListener(
-    "click",
-    closeMenu
-  );
-
-
-  window.addEventListener(
-    "keydown",
-    event=>{
-
-      if(event.key === "Escape"){
-        closeMenu();
-      }
-
+  </section>
+
+  <script>
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const cards = document.querySelectorAll("[data-reveal]");
+
+    if (!reduce) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in");
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: .12 });
+
+      cards.forEach((card, index) => {
+        card.style.transitionDelay = (70 + index * 70) + "ms";
+        io.observe(card);
+      });
+    } else {
+      cards.forEach((card) => {
+        card.classList.add("in");
+      });
     }
-  );
 
+    const btns = document.querySelectorAll(".chipBtn");
+    const items = document.querySelectorAll(".card[data-tags]");
 
-  links.forEach(link=>{
+    function setActive(btn) {
+      btns.forEach((button) => {
+        button.classList.remove("active");
+      });
+      btn.classList.add("active");
+    }
 
-    link.addEventListener(
-      "click",
-      closeMenu
-    );
+    function applyFilter(tag) {
+      items.forEach((card) => {
+        const tags = (card.getAttribute("data-tags") || "")
+          .split(/\s+/)
+          .filter(Boolean);
+        const show = tag === "all" || tags.includes(tag);
+        card.classList.toggle("hidden", !show);
+      });
+    }
 
-  });
+    btns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        setActive(btn);
+        applyFilter(btn.getAttribute("data-filter"));
+      });
+    });
+  </script>
 
-})();
+  <footer>
+    <div class="footerWrap">
+      <div>
+        © <span id="yr"></span> Sajini Tharushika · Built with HTML, CSS &amp; JavaScript
+      </div>
+      <div class="footerLinks">
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+        <a href="https://www.linkedin.com/in/sajini-tharushika-15990234/"
+          target="_blank" rel="noreferrer">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
 
-</script>
+  <script>
+    const year = document.getElementById("yr");
+    if (year) {
+      year.textContent = new Date().getFullYear();
+    }
+  </script>
 
+  <script>
+    (function () {
+      const menuBtn = document.getElementById("menuBtn");
+      const closeBtn = document.getElementById("closeBtn");
+      const drawer = document.getElementById("drawer");
+      const back = document.getElementById("drawerBack");
+
+      if (!menuBtn || !drawer || !back || !closeBtn) {
+        return;
+      }
+
+      const links = drawer.querySelectorAll("a[data-nav]");
+      const path = (location.pathname.split("/").pop() || "index.html").toLowerCase();
+      const key =
+        path.includes("about") ? "about" :
+        path.includes("skills") ? "skills" :
+        path.includes("projects") ? "projects" :
+        path.includes("contact") ? "contact" :
+        "index";
+
+      links.forEach((link) => {
+        link.classList.toggle("active", link.getAttribute("data-nav") === key);
+      });
+
+      function openMenu() {
+        drawer.classList.add("open");
+        back.classList.add("open");
+        menuBtn.setAttribute("aria-expanded", "true");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeMenu() {
+        drawer.classList.remove("open");
+        back.classList.remove("open");
+        menuBtn.setAttribute("aria-expanded", "false");
+        document.body.style.overflow = "";
+      }
+
+      menuBtn.addEventListener("click", openMenu);
+      closeBtn.addEventListener("click", closeMenu);
+      back.addEventListener("click", closeMenu);
+
+      window.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          closeMenu();
+        }
+      });
+
+      links.forEach((link) => {
+        link.addEventListener("click", closeMenu);
+      });
+    })();
+  </script>
 </body>
 </html>
