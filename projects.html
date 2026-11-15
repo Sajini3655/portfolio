@@ -1,8 +1,8 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sajini Tharushika — Projects</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,25 +11,23 @@
 
   <style>
     :root {
-      --bg: #050817;
-      --fg: rgba(255,255,255,.92);
-      --muted: rgba(255,255,255,.65);
-      --stroke: rgba(255,255,255,.12);
-      --panel: rgba(0,0,0,.26);
+      --fg: rgba(255, 255, 255, .92);
+      --muted: rgba(255, 255, 255, .65);
       --accent: #38bdf8;
       --accent2: #a855f7;
-      --ease: cubic-bezier(.16,1,.3,1);
-      --shadow: 0 24px 100px rgba(0,0,0,.45);
+      --ease: cubic-bezier(.16, 1, .3, 1);
+      --shadow: 0 24px 100px rgba(0, 0, 0, .45);
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
-      font-family: Inter, system-ui;
-      background: linear-gradient(180deg,#050817,#060a14);
+      font-family: Inter, system-ui, sans-serif;
+      background: linear-gradient(180deg, #050817, #060a14);
       color: var(--fg);
-      overflow-x: hidden;
     }
 
     a {
@@ -37,21 +35,28 @@
       text-decoration: none;
     }
 
-    .container {
-      max-width: 1120px;
-      margin: auto;
-      padding: 0 22px;
+    button {
+      font: inherit;
     }
 
-    /* Navigation */
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 22px;
+    }
 
     header {
       position: sticky;
       top: 0;
       z-index: 30;
       backdrop-filter: blur(14px);
-      background: rgba(5,8,23,.72);
-      border-bottom: 1px solid rgba(255,255,255,.06);
+      background: rgba(5, 8, 23, .72);
+      border-bottom: 1px solid rgba(255, 255, 255, .06);
     }
 
     .nav {
@@ -64,8 +69,8 @@
 
     .brand {
       display: flex;
-      gap: 12px;
       align-items: center;
+      gap: 12px;
       font-weight: 800;
     }
 
@@ -74,340 +79,226 @@
       height: 38px;
       border-radius: 14px;
       background:
-        radial-gradient(circle at 30% 30%,rgba(255,255,255,.22),transparent 55%),
-        linear-gradient(135deg,var(--accent),var(--accent2));
-      box-shadow: 0 0 28px rgba(56,189,248,.14);
+        radial-gradient(circle at 30% 30%, rgba(255, 255, 255, .22), transparent 55%),
+        linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 0 28px rgba(56, 189, 248, .14);
     }
 
-    nav a {
+    .desktopNav a {
       margin-left: 18px;
-      font-size: 13px;
-      color: rgba(255,255,255,.75);
       padding: 8px 10px;
       border-radius: 12px;
-      transition:
-        background .2s var(--ease),
-        transform .2s var(--ease),
-        color .2s var(--ease);
+      color: rgba(255, 255, 255, .75);
+      font-size: 13px;
     }
 
-    nav a:hover {
-      background: rgba(255,255,255,.06);
-      transform: translateY(-1px);
+    .desktopNav a:hover,
+    .desktopNav a[aria-current="page"] {
+      background: rgba(255, 255, 255, .06);
       color: white;
     }
 
-    nav a.active {
-      color: white;
-      background: rgba(255,255,255,.06);
-    }
-
-    /* Mobile navigation */
-
-    .menuBtn {
-      height: 44px;
-      width: 44px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.06);
-      display: none;
+    .menuBtn,
+    .closeBtn {
       align-items: center;
       justify-content: center;
+      border: 1px solid rgba(255, 255, 255, .14);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, .06);
+      color: var(--fg);
       cursor: pointer;
-      transition:
-        transform .18s var(--ease),
-        border-color .18s var(--ease),
-        background .18s var(--ease);
-      -webkit-tap-highlight-color: transparent;
     }
 
-    .menuBtn:hover {
-      transform: translateY(-1px);
-      background: rgba(255,255,255,.08);
-      border-color: rgba(56,189,248,.22);
+    .menuBtn {
+      display: none;
+      width: 44px;
+      height: 44px;
     }
 
-    .menuBtn svg {
+    .closeBtn {
+      display: flex;
+      width: 38px;
+      height: 38px;
+    }
+
+    .menuBtn svg,
+    .closeBtn svg {
       width: 20px;
       height: 20px;
-      opacity: .9;
-    }
-
-    .drawerBack {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,.55);
-      backdrop-filter: blur(10px);
-      z-index: 60;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity .25s var(--ease);
-    }
-
-    .drawerBack.open {
-      opacity: 1;
-      pointer-events: auto;
     }
 
     .drawer {
       position: fixed;
-      right: 14px;
-      top: 82px;
-      width: min(360px,calc(100vw - 28px));
+      inset: 82px 14px auto auto;
+      width: min(360px, calc(100vw - 28px));
+      max-height: calc(100vh - 96px);
+      margin: 0;
+      padding: 0;
+      overflow: auto;
+      border: 1px solid rgba(255, 255, 255, .12);
       border-radius: 20px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(5,8,23,.88);
-      box-shadow: 0 24px 100px rgba(0,0,0,.55);
-      z-index: 70;
-      transform: translateY(-8px) scale(.98);
-      opacity: 0;
-      pointer-events: none;
-      transition:
-        opacity .25s var(--ease),
-        transform .25s var(--ease);
+      background: #0a0e21;
+      color: var(--fg);
+      box-shadow: 0 24px 100px rgba(0, 0, 0, .55);
     }
 
-    .drawer.open {
-      opacity: 1;
-      pointer-events: auto;
-      transform: translateY(0) scale(1);
+    .drawer::backdrop {
+      background: rgba(0, 0, 0, .55);
+      backdrop-filter: blur(10px);
     }
 
     .drawerHeader {
-      padding: 14px 14px 10px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 10px;
-      border-bottom: 1px solid rgba(255,255,255,.08);
-    }
-
-    .drawerTitle {
-      font-weight: 800;
+      padding: 14px 14px 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, .08);
       font-size: 13px;
-      color: rgba(255,255,255,.88);
-      letter-spacing: .01em;
-    }
-
-    .closeBtn {
-      height: 38px;
-      width: 38px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.06);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition:
-        transform .18s var(--ease),
-        border-color .18s var(--ease),
-        background .18s var(--ease);
-    }
-
-    .closeBtn:hover {
-      transform: translateY(-1px);
-      background: rgba(255,255,255,.08);
-      border-color: rgba(168,85,247,.22);
-    }
-
-    .closeBtn svg {
-      width: 18px;
-      height: 18px;
-      opacity: .9;
+      font-weight: 800;
     }
 
     .drawerNav {
-      padding: 12px;
       display: grid;
       gap: 10px;
+      padding: 12px;
     }
 
     .drawerNav a {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
       padding: 12px;
+      border: 1px solid rgba(255, 255, 255, .10);
       border-radius: 16px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.05);
-      color: rgba(255,255,255,.82);
+      background: rgba(255, 255, 255, .05);
+      color: rgba(255, 255, 255, .82);
       font-size: 13px;
       font-weight: 700;
-      transition:
-        transform .18s var(--ease),
-        border-color .18s var(--ease),
-        background .18s var(--ease);
     }
 
-    .drawerNav a:hover {
-      transform: translateY(-1px);
-      background: rgba(255,255,255,.07);
-      border-color: rgba(56,189,248,.22);
+    .drawerNav a:hover,
+    .drawerNav a[aria-current="page"] {
+      border-color: rgba(56, 189, 248, .40);
+      background: rgba(56, 189, 248, .12);
       color: white;
     }
-
-    .drawerNav a.active {
-      border-color: rgba(56,189,248,.40);
-      background: rgba(56,189,248,.12);
-      color: white;
-    }
-
-    .drawerNav small {
-      font-weight: 700;
-      color: rgba(255,255,255,.55);
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(0,0,0,.20);
-      padding: 6px 10px;
-      border-radius: 999px;
-    }
-
-    /* Page introduction */
 
     .page {
-      padding: 28px 0 80px;
       position: relative;
+      padding: 28px 0 80px;
     }
 
     .bg {
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(900px 520px at 18% 10%,rgba(56,189,248,.10),transparent 62%),
-        radial-gradient(980px 600px at 86% 18%,rgba(168,85,247,.10),transparent 65%),
-        linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);
-      background-size: auto,auto,64px 64px,64px 64px;
+        radial-gradient(900px 520px at 18% 10%, rgba(56, 189, 248, .10), transparent 62%),
+        radial-gradient(980px 600px at 86% 18%, rgba(168, 85, 247, .10), transparent 65%),
+        linear-gradient(rgba(255, 255, 255, .06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .06) 1px, transparent 1px);
+      background-size: auto, auto, 64px 64px, 64px 64px;
       opacity: .34;
-      mask-image: radial-gradient(
-        ellipse at 42% 14%,
-        rgba(0,0,0,1) 22%,
-        rgba(0,0,0,.85) 45%,
-        rgba(0,0,0,0) 78%
-      );
+      mask-image: radial-gradient(ellipse at 42% 14%, black 22%, transparent 78%);
       pointer-events: none;
     }
 
     .top {
       position: relative;
       display: flex;
+      flex-wrap: wrap;
       align-items: flex-end;
       justify-content: space-between;
       gap: 18px;
-      flex-wrap: wrap;
       margin-bottom: 18px;
     }
 
     h1 {
       margin: 0;
-      font-size: clamp(34px,4.8vw,54px);
+      font-size: clamp(34px, 4.8vw, 54px);
       letter-spacing: -.03em;
       line-height: 1.08;
     }
 
     .grad {
-      background: linear-gradient(90deg,var(--accent),var(--accent2));
-      -webkit-background-clip: text;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      background-clip: text;
       color: transparent;
     }
 
     .lead {
+      max-width: 82ch;
       margin: 10px 0 0;
       color: var(--muted);
-      line-height: 1.9;
       font-size: 15px;
-      max-width: 82ch;
+      line-height: 1.9;
     }
-
-    /* Project filters */
 
     .filters {
       display: flex;
-      gap: 10px;
       flex-wrap: wrap;
-      justify-content: flex-end;
+      gap: 10px;
     }
 
     .chipBtn {
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.05);
-      color: rgba(255,255,255,.80);
-      font-size: 12px;
       padding: 9px 12px;
+      border: 1px solid rgba(255, 255, 255, .14);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .05);
+      color: rgba(255, 255, 255, .80);
+      font-size: 12px;
       cursor: pointer;
-      transition:
-        transform .18s var(--ease),
-        border-color .18s var(--ease),
-        background .18s var(--ease);
-      user-select: none;
-      -webkit-tap-highlight-color: transparent;
     }
 
     .chipBtn:hover {
-      transform: translateY(-1px);
-      border-color: rgba(168,85,247,.22);
+      border-color: rgba(168, 85, 247, .50);
     }
 
-    .chipBtn.active {
-      border-color: rgba(56,189,248,.45);
-      background: rgba(56,189,248,.12);
+    .chipBtn[aria-pressed="true"] {
+      border-color: rgba(56, 189, 248, .45);
+      background: rgba(56, 189, 248, .12);
       color: white;
     }
-
-    /* Project cards */
 
     .grid {
       position: relative;
       display: grid;
-      grid-template-columns: repeat(12,minmax(0,1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 16px;
     }
 
     .card {
-      grid-column: span 6;
-      border-radius: 22px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(0,0,0,.26);
       overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, .12);
+      border-radius: 22px;
+      background: rgba(0, 0, 0, .26);
       box-shadow: var(--shadow);
-      transition:
-        transform .25s var(--ease),
-        border-color .2s var(--ease),
+      transition: transform .25s var(--ease), border-color .2s var(--ease),
         background .2s var(--ease);
-      opacity: 0;
-      transform: translateY(10px);
-    }
-
-    .card.in {
-      opacity: 1;
-      transform: translateY(0);
     }
 
     .card:hover {
       transform: translateY(-4px);
-      border-color: rgba(56,189,248,.22);
-      background: rgba(255,255,255,.06);
+      border-color: rgba(56, 189, 248, .22);
+      background: rgba(255, 255, 255, .06);
+    }
+
+    .card[hidden] {
+      display: none;
     }
 
     .media {
       position: relative;
       height: 260px;
       overflow: hidden;
-      background: rgba(255,255,255,.03);
+      background: rgba(255, 255, 255, .03);
     }
 
     .media img {
+      display: block;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
       transform: scale(1.02);
-      transition:
-        transform .55s var(--ease),
-        filter .55s var(--ease);
       filter: saturate(1.05) contrast(1.05);
+      transition: transform .55s var(--ease), filter .55s var(--ease);
     }
 
     .card:hover .media img {
@@ -419,32 +310,33 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(600px 280px at 20% 15%,rgba(56,189,248,.20),transparent 60%),
-        radial-gradient(600px 300px at 85% 80%,rgba(168,85,247,.18),transparent 62%),
-        linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.55));
-      opacity: .95;
+        radial-gradient(600px 280px at 20% 15%, rgba(56, 189, 248, .20), transparent 60%),
+        radial-gradient(600px 300px at 85% 80%, rgba(168, 85, 247, .18), transparent 62%),
+        linear-gradient(180deg, rgba(0, 0, 0, .05), rgba(0, 0, 0, .55));
       pointer-events: none;
     }
 
     .badgeRow {
       position: absolute;
-      left: 14px;
       right: 14px;
       bottom: 14px;
+      left: 14px;
       display: flex;
-      gap: 8px;
       flex-wrap: wrap;
-      align-items: center;
-      z-index: 2;
+      gap: 8px;
+    }
+
+    .badge,
+    .typeTag {
+      padding: 7px 10px;
+      border: 1px solid rgba(255, 255, 255, .14);
+      border-radius: 999px;
+      font-size: 11px;
     }
 
     .badge {
-      font-size: 11px;
-      padding: 7px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(0,0,0,.35);
-      color: rgba(255,255,255,.86);
+      background: rgba(0, 0, 0, .35);
+      color: rgba(255, 255, 255, .86);
       backdrop-filter: blur(10px);
     }
 
@@ -454,13 +346,15 @@
 
     .titleRow {
       display: flex;
-      justify-content: space-between;
+      flex-wrap: wrap;
       align-items: flex-start;
-      gap: 12px;
+      justify-content: space-between;
+      gap: 8px 12px;
       margin-bottom: 8px;
     }
 
     .titleRow h2 {
+      flex: 1 1 240px;
       margin: 0;
       font-size: 16px;
       letter-spacing: -.01em;
@@ -468,13 +362,8 @@
     }
 
     .typeTag {
-      font-size: 11px;
-      padding: 7px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.05);
-      color: rgba(255,255,255,.78);
-      white-space: nowrap;
+      background: rgba(255, 255, 255, .05);
+      color: rgba(255, 255, 255, .78);
     }
 
     .desc {
@@ -484,168 +373,177 @@
       line-height: 1.75;
     }
 
-    .tech {
-      margin-top: 12px;
+    .desc + .desc {
+      margin-top: 8px;
+    }
+
+    .tech,
+    .links {
       display: flex;
-      gap: 7px;
       flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .tech {
+      gap: 7px;
+      margin-top: 12px;
     }
 
     .tech span {
-      font-size: 10.5px;
       padding: 6px 9px;
+      border: 1px solid rgba(255, 255, 255, .10);
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.04);
-      color: rgba(255,255,255,.65);
+      background: rgba(255, 255, 255, .04);
+      color: var(--muted);
+      font-size: 10.5px;
     }
 
     .links {
-      margin-top: 14px;
-      display: flex;
       gap: 10px;
-      flex-wrap: wrap;
-      align-items: center;
+      margin-top: 14px;
     }
 
     .link {
       display: inline-flex;
+      min-height: 38px;
       align-items: center;
       justify-content: center;
-      height: 38px;
       padding: 0 12px;
+      border: 1px solid rgba(255, 255, 255, .14);
       border-radius: 12px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.06);
+      background: rgba(255, 255, 255, .06);
       font-size: 12px;
       font-weight: 800;
-      transition:
-        transform .18s var(--ease),
-        border-color .18s var(--ease),
-        background .18s var(--ease);
     }
 
     .link:hover {
-      transform: translateY(-1px);
-      background: rgba(255,255,255,.08);
-      border-color: rgba(56,189,248,.22);
+      border-color: rgba(56, 189, 248, .45);
+      background: rgba(255, 255, 255, .09);
     }
 
     .link.primary {
-      background: rgba(56,189,248,.14);
-      border-color: rgba(56,189,248,.35);
+      border-color: rgba(56, 189, 248, .35);
+      background: rgba(56, 189, 248, .14);
     }
 
     .link.primary:hover {
-      background: rgba(56,189,248,.18);
-      border-color: rgba(56,189,248,.55);
+      border-color: rgba(56, 189, 248, .55);
+      background: rgba(56, 189, 248, .18);
     }
-
-    .hidden {
-      display: none !important;
-    }
-
-    /* Footer */
 
     footer {
-      border-top: 1px solid rgba(255,255,255,.08);
-      background: rgba(5,8,23,.55);
-      backdrop-filter: blur(12px);
+      border-top: 1px solid rgba(255, 255, 255, .08);
+      background: rgba(5, 8, 23, .55);
     }
 
     .footerWrap {
-      max-width: 1120px;
-      margin: auto;
-      padding: 18px 22px;
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
       gap: 12px;
-      flex-wrap: wrap;
-      color: rgba(255,255,255,.60);
+      padding-top: 18px;
+      padding-bottom: 18px;
+      color: rgba(255, 255, 255, .60);
       font-size: 12px;
     }
 
     .footerLinks {
       display: flex;
-      gap: 12px;
       flex-wrap: wrap;
+      gap: 12px;
     }
 
     .footerLinks a {
-      color: rgba(255,255,255,.70);
-      border-bottom: 1px solid rgba(255,255,255,.16);
       padding-bottom: 2px;
+      border-bottom: 1px solid rgba(255, 255, 255, .16);
+      color: rgba(255, 255, 255, .70);
     }
 
     .footerLinks a:hover {
       color: white;
-      border-bottom-color: rgba(56,189,248,.45);
     }
 
-    /* Responsive layout */
-
     @media (max-width: 980px) {
-      nav { display: none; }
-      .menuBtn { display: flex; }
-      .container { padding: 0 16px; }
-      .page { padding: 20px 0 64px; }
-      .top { margin-bottom: 14px; }
-      .lead { font-size: 14px; }
-      .filters { justify-content: flex-start; }
-      .chipBtn { padding: 10px 12px; }
-      .grid { gap: 12px; }
+      .desktopNav {
+        display: none;
+      }
+
+      .menuBtn {
+        display: flex;
+      }
+
+      .container {
+        padding-right: 16px;
+        padding-left: 16px;
+      }
+
+      .page {
+        padding: 20px 0 64px;
+      }
+
+      .top {
+        margin-bottom: 14px;
+      }
+
+      .lead {
+        font-size: 14px;
+      }
+
+      .grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 12px;
+      }
 
       .card {
-        grid-column: span 12;
         border-radius: 20px;
       }
 
-      .media { height: 210px; }
-      .content { padding: 14px 14px 16px; }
+      .media {
+        height: 210px;
+      }
+
+      .content {
+        padding: 14px 14px 16px;
+      }
 
       .titleRow {
         flex-direction: column;
-        align-items: flex-start;
       }
 
-      .typeTag { margin-top: 6px; }
-
-      .badgeRow {
-        left: 12px;
-        right: 12px;
-        bottom: 12px;
+      .titleRow h2 {
+        flex: auto;
       }
     }
 
     @media (max-width: 420px) {
       h1 {
-        font-size: clamp(30px,10.5vw,42px);
-        line-height: 1.1;
+        font-size: clamp(30px, 10.5vw, 42px);
       }
 
-      .media { height: 190px; }
+      .media {
+        height: 190px;
+      }
 
       .badge {
-        font-size: 10.5px;
         padding: 6px 9px;
+        font-size: 10.5px;
       }
 
       .link {
-        height: 40px;
-        padding: 0 12px;
+        min-height: 40px;
       }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .card {
-        opacity: 1 !important;
-        transform: none !important;
-        transition: none !important;
+      .card,
+      .media img {
+        transition: none;
       }
 
-      .media img {
-        transition: none !important;
+      .card:hover,
+      .card:hover .media img {
+        transform: none;
       }
     }
   </style>
@@ -654,59 +552,52 @@
 <body>
   <header>
     <div class="container nav">
-      <div class="brand">
-        <div class="logo"></div>
+      <a class="brand" href="index.html">
+        <span class="logo" aria-hidden="true"></span>
         Sajini Tharushika
-      </div>
+      </a>
 
-      <nav>
+      <nav class="desktopNav" aria-label="Main navigation">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="skills.html">Skills</a>
-        <a href="projects.html" class="active">Projects</a>
+        <a href="projects.html" aria-current="page">Projects</a>
         <a href="contact.html">Contact</a>
       </nav>
 
-      <button
-        class="menuBtn"
-        id="menuBtn"
-        type="button"
-        aria-label="Open menu"
-        aria-controls="drawer"
-        aria-expanded="false"
-      >
+      <button class="menuBtn" id="menuBtn" type="button"
+        aria-label="Open menu" aria-controls="drawer" aria-expanded="false">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-          stroke-width="2" stroke-linecap="round">
+          stroke-width="2" stroke-linecap="round" aria-hidden="true">
           <path d="M4 7h16M4 12h16M4 17h16"></path>
         </svg>
       </button>
     </div>
+  </header>
 
-    <div class="drawerBack" id="drawerBack" aria-hidden="true"></div>
-
-    <div class="drawer" id="drawer" role="dialog"
-      aria-modal="true" aria-label="Mobile navigation">
-      <div class="drawerHeader">
-        <div class="drawerTitle">Navigation</div>
-        <button class="closeBtn" id="closeBtn" type="button" aria-label="Close menu">
+  <dialog class="drawer" id="drawer" aria-labelledby="drawerTitle">
+    <div class="drawerHeader">
+      <span id="drawerTitle">Navigation</span>
+      <form method="dialog">
+        <button class="closeBtn" type="submit" aria-label="Close menu">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-            stroke-width="2" stroke-linecap="round">
+            stroke-width="2" stroke-linecap="round" aria-hidden="true">
             <path d="M18 6L6 18M6 6l12 12"></path>
           </svg>
         </button>
-      </div>
-
-      <div class="drawerNav">
-        <a href="index.html" data-nav="index"><span>Home</span><small>Start</small></a>
-        <a href="about.html" data-nav="about"><span>About</span><small>Me</small></a>
-        <a href="skills.html" data-nav="skills"><span>Skills</span><small>Stack</small></a>
-        <a href="projects.html" data-nav="projects"><span>Projects</span><small>Work</small></a>
-        <a href="contact.html" data-nav="contact"><span>Contact</span><small>Reach</small></a>
-      </div>
+      </form>
     </div>
-  </header>
 
-  <section class="page">
+    <nav class="drawerNav" aria-label="Mobile navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="skills.html">Skills</a>
+      <a href="projects.html" aria-current="page">Projects</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </dialog>
+
+  <main class="page">
     <div class="bg" aria-hidden="true"></div>
 
     <div class="container">
@@ -721,22 +612,22 @@
           </p>
         </div>
 
-        <div class="filters" aria-label="Project filters">
-          <button class="chipBtn active" data-filter="all" type="button">All</button>
-          <button class="chipBtn" data-filter="fullstack" type="button">Full-Stack</button>
-          <button class="chipBtn" data-filter="distributed" type="button">Distributed</button>
-          <button class="chipBtn" data-filter="ai" type="button">AI-Enhanced</button>
-          <button class="chipBtn" data-filter="web" type="button">Web</button>
-          <button class="chipBtn" data-filter="graphics" type="button">Graphics</button>
-          <button class="chipBtn" data-filter="embedded" type="button">Embedded</button>
+        <div class="filters" role="group" aria-label="Project filters">
+          <button class="chipBtn" type="button" data-filter="all" aria-pressed="true">All</button>
+          <button class="chipBtn" type="button" data-filter="fullstack" aria-pressed="false">Full-Stack</button>
+          <button class="chipBtn" type="button" data-filter="distributed" aria-pressed="false">Distributed</button>
+          <button class="chipBtn" type="button" data-filter="ai" aria-pressed="false">AI-Enhanced</button>
+          <button class="chipBtn" type="button" data-filter="web" aria-pressed="false">Web</button>
+          <button class="chipBtn" type="button" data-filter="graphics" aria-pressed="false">Graphics</button>
+          <button class="chipBtn" type="button" data-filter="embedded" aria-pressed="false">Embedded</button>
         </div>
       </div>
 
       <div class="grid" id="grid">
         <!-- Nexora -->
-        <article class="card" data-reveal data-tags="ai fullstack web">
+        <article class="card" data-tags="ai fullstack web">
           <div class="media">
-            <img src="./images/nexora.png" alt="Nexora — AI-enhanced project management system">
+            <img src="./images/nexora.png" alt="Nexora project management system">
             <div class="overlay" aria-hidden="true"></div>
             <div class="badgeRow">
               <span class="badge">AI-Enhanced</span>
@@ -775,38 +666,82 @@
           </div>
         </article>
 
-        <!-- PhysicsLab -->
-        <article class="card" data-reveal data-tags="ai fullstack web">
+        <!-- SwiftDrop -->
+        <article class="card" data-tags="fullstack web">
           <div class="media">
-            <svg
-              viewBox="0 0 640 320"
-              preserveAspectRatio="xMidYMid slice"
-              width="100%"
-              height="100%"
-              aria-hidden="true"
-              focusable="false"
-            >
+            <img src="./images/swiftdrop-delivery.png"
+              alt="Illustration of a parcel, a delivery van, and a route map">
+            <div class="overlay" aria-hidden="true"></div>
+            <div class="badgeRow">
+              <span class="badge">React</span>
+              <span class="badge">TypeScript</span>
+              <span class="badge">Go REST API</span>
+            </div>
+          </div>
+
+          <div class="content">
+            <div class="titleRow">
+              <h2>SwiftDrop — Parcel Delivery &amp; Courier Management</h2>
+              <span class="typeTag">Frontend Developer, Member 6</span>
+            </div>
+            <p class="desc">
+              I built the customer and merchant interfaces for this team-built delivery
+              platform, including a four-step booking flow with server-calculated quotes,
+              parcel tracking with a polling fallback, and merchant order tools for CSV
+              imports and API key management.
+            </p>
+            <p class="desc">
+              I connected dispatcher and courier dashboards to the Go API and verified
+              parcel assignment locally. I also wrote two Playwright integration tests
+              that passed against the local Core API, covering merchant sign-in, profile
+              and order loading, and API key creation and revocation.
+            </p>
+            <div class="tech">
+              <span>React</span>
+              <span>TypeScript</span>
+              <span>Vite</span>
+              <span>Tailwind CSS</span>
+              <span>Go</span>
+              <span>PostgreSQL</span>
+              <span>REST APIs</span>
+              <span>Playwright</span>
+            </div>
+            <div class="links">
+              <a class="link primary" href="https://swiftdrop.work"
+                target="_blank" rel="noreferrer">Live Demo</a>
+              <a class="link" href="https://github.com/phantomTroupeEAD/SwiftDrop"
+                target="_blank" rel="noreferrer">GitHub</a>
+              <a class="link" href="https://github.com/phantomTroupeEAD/SwiftDrop/pull/79"
+                target="_blank" rel="noreferrer">Frontend PR</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- PhysicsLab -->
+        <article class="card" data-tags="ai fullstack web">
+          <div class="media">
+            <svg viewBox="0 0 640 320" preserveAspectRatio="xMidYMid slice"
+              width="100%" height="100%" aria-hidden="true" focusable="false">
               <defs>
                 <linearGradient id="physicslab-background" x2="1" y2="1">
-                  <stop stop-color="#10233e" />
-                  <stop offset="1" stop-color="#201239" />
+                  <stop stop-color="#10233e"></stop>
+                  <stop offset="1" stop-color="#201239"></stop>
                 </linearGradient>
                 <pattern id="physicslab-grid" width="32" height="32" patternUnits="userSpaceOnUse">
-                  <path d="M32 0H0V32" fill="none" stroke="#8bb6d7" stroke-opacity=".18" />
+                  <path d="M32 0H0V32" fill="none" stroke="#8bb6d7" stroke-opacity=".18"></path>
                 </pattern>
               </defs>
-              <path d="M0 0H640V320H0Z" fill="url(#physicslab-background)" />
-              <path d="M0 0H640V320H0Z" fill="url(#physicslab-grid)" />
-              <path d="M104 70V242H546" fill="none" stroke="#8bb6d7" stroke-width="2" />
-              <path d="M104 242Q320 -40 536 242" fill="none" stroke="#38bdf8" stroke-width="4" />
-              <path d="M320 101V242" stroke="#a855f7" stroke-width="2" stroke-dasharray="6 8" />
+              <path d="M0 0H640V320H0Z" fill="url(#physicslab-background)"></path>
+              <path d="M0 0H640V320H0Z" fill="url(#physicslab-grid)"></path>
+              <path d="M104 70V242H546" fill="none" stroke="#8bb6d7" stroke-width="2"></path>
+              <path d="M104 242Q320 -40 536 242" fill="none" stroke="#38bdf8" stroke-width="4"></path>
+              <path d="M320 101V242" stroke="#a855f7" stroke-width="2" stroke-dasharray="6 8"></path>
               <g fill="#c4f0ff">
-                <circle cx="104" cy="242" r="5" />
-                <circle cx="320" cy="101" r="7" />
-                <circle cx="536" cy="242" r="5" />
+                <circle cx="104" cy="242" r="5"></circle>
+                <circle cx="320" cy="101" r="7"></circle>
+                <circle cx="536" cy="242" r="5"></circle>
               </g>
             </svg>
-
             <div class="overlay" aria-hidden="true"></div>
             <div class="badgeRow">
               <span class="badge">AI-Enhanced</span>
@@ -841,9 +776,9 @@
         </article>
 
         <!-- FlowForge -->
-        <article class="card" data-reveal data-tags="fullstack distributed web">
+        <article class="card" data-tags="fullstack distributed web">
           <div class="media">
-            <img src="./images/flowforge.png" alt="FlowForge — API management and distributed workflow platform">
+            <img src="./images/flowforge.png" alt="FlowForge API and workflow platform" loading="lazy">
             <div class="overlay" aria-hidden="true"></div>
             <div class="badgeRow">
               <span class="badge">Distributed Systems</span>
@@ -881,9 +816,9 @@
         </article>
 
         <!-- FabricLab -->
-        <article class="card" data-reveal data-tags="graphics web">
+        <article class="card" data-tags="graphics web">
           <div class="media">
-            <img src="./images/fabriclab.png" alt="FabricLab — interactive material and physics laboratory">
+            <img src="./images/fabriclab.png" alt="FabricLab interactive cloth simulation" loading="lazy">
             <div class="overlay" aria-hidden="true"></div>
             <div class="badgeRow">
               <span class="badge">WebGPU</span>
@@ -924,9 +859,9 @@
         </article>
 
         <!-- AURA -->
-        <article class="card" data-reveal data-tags="fullstack web">
+        <article class="card" data-tags="fullstack web">
           <div class="media">
-            <img src="./images/aura.png" alt="AURA — full-stack fashion e-commerce web application">
+            <img src="./images/aura.png" alt="AURA fashion e-commerce application" loading="lazy">
             <div class="overlay" aria-hidden="true"></div>
             <div class="badgeRow">
               <span class="badge">Full-Stack</span>
@@ -962,9 +897,9 @@
         </article>
 
         <!-- LaserTunes -->
-        <article class="card" data-reveal data-tags="embedded">
+        <article class="card" data-tags="embedded">
           <div class="media">
-            <img src="./images/lasertunes.jpg" alt="LaserTunes — laser-based musical instrument">
+            <img src="./images/lasertunes.jpg" alt="LaserTunes laser-based musical instrument" loading="lazy">
             <div class="overlay" aria-hidden="true"></div>
             <div class="badgeRow">
               <span class="badge">Arduino Mega</span>
@@ -999,9 +934,9 @@
         </article>
 
         <!-- Solar -->
-        <article class="card" data-reveal data-tags="graphics">
+        <article class="card" data-tags="graphics">
           <div class="media">
-            <img src="./images/solar.png" alt="Solar — computer graphics animation project">
+            <img src="./images/solar.png" alt="Solar computer graphics animation" loading="lazy">
             <div class="overlay" aria-hidden="true"></div>
             <div class="badgeRow">
               <span class="badge">OpenGL</span>
@@ -1036,9 +971,9 @@
         </article>
 
         <!-- Fitness First -->
-        <article class="card" data-reveal data-tags="web">
+        <article class="card" data-tags="web">
           <div class="media">
-            <img src="./images/fitness.png" alt="Fitness First — gym website">
+            <img src="./images/fitness.png" alt="Fitness First gym website" loading="lazy">
             <div class="overlay" aria-hidden="true"></div>
             <div class="badgeRow">
               <span class="badge">HTML</span>
@@ -1071,133 +1006,72 @@
         </article>
       </div>
     </div>
-  </section>
-
-  <script>
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const cards = document.querySelectorAll("[data-reveal]");
-
-    if (!reduce) {
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("in");
-            io.unobserve(entry.target);
-          }
-        });
-      }, { threshold: .12 });
-
-      cards.forEach((card, index) => {
-        card.style.transitionDelay = (70 + index * 70) + "ms";
-        io.observe(card);
-      });
-    } else {
-      cards.forEach((card) => {
-        card.classList.add("in");
-      });
-    }
-
-    const btns = document.querySelectorAll(".chipBtn");
-    const items = document.querySelectorAll(".card[data-tags]");
-
-    function setActive(btn) {
-      btns.forEach((button) => {
-        button.classList.remove("active");
-      });
-      btn.classList.add("active");
-    }
-
-    function applyFilter(tag) {
-      items.forEach((card) => {
-        const tags = (card.getAttribute("data-tags") || "")
-          .split(/\s+/)
-          .filter(Boolean);
-        const show = tag === "all" || tags.includes(tag);
-        card.classList.toggle("hidden", !show);
-      });
-    }
-
-    btns.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        setActive(btn);
-        applyFilter(btn.getAttribute("data-filter"));
-      });
-    });
-  </script>
+  </main>
 
   <footer>
-    <div class="footerWrap">
-      <div>
-        © <span id="yr"></span> Sajini Tharushika · Built with HTML, CSS &amp; JavaScript
-      </div>
+    <div class="container footerWrap">
+      <div>© <span id="year"></span> Sajini Tharushika · Built with HTML, CSS &amp; JavaScript</div>
       <div class="footerLinks">
         <a href="projects.html">Projects</a>
         <a href="contact.html">Contact</a>
-        <a href="https://www.linkedin.com/in/sajini-tharushika-15990234/"
+        <a href="https://www.linkedin.com/in/sajini-tharushika-15990234b/"
           target="_blank" rel="noreferrer">LinkedIn</a>
       </div>
     </div>
   </footer>
 
   <script>
-    const year = document.getElementById("yr");
-    if (year) {
-      year.textContent = new Date().getFullYear();
-    }
-  </script>
+    const filterButtons = document.querySelectorAll("[data-filter]");
+    const projectCards = document.querySelectorAll(".card[data-tags]");
 
-  <script>
-    (function () {
-      const menuBtn = document.getElementById("menuBtn");
-      const closeBtn = document.getElementById("closeBtn");
-      const drawer = document.getElementById("drawer");
-      const back = document.getElementById("drawerBack");
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const filter = button.dataset.filter;
 
-      if (!menuBtn || !drawer || !back || !closeBtn) {
+        filterButtons.forEach((item) => {
+          item.setAttribute("aria-pressed", String(item === button));
+        });
+
+        projectCards.forEach((card) => {
+          const tags = card.dataset.tags.split(/\s+/);
+          card.hidden = filter !== "all" && !tags.includes(filter);
+        });
+      });
+    });
+
+    const menuButton = document.getElementById("menuBtn");
+    const drawer = document.getElementById("drawer");
+
+    menuButton.addEventListener("click", () => {
+      drawer.showModal();
+      menuButton.setAttribute("aria-expanded", "true");
+    });
+
+    drawer.addEventListener("close", () => {
+      menuButton.setAttribute("aria-expanded", "false");
+    });
+
+    drawer.addEventListener("click", (event) => {
+      if (event.target !== drawer) {
         return;
       }
 
-      const links = drawer.querySelectorAll("a[data-nav]");
-      const path = (location.pathname.split("/").pop() || "index.html").toLowerCase();
-      const key =
-        path.includes("about") ? "about" :
-        path.includes("skills") ? "skills" :
-        path.includes("projects") ? "projects" :
-        path.includes("contact") ? "contact" :
-        "index";
+      const bounds = drawer.getBoundingClientRect();
+      const clickedOutside = event.clientX < bounds.left ||
+        event.clientX > bounds.right ||
+        event.clientY < bounds.top ||
+        event.clientY > bounds.bottom;
 
-      links.forEach((link) => {
-        link.classList.toggle("active", link.getAttribute("data-nav") === key);
-      });
-
-      function openMenu() {
-        drawer.classList.add("open");
-        back.classList.add("open");
-        menuBtn.setAttribute("aria-expanded", "true");
-        document.body.style.overflow = "hidden";
+      if (clickedOutside) {
+        drawer.close();
       }
+    });
 
-      function closeMenu() {
-        drawer.classList.remove("open");
-        back.classList.remove("open");
-        menuBtn.setAttribute("aria-expanded", "false");
-        document.body.style.overflow = "";
-      }
+    drawer.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => drawer.close());
+    });
 
-      menuBtn.addEventListener("click", openMenu);
-      closeBtn.addEventListener("click", closeMenu);
-      back.addEventListener("click", closeMenu);
-
-      window.addEventListener("keydown", (event) => {
-        if (event.key === "Escape") {
-          closeMenu();
-        }
-      });
-
-      links.forEach((link) => {
-        link.addEventListener("click", closeMenu);
-      });
-    })();
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
