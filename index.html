@@ -35,7 +35,8 @@
 
     body {
       margin: 0;
-      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: Inter, system-ui, -apple-system,
+        BlinkMacSystemFont, "Segoe UI", sans-serif;
       background: linear-gradient(180deg,#050817,#060a14);
       color: var(--fg);
       overflow-x: hidden;
@@ -84,7 +85,11 @@
       height: 38px;
       border-radius: 14px;
       background:
-        radial-gradient(circle at 30% 30%,rgba(255,255,255,.22),transparent 55%),
+        radial-gradient(
+          circle at 30% 30%,
+          rgba(255,255,255,.22),
+          transparent 55%
+        ),
         linear-gradient(135deg,var(--accent),var(--accent2));
       box-shadow: 0 0 28px rgba(56,189,248,.14);
     }
@@ -120,6 +125,7 @@
       border-radius: 14px;
       border: 1px solid rgba(255,255,255,.14);
       background: rgba(255,255,255,.06);
+      color: var(--fg);
       display: none;
       align-items: center;
       justify-content: center;
@@ -204,6 +210,7 @@
       border-radius: 14px;
       border: 1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.06);
+      color: var(--fg);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -292,10 +299,25 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(900px 520px at 22% 18%,rgba(56,189,248,.10),transparent 62%),
-        radial-gradient(980px 600px at 86% 22%,rgba(168,85,247,.10),transparent 65%),
-        linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);
+        radial-gradient(
+          900px 520px at 22% 18%,
+          rgba(56,189,248,.10),
+          transparent 62%
+        ),
+        radial-gradient(
+          980px 600px at 86% 22%,
+          rgba(168,85,247,.10),
+          transparent 65%
+        ),
+        linear-gradient(
+          rgba(255,255,255,.06) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255,255,255,.06) 1px,
+          transparent 1px
+        );
       background-size: auto,auto,64px 64px,64px 64px;
       opacity: .42;
       mask-image: radial-gradient(
@@ -346,8 +368,13 @@
     }
 
     .grad {
-      background: linear-gradient(90deg,var(--accent),var(--accent2));
+      background: linear-gradient(
+        90deg,
+        var(--accent),
+        var(--accent2)
+      );
       -webkit-background-clip: text;
+      background-clip: text;
       color: transparent;
     }
 
@@ -459,8 +486,16 @@
       position: absolute;
       inset: -40%;
       background:
-        radial-gradient(520px circle at 30% 20%,rgba(56,189,248,.14),transparent 60%),
-        radial-gradient(680px circle at 80% 70%,rgba(168,85,247,.12),transparent 62%);
+        radial-gradient(
+          520px circle at 30% 20%,
+          rgba(56,189,248,.14),
+          transparent 60%
+        ),
+        radial-gradient(
+          680px circle at 80% 70%,
+          rgba(168,85,247,.12),
+          transparent 62%
+        );
       pointer-events: none;
       opacity: .9;
     }
@@ -630,7 +665,11 @@
 
     .proj.featured {
       border-color: rgba(56,189,248,.25);
-      background: linear-gradient(145deg,rgba(56,189,248,.07),rgba(168,85,247,.05));
+      background: linear-gradient(
+        145deg,
+        rgba(56,189,248,.07),
+        rgba(168,85,247,.05)
+      );
     }
 
     .projTop {
@@ -781,6 +820,8 @@
 <body>
   <div class="glow" id="glow" aria-hidden="true"></div>
 
+  <!-- HEADER -->
+
   <header>
     <div class="container nav">
       <div class="brand">
@@ -804,22 +845,47 @@
         aria-controls="drawer"
         aria-expanded="false"
       >
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-          stroke-width="2" stroke-linecap="round">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+        >
           <path d="M4 7h16M4 12h16M4 17h16"></path>
         </svg>
       </button>
     </div>
 
-    <div class="drawerBack" id="drawerBack" aria-hidden="true"></div>
+    <div
+      class="drawerBack"
+      id="drawerBack"
+      aria-hidden="true"
+    ></div>
 
-    <div class="drawer" id="drawer" role="dialog"
-      aria-modal="true" aria-label="Mobile navigation">
+    <div
+      class="drawer"
+      id="drawer"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Mobile navigation"
+    >
       <div class="drawerHeader">
         <div class="drawerTitle">Navigation</div>
-        <button class="closeBtn" id="closeBtn" type="button" aria-label="Close menu">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-            stroke-width="2" stroke-linecap="round">
+
+        <button
+          class="closeBtn"
+          id="closeBtn"
+          type="button"
+          aria-label="Close menu"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+          >
             <path d="M18 6L6 18M6 6l12 12"></path>
           </svg>
         </button>
@@ -830,18 +896,22 @@
           <span>Home</span>
           <small>Start</small>
         </a>
+
         <a href="about.html" data-nav="about">
           <span>About</span>
           <small>Me</small>
         </a>
+
         <a href="skills.html" data-nav="skills">
           <span>Skills</span>
           <small>Stack</small>
         </a>
+
         <a href="projects.html" data-nav="projects">
           <span>Projects</span>
           <small>Work</small>
         </a>
+
         <a href="contact.html" data-nav="contact">
           <span>Contact</span>
           <small>Reach</small>
@@ -849,6 +919,8 @@
       </div>
     </div>
   </header>
+
+  <!-- HERO -->
 
   <section class="hero">
     <canvas id="particles"></canvas>
@@ -869,6 +941,7 @@
 
         <div class="roleline">
           <span class="roleTag">Focus</span>
+
           <span class="typing">
             <span id="typed"></span>
             <span class="caret">|</span>
@@ -876,69 +949,121 @@
         </div>
 
         <p class="lead">
-          I’m an Information Technology undergraduate at the University of Moratuwa
-          interested in software engineering, DevOps, and AI/ML. My projects span
-          full-stack web development, distributed backend systems, and AI
-          integration. I’m interested in how automation and monitoring help teams
-          deploy software reliably.
+          I’m an Information Technology undergraduate at the
+          University of Moratuwa interested in software
+          engineering, DevOps, and AI/ML. My projects span
+          full-stack web development, distributed backend
+          systems, and AI integration. I’m interested in
+          how automation and monitoring help teams deploy
+          software reliably.
         </p>
 
+        <!-- UPDATED: TWO CV BUTTONS -->
+
         <div class="actions">
-          <a class="btn primary" href="projects.html">View projects</a>
-          <a class="btn" href="Sajini_Tharushika_Resume.pdf"
-            target="_blank" rel="noopener noreferrer">Download Resume</a>
-          <a class="btn" href="contact.html">Get in touch</a>
+          <a
+            class="btn primary"
+            href="projects.html"
+          >
+            View projects
+          </a>
+
+          <a
+            class="btn"
+            href="Sajini_SE_CV.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            SE CV
+          </a>
+
+          <a
+            class="btn"
+            href="Sajini_DevOps_CV.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            DevOps CV
+          </a>
+
+          <a
+            class="btn"
+            href="contact.html"
+          >
+            Get in touch
+          </a>
         </div>
       </div>
 
       <aside class="profile">
-        <div class="badge">Software Engineering · DevOps · AI/ML</div>
-        <img src="./images/profile.jpg" alt="Sajini Tharushika">
-        <div class="profileFooter">Sri Lanka · University of Moratuwa</div>
+        <div class="badge">
+          Software Engineering · DevOps · AI/ML
+        </div>
+
+        <img
+          src="./images/profile.jpg"
+          alt="Sajini Tharushika"
+        >
+
+        <div class="profileFooter">
+          Sri Lanka · University of Moratuwa
+        </div>
       </aside>
     </div>
   </section>
+
+  <!-- WHAT I BUILD -->
 
   <section class="section" style="padding-top:90px;">
     <div class="container">
       <div class="sectionTitle">
         <h2>What I build</h2>
+
         <p>
-          Full-stack applications, distributed backend services,
-          and practical AI features, with an interest in how software is delivered and monitored.
+          Full-stack applications, distributed backend
+          services, and practical AI features, with an
+          interest in how software is delivered and monitored.
         </p>
       </div>
 
       <div class="cards">
         <div class="card" data-reveal>
           <h3>Full-Stack Applications</h3>
+
           <p>
-            Building end-to-end applications combining modern frontend
-            technologies, backend services, APIs, and databases.
+            Building end-to-end applications combining
+            modern frontend technologies, backend
+            services, APIs, and databases.
           </p>
         </div>
 
         <div class="card" data-reveal>
           <h3>AI-Enhanced Applications</h3>
+
           <p>
-            Integrating AI into practical workflows, such as summarizing
-            conversations and turning them into project tickets.
+            Integrating AI into practical workflows,
+            such as summarizing conversations and
+            turning them into project tickets.
           </p>
         </div>
 
         <div class="card" data-reveal>
           <h3>Backend &amp; REST APIs</h3>
+
           <p>
-            Developing backend services with API integration, database
-            connectivity, authentication, and application logic.
+            Developing backend services with API
+            integration, database connectivity,
+            authentication, and application logic.
           </p>
         </div>
 
         <div class="card" data-reveal>
           <h3>DevOps &amp; Observability</h3>
+
           <p>
-            Project experience with Docker, Kubernetes, GitHub Actions,
-            Prometheus, and Grafana for containerization, delivery, and monitoring.
+            Project experience with Docker, Kubernetes,
+            GitHub Actions, Prometheus, and Grafana for
+            containerization, delivery, and monitoring.
           </p>
         </div>
       </div>
@@ -963,50 +1088,64 @@
     </div>
   </section>
 
+  <!-- QUICK HIGHLIGHTS -->
+
   <section class="section" style="padding-top:0;">
     <div class="container">
       <div class="sectionTitle">
         <h2>Quick highlights</h2>
-        <p>A snapshot of my academic background, collaboration experience, and technical interests.</p>
+
+        <p>
+          A snapshot of my academic background,
+          collaboration experience, and technical interests.
+        </p>
       </div>
 
       <div class="cards highlightGrid">
         <div class="card" data-reveal>
           <h3>Academics</h3>
+
           <p>
-            BSc (Hons) IT undergraduate at the University of Moratuwa,
-            developing a foundation in software engineering, computing,
-            and problem solving.
+            BSc (Hons) IT undergraduate at the
+            University of Moratuwa, developing a
+            foundation in software engineering,
+            computing, and problem solving.
           </p>
         </div>
 
         <div class="card" data-reveal>
           <h3>Leadership &amp; Collaboration</h3>
+
           <p>
-            IEEE CS · Leo Club · Rotaract · MoraSpirit · CareerX.
-            I’ve contributed through editorial, design, technology,
-            and event coordination roles.
+            IEEE CS · Leo Club · Rotaract · MoraSpirit ·
+            CareerX. I’ve contributed through editorial,
+            design, technology, and event coordination roles.
           </p>
         </div>
 
         <div class="card" data-reveal>
           <h3>Technical Interests</h3>
+
           <p>
-            Distributed backend systems, deployment automation,
-            cloud infrastructure, and practical applications of AI/ML.
+            Distributed backend systems, deployment
+            automation, cloud infrastructure, and
+            practical applications of AI/ML.
           </p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- FEATURED PROJECTS -->
+
   <section class="section" style="padding-top:0;">
     <div class="container">
       <div class="sectionTitle">
         <h2>Featured projects</h2>
+
         <p>
-          Selected projects spanning AI integration, backend reliability,
-          and browser-based simulation.
+          Selected projects spanning AI integration,
+          backend reliability, and browser-based simulation.
         </p>
       </div>
 
@@ -1016,13 +1155,18 @@
             <strong>Nexora</strong>
             <span class="projTag">AI-Enhanced</span>
           </div>
+
           <div class="projBody">
             <p>
-              AI-enhanced project management system for project planning,
-              task management, and team collaboration, with conversation
-              summarization and ticket creation.
+              AI-enhanced project management system for
+              project planning, task management, and team
+              collaboration, with conversation summarization
+              and ticket creation.
             </p>
-            <a class="projLink" href="projects.html">See details →</a>
+
+            <a class="projLink" href="projects.html">
+              See details →
+            </a>
           </div>
         </div>
 
@@ -1031,13 +1175,19 @@
             <strong>FlowForge</strong>
             <span class="projTag">Distributed Systems</span>
           </div>
+
           <div class="projBody">
             <p>
-              API management and distributed workflow platform with asynchronous
-              workers, retries, and idempotency. The project uses Docker,
-              Kubernetes, GitHub Actions, Prometheus, and Grafana.
+              API management and distributed workflow
+              platform with asynchronous workers, retries,
+              and idempotency. The project uses Docker,
+              Kubernetes, GitHub Actions, Prometheus,
+              and Grafana.
             </p>
-            <a class="projLink" href="projects.html">See details →</a>
+
+            <a class="projLink" href="projects.html">
+              See details →
+            </a>
           </div>
         </div>
 
@@ -1046,81 +1196,119 @@
             <strong>FabricLab</strong>
             <span class="projTag">Graphics &amp; Physics</span>
           </div>
+
           <div class="projBody">
             <p>
-              Interactive material and physics laboratory featuring real-time
-              3D cloth simulation, WebGPU compute, parameterized materials,
+              Interactive material and physics laboratory
+              featuring real-time 3D cloth simulation,
+              WebGPU compute, parameterized materials,
               environmental forces, and GPU benchmarking.
             </p>
-            <a class="projLink" href="projects.html">See details →</a>
+
+            <a class="projLink" href="projects.html">
+              See details →
+            </a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- FOOTER -->
+
   <footer>
     <div class="footerWrap">
       <div>
-        © <span id="yr"></span> Sajini Tharushika · Built with HTML, CSS &amp; JavaScript
+        © <span id="yr"></span>
+        Sajini Tharushika · Built with HTML, CSS &amp; JavaScript
       </div>
 
       <div class="footerLinks">
         <a href="projects.html">Projects</a>
         <a href="contact.html">Contact</a>
-        <a href="https://www.linkedin.com/in/sajini-tharushika-15990234/"
-          target="_blank" rel="noreferrer">LinkedIn</a>
+
+        <a
+          href="https://www.linkedin.com/in/sajini-tharushika-15990234b/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          LinkedIn
+        </a>
       </div>
     </div>
   </footer>
 
+  <!-- JAVASCRIPT -->
+
   <script>
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const reduce = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
 
     // Reveal cards as they enter the viewport.
+
     (function () {
-      const elements = document.querySelectorAll("[data-reveal]");
+      const elements = document.querySelectorAll(
+        "[data-reveal]"
+      );
 
       if (reduce) {
-        elements.forEach((element) => element.classList.add("in"));
+        elements.forEach((element) => {
+          element.classList.add("in");
+        });
+
         return;
       }
 
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("in");
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: .12 });
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("in");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: .12 }
+      );
 
       elements.forEach((element, index) => {
-        element.style.transitionDelay = (80 + index * 60) + "ms";
+        element.style.transitionDelay =
+          (80 + index * 60) + "ms";
+
         observer.observe(element);
       });
     })();
 
     // Cursor glow.
+
     (function () {
       const glow = document.getElementById("glow");
+
       if (!glow || reduce) return;
 
       let x = window.innerWidth * .6;
       let y = window.innerHeight * .25;
+
       let targetX = x;
       let targetY = y;
 
-      window.addEventListener("mousemove", (event) => {
-        targetX = event.clientX;
-        targetY = event.clientY;
-      }, { passive: true });
+      window.addEventListener(
+        "mousemove",
+        (event) => {
+          targetX = event.clientX;
+          targetY = event.clientY;
+        },
+        { passive: true }
+      );
 
       function tick() {
         x += (targetX - x) * .10;
         y += (targetY - y) * .10;
+
         glow.style.left = x + "px";
         glow.style.top = y + "px";
+
         requestAnimationFrame(tick);
       }
 
@@ -1128,8 +1316,10 @@
     })();
 
     // Hero typing effect.
+
     (function () {
       const typed = document.getElementById("typed");
+
       if (!typed) return;
 
       const roles = [
@@ -1153,7 +1343,11 @@
 
         if (!deleting) {
           charIndex++;
-          typed.textContent = current.slice(0, charIndex);
+
+          typed.textContent = current.slice(
+            0,
+            charIndex
+          );
 
           if (charIndex >= current.length) {
             deleting = true;
@@ -1162,7 +1356,11 @@
           }
         } else {
           charIndex--;
-          typed.textContent = current.slice(0, charIndex);
+
+          typed.textContent = current.slice(
+            0,
+            charIndex
+          );
 
           if (charIndex <= 0) {
             deleting = false;
@@ -1177,47 +1375,76 @@
     })();
 
     // Hero particle background.
+
     (function () {
       const canvas = document.getElementById("particles");
+
       if (!canvas || reduce) return;
 
       const ctx = canvas.getContext("2d");
+
       if (!ctx) return;
 
       let width = 0;
       let height = 0;
 
       function resize() {
-        const dpr = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
+        const dpr = Math.max(
+          1,
+          Math.min(2, window.devicePixelRatio || 1)
+        );
+
         width = canvas.clientWidth;
         height = canvas.clientHeight;
+
         canvas.width = Math.floor(width * dpr);
         canvas.height = Math.floor(height * dpr);
+
         ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       }
 
       resize();
+
       window.addEventListener("resize", resize);
 
       let mouseX = 0;
       let mouseY = 0;
 
-      window.addEventListener("mousemove", (event) => {
-        mouseX = event.clientX / window.innerWidth - .5;
-        mouseY = event.clientY / window.innerHeight - .5;
-      }, { passive: true });
+      window.addEventListener(
+        "mousemove",
+        (event) => {
+          mouseX = event.clientX / window.innerWidth - .5;
+          mouseY = event.clientY / window.innerHeight - .5;
+        },
+        { passive: true }
+      );
 
       const layers = [
-        { count: 240, speed: .65, radius: [.5,1.1], opacity: [.10,.30] },
-        { count: 150, speed: 1.20, radius: [.9,1.8], opacity: [.18,.55] },
-        { count: 80, speed: 1.95, radius: [1.4,2.7], opacity: [.22,.75] }
+        {
+          count: 240,
+          speed: .65,
+          radius: [.5, 1.1],
+          opacity: [.10, .30]
+        },
+        {
+          count: 150,
+          speed: 1.20,
+          radius: [.9, 1.8],
+          opacity: [.18, .55]
+        },
+        {
+          count: 80,
+          speed: 1.95,
+          radius: [1.4, 2.7],
+          opacity: [.22, .75]
+        }
       ];
 
       const palette = [
-        [255,255,255],
-        [120,211,252],
-        [167,139,250],
-        [56,189,248]
+        [255, 255, 255],
+        [120, 211, 252],
+        [167, 139, 250],
+        [56, 189, 248]
       ];
 
       function randomBetween(min, max) {
@@ -1226,9 +1453,13 @@
 
       function spawnStar(layerIndex) {
         const layer = layers[layerIndex];
+
         const [minRadius, maxRadius] = layer.radius;
         const [minOpacity, maxOpacity] = layer.opacity;
-        const color = palette[Math.floor(Math.random() * palette.length)];
+
+        const color = palette[
+          Math.floor(Math.random() * palette.length)
+        ];
 
         return {
           x: Math.random() * width,
@@ -1236,7 +1467,8 @@
           layerIndex,
           radius: randomBetween(minRadius, maxRadius),
           opacity: randomBetween(minOpacity, maxOpacity),
-          velocityY: layer.speed * randomBetween(.85, 1.25),
+          velocityY:
+            layer.speed * randomBetween(.85, 1.25),
           phase: randomBetween(0, Math.PI * 2),
           phaseSpeed: randomBetween(.010, .022),
           color
@@ -1254,11 +1486,23 @@
       const shooters = [];
 
       function spawnShooter() {
-        const x = randomBetween(width * .15, width * .95);
-        const y = randomBetween(-80, height * .35);
+        const x = randomBetween(
+          width * .15,
+          width * .95
+        );
+
+        const y = randomBetween(
+          -80,
+          height * .35
+        );
+
         const length = randomBetween(180, 380);
         const speed = randomBetween(10, 18);
-        const angle = randomBetween(Math.PI * .58, Math.PI * .72);
+
+        const angle = randomBetween(
+          Math.PI * .58,
+          Math.PI * .72
+        );
 
         return {
           x,
@@ -1273,36 +1517,80 @@
       let lastFrame = performance.now();
 
       function draw(now) {
-        const elapsed = Math.min(32, now - lastFrame);
+        const elapsed = Math.min(
+          32,
+          now - lastFrame
+        );
+
         const frameScale = elapsed / 16;
+
         lastFrame = now;
+
         ctx.clearRect(0, 0, width, height);
 
-        const radius = Math.max(width, height) * .85;
+        const radius =
+          Math.max(width, height) * .85;
 
         const blueGlow = ctx.createRadialGradient(
-          width * .22, height * .10, 0,
-          width * .22, height * .10, radius
+          width * .22,
+          height * .10,
+          0,
+          width * .22,
+          height * .10,
+          radius
         );
-        blueGlow.addColorStop(0, "rgba(56,189,248,0.10)");
-        blueGlow.addColorStop(.40, "rgba(168,85,247,0.06)");
-        blueGlow.addColorStop(1, "rgba(0,0,0,0)");
+
+        blueGlow.addColorStop(
+          0,
+          "rgba(56,189,248,0.10)"
+        );
+
+        blueGlow.addColorStop(
+          .40,
+          "rgba(168,85,247,0.06)"
+        );
+
+        blueGlow.addColorStop(
+          1,
+          "rgba(0,0,0,0)"
+        );
+
         ctx.fillStyle = blueGlow;
         ctx.fillRect(0, 0, width, height);
 
         const purpleGlow = ctx.createRadialGradient(
-          width * .88, height * .20, 0,
-          width * .88, height * .20, radius
+          width * .88,
+          height * .20,
+          0,
+          width * .88,
+          height * .20,
+          radius
         );
-        purpleGlow.addColorStop(0, "rgba(168,85,247,0.08)");
-        purpleGlow.addColorStop(.45, "rgba(56,189,248,0.05)");
-        purpleGlow.addColorStop(1, "rgba(0,0,0,0)");
+
+        purpleGlow.addColorStop(
+          0,
+          "rgba(168,85,247,0.08)"
+        );
+
+        purpleGlow.addColorStop(
+          .45,
+          "rgba(56,189,248,0.05)"
+        );
+
+        purpleGlow.addColorStop(
+          1,
+          "rgba(0,0,0,0)"
+        );
+
         ctx.fillStyle = purpleGlow;
         ctx.fillRect(0, 0, width, height);
 
         for (const star of stars) {
-          const offsetX = mouseX * (6 + star.layerIndex * 6);
-          const offsetY = mouseY * (4 + star.layerIndex * 4);
+          const offsetX =
+            mouseX * (6 + star.layerIndex * 6);
+
+          const offsetY =
+            mouseY * (4 + star.layerIndex * 4);
 
           star.y += star.velocityY * frameScale;
 
@@ -1311,42 +1599,107 @@
             star.x = Math.random() * width;
           }
 
-          star.phase += star.phaseSpeed * frameScale;
-          const twinkle = (Math.sin(star.phase) + 1) / 2;
-          const alpha = star.opacity * (.65 + twinkle * .55);
+          star.phase +=
+            star.phaseSpeed * frameScale;
+
+          const twinkle =
+            (Math.sin(star.phase) + 1) / 2;
+
+          const alpha =
+            star.opacity * (.65 + twinkle * .55);
+
           const [red, green, blue] = star.color;
 
           ctx.beginPath();
-          ctx.arc(star.x + offsetX, star.y + offsetY, star.radius, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(${red},${green},${blue},${alpha})`;
+
+          ctx.arc(
+            star.x + offsetX,
+            star.y + offsetY,
+            star.radius,
+            0,
+            Math.PI * 2
+          );
+
+          ctx.fillStyle =
+            `rgba(${red},${green},${blue},${alpha})`;
+
           ctx.fill();
         }
 
-        if (shooters.length < 2 && Math.random() < .010) {
+        if (
+          shooters.length < 2 &&
+          Math.random() < .010
+        ) {
           shooters.push(spawnShooter());
         }
 
-        for (let i = shooters.length - 1; i >= 0; i--) {
+        for (
+          let i = shooters.length - 1;
+          i >= 0;
+          i--
+        ) {
           const shooter = shooters[i];
+
           shooter.life += elapsed;
-          shooter.x += shooter.velocityX * frameScale;
-          shooter.y += shooter.velocityY * frameScale;
 
-          const tailX = shooter.x - shooter.velocityX * (shooter.length / 18);
-          const tailY = shooter.y - shooter.velocityY * (shooter.length / 18);
-          const gradient = ctx.createLinearGradient(shooter.x, shooter.y, tailX, tailY);
+          shooter.x +=
+            shooter.velocityX * frameScale;
 
-          gradient.addColorStop(0, "rgba(255,255,255,0.85)");
-          gradient.addColorStop(.4, "rgba(56,189,248,0.22)");
-          gradient.addColorStop(1, "rgba(168,85,247,0)");
+          shooter.y +=
+            shooter.velocityY * frameScale;
+
+          const tailX =
+            shooter.x -
+            shooter.velocityX * (shooter.length / 18);
+
+          const tailY =
+            shooter.y -
+            shooter.velocityY * (shooter.length / 18);
+
+          const gradient = ctx.createLinearGradient(
+            shooter.x,
+            shooter.y,
+            tailX,
+            tailY
+          );
+
+          gradient.addColorStop(
+            0,
+            "rgba(255,255,255,0.85)"
+          );
+
+          gradient.addColorStop(
+            .4,
+            "rgba(56,189,248,0.22)"
+          );
+
+          gradient.addColorStop(
+            1,
+            "rgba(168,85,247,0)"
+          );
+
           ctx.strokeStyle = gradient;
           ctx.lineWidth = 2;
+
           ctx.beginPath();
-          ctx.moveTo(shooter.x, shooter.y);
-          ctx.lineTo(tailX, tailY);
+
+          ctx.moveTo(
+            shooter.x,
+            shooter.y
+          );
+
+          ctx.lineTo(
+            tailX,
+            tailY
+          );
+
           ctx.stroke();
 
-          if (shooter.life > 900 || shooter.x > width + 200 || shooter.y > height + 200) {
+          if (
+            shooter.life > 900 ||
+            shooter.x > width + 200 ||
+            shooter.y > height + 200
+          ) {
             shooters.splice(i, 1);
           }
         }
@@ -1357,22 +1710,46 @@
       requestAnimationFrame(draw);
     })();
 
+    // Footer year.
+
     const year = document.getElementById("yr");
+
     if (year) {
-      year.textContent = new Date().getFullYear();
+      year.textContent =
+        new Date().getFullYear();
     }
 
     // Mobile menu.
+
     (function () {
-      const menuBtn = document.getElementById("menuBtn");
-      const closeBtn = document.getElementById("closeBtn");
-      const drawer = document.getElementById("drawer");
-      const back = document.getElementById("drawerBack");
+      const menuBtn =
+        document.getElementById("menuBtn");
 
-      if (!menuBtn || !closeBtn || !drawer || !back) return;
+      const closeBtn =
+        document.getElementById("closeBtn");
 
-      const links = drawer.querySelectorAll("a[data-nav]");
-      const path = (location.pathname.split("/").pop() || "index.html").toLowerCase();
+      const drawer =
+        document.getElementById("drawer");
+
+      const back =
+        document.getElementById("drawerBack");
+
+      if (
+        !menuBtn ||
+        !closeBtn ||
+        !drawer ||
+        !back
+      ) return;
+
+      const links = drawer.querySelectorAll(
+        "a[data-nav]"
+      );
+
+      const path = (
+        location.pathname.split("/").pop() ||
+        "index.html"
+      ).toLowerCase();
+
       const activePage =
         path.includes("about") ? "about" :
         path.includes("skills") ? "skills" :
@@ -1381,35 +1758,65 @@
         "index";
 
       links.forEach((link) => {
-        link.classList.toggle("active", link.getAttribute("data-nav") === activePage);
+        link.classList.toggle(
+          "active",
+          link.getAttribute("data-nav") === activePage
+        );
       });
 
       function openMenu() {
         drawer.classList.add("open");
         back.classList.add("open");
-        menuBtn.setAttribute("aria-expanded", "true");
+
+        menuBtn.setAttribute(
+          "aria-expanded",
+          "true"
+        );
+
         document.body.style.overflow = "hidden";
       }
 
       function closeMenu() {
         drawer.classList.remove("open");
         back.classList.remove("open");
-        menuBtn.setAttribute("aria-expanded", "false");
+
+        menuBtn.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
         document.body.style.overflow = "";
       }
 
-      menuBtn.addEventListener("click", openMenu);
-      closeBtn.addEventListener("click", closeMenu);
-      back.addEventListener("click", closeMenu);
+      menuBtn.addEventListener(
+        "click",
+        openMenu
+      );
 
-      window.addEventListener("keydown", (event) => {
-        if (event.key === "Escape") {
-          closeMenu();
+      closeBtn.addEventListener(
+        "click",
+        closeMenu
+      );
+
+      back.addEventListener(
+        "click",
+        closeMenu
+      );
+
+      window.addEventListener(
+        "keydown",
+        (event) => {
+          if (event.key === "Escape") {
+            closeMenu();
+          }
         }
-      });
+      );
 
       links.forEach((link) => {
-        link.addEventListener("click", closeMenu);
+        link.addEventListener(
+          "click",
+          closeMenu
+        );
       });
     })();
   </script>
