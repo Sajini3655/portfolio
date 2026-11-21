@@ -13,8 +13,8 @@
     :root {
       --fg: rgba(255, 255, 255, .92);
       --muted: rgba(255, 255, 255, .65);
-      --accent: #38bdf8;
-      --accent2: #a855f7;
+      --accent: #997a8d;
+      --accent2: #c492a7;
       --ease: cubic-bezier(.16, 1, .3, 1);
       --shadow: 0 24px 100px rgba(0, 0, 0, .45);
     }
@@ -26,7 +26,7 @@
     body {
       margin: 0;
       font-family: Inter, system-ui, sans-serif;
-      background: linear-gradient(180deg, #050817, #060a14);
+      background: linear-gradient(180deg,#110f13,#0b090d);
       color: var(--fg);
     }
 
@@ -55,7 +55,7 @@
       top: 0;
       z-index: 30;
       backdrop-filter: blur(14px);
-      background: rgba(5, 8, 23, .72);
+      background: rgba(17,15,19, .72);
       border-bottom: 1px solid rgba(255, 255, 255, .06);
     }
 
@@ -81,7 +81,7 @@
       background:
         radial-gradient(circle at 30% 30%, rgba(255, 255, 255, .22), transparent 55%),
         linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow: 0 0 28px rgba(56, 189, 248, .14);
+      box-shadow: 0 0 28px rgba(153,122,141, .14);
     }
 
     .desktopNav a {
@@ -176,8 +176,8 @@
 
     .drawerNav a:hover,
     .drawerNav a[aria-current="page"] {
-      border-color: rgba(56, 189, 248, .40);
-      background: rgba(56, 189, 248, .12);
+      border-color: rgba(153,122,141, .40);
+      background: rgba(153,122,141, .12);
       color: white;
     }
 
@@ -190,8 +190,8 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(900px 520px at 18% 10%, rgba(56, 189, 248, .10), transparent 62%),
-        radial-gradient(980px 600px at 86% 18%, rgba(168, 85, 247, .10), transparent 65%),
+        radial-gradient(900px 520px at 18% 10%, rgba(153,122,141, .10), transparent 62%),
+        radial-gradient(980px 600px at 86% 18%, rgba(196,146,167, .10), transparent 65%),
         linear-gradient(rgba(255, 255, 255, .06) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255, 255, 255, .06) 1px, transparent 1px);
       background-size: auto, auto, 64px 64px, 64px 64px;
@@ -248,12 +248,12 @@
     }
 
     .chipBtn:hover {
-      border-color: rgba(168, 85, 247, .50);
+      border-color: rgba(196,146,167, .50);
     }
 
     .chipBtn[aria-pressed="true"] {
-      border-color: rgba(56, 189, 248, .45);
-      background: rgba(56, 189, 248, .12);
+      border-color: rgba(153,122,141, .45);
+      background: rgba(153,122,141, .12);
       color: white;
     }
 
@@ -276,7 +276,7 @@
 
     .card:hover {
       transform: translateY(-4px);
-      border-color: rgba(56, 189, 248, .22);
+      border-color: rgba(153,122,141, .22);
       background: rgba(255, 255, 255, .06);
     }
 
@@ -310,8 +310,8 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(600px 280px at 20% 15%, rgba(56, 189, 248, .20), transparent 60%),
-        radial-gradient(600px 300px at 85% 80%, rgba(168, 85, 247, .18), transparent 62%),
+        radial-gradient(600px 280px at 20% 15%, rgba(153,122,141, .20), transparent 60%),
+        radial-gradient(600px 300px at 85% 80%, rgba(196,146,167, .18), transparent 62%),
         linear-gradient(180deg, rgba(0, 0, 0, .05), rgba(0, 0, 0, .55));
       pointer-events: none;
     }
@@ -417,23 +417,23 @@
     }
 
     .link:hover {
-      border-color: rgba(56, 189, 248, .45);
+      border-color: rgba(153,122,141, .45);
       background: rgba(255, 255, 255, .09);
     }
 
     .link.primary {
-      border-color: rgba(56, 189, 248, .35);
-      background: rgba(56, 189, 248, .14);
+      border-color: rgba(153,122,141, .35);
+      background: rgba(153,122,141, .14);
     }
 
     .link.primary:hover {
-      border-color: rgba(56, 189, 248, .55);
-      background: rgba(56, 189, 248, .18);
+      border-color: rgba(153,122,141, .55);
+      background: rgba(153,122,141, .18);
     }
 
     footer {
       border-top: 1px solid rgba(255, 255, 255, .08);
-      background: rgba(5, 8, 23, .55);
+      background: rgba(17,15,19, .55);
     }
 
     .footerWrap {
@@ -746,8 +746,8 @@
               <path d="M0 0H640V320H0Z" fill="url(#physicslab-background)"></path>
               <path d="M0 0H640V320H0Z" fill="url(#physicslab-grid)"></path>
               <path d="M104 70V242H546" fill="none" stroke="#8bb6d7" stroke-width="2"></path>
-              <path d="M104 242Q320 -40 536 242" fill="none" stroke="#38bdf8" stroke-width="4"></path>
-              <path d="M320 101V242" stroke="#a855f7" stroke-width="2" stroke-dasharray="6 8"></path>
+              <path d="M104 242Q320 -40 536 242" fill="none" stroke="#997a8d" stroke-width="4"></path>
+              <path d="M320 101V242" stroke="#c492a7" stroke-width="2" stroke-dasharray="6 8"></path>
               <g fill="#c4f0ff">
                 <circle cx="104" cy="242" r="5"></circle>
                 <circle cx="320" cy="101" r="7"></circle>

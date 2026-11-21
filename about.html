@@ -14,13 +14,13 @@
 
   <style>
     :root {
-      --bg: #050817;
+      --bg: #110f13;
       --fg: rgba(255,255,255,.92);
       --muted: rgba(255,255,255,.65);
       --stroke: rgba(255,255,255,.12);
       --panel: rgba(0,0,0,.26);
-      --accent: #38bdf8;
-      --accent2: #a855f7;
+      --accent: #997a8d;
+      --accent2: #c492a7;
       --ease: cubic-bezier(.16,1,.3,1);
       --shadow: 0 24px 100px rgba(0,0,0,.45);
     }
@@ -36,7 +36,7 @@
     body {
       margin: 0;
       font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: linear-gradient(180deg,#050817,#060a14);
+      background: linear-gradient(180deg,#110f13,#0b090d);
       color: var(--fg);
       overflow-x: hidden;
     }
@@ -59,7 +59,7 @@
       top: 0;
       z-index: 30;
       backdrop-filter: blur(14px);
-      background: rgba(5,8,23,.72);
+      background: rgba(17,15,19,.72);
       border-bottom: 1px solid rgba(255,255,255,.06);
     }
 
@@ -85,7 +85,7 @@
       background:
         radial-gradient(circle at 30% 30%,rgba(255,255,255,.22),transparent 55%),
         linear-gradient(135deg,var(--accent),var(--accent2));
-      box-shadow: 0 0 28px rgba(56,189,248,.14);
+      box-shadow: 0 0 28px rgba(153,122,141,.14);
     }
 
     nav a {
@@ -133,7 +133,7 @@
     .menuBtn:hover {
       transform: translateY(-1px);
       background: rgba(255,255,255,.08);
-      border-color: rgba(56,189,248,.22);
+      border-color: rgba(153,122,141,.22);
     }
 
     .menuBtn svg {
@@ -165,7 +165,7 @@
       width: min(360px,calc(100vw - 28px));
       border-radius: 20px;
       border: 1px solid rgba(255,255,255,.12);
-      background: rgba(5,8,23,.88);
+      background: rgba(17,15,19,.88);
       box-shadow: 0 24px 100px rgba(0,0,0,.55);
       z-index: 70;
       transform: translateY(-8px) scale(.98);
@@ -211,7 +211,7 @@
 
     .closeBtn:hover {
       background: rgba(255,255,255,.08);
-      border-color: rgba(168,85,247,.22);
+      border-color: rgba(196,146,167,.22);
     }
 
     .closeBtn svg {
@@ -247,13 +247,13 @@
     .drawerNav a:hover {
       transform: translateY(-1px);
       background: rgba(255,255,255,.07);
-      border-color: rgba(56,189,248,.22);
+      border-color: rgba(153,122,141,.22);
       color: white;
     }
 
     .drawerNav a.active {
-      border-color: rgba(56,189,248,.40);
-      background: rgba(56,189,248,.12);
+      border-color: rgba(153,122,141,.40);
+      background: rgba(153,122,141,.12);
       color: white;
     }
 
@@ -279,8 +279,8 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(900px 520px at 18% 10%,rgba(56,189,248,.10),transparent 62%),
-        radial-gradient(980px 600px at 86% 18%,rgba(168,85,247,.10),transparent 65%),
+        radial-gradient(900px 520px at 18% 10%,rgba(153,122,141,.10),transparent 62%),
+        radial-gradient(980px 600px at 86% 18%,rgba(196,146,167,.10),transparent 65%),
         linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),
         linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);
       background-size: auto,auto,64px 64px,64px 64px;
@@ -317,8 +317,8 @@
       position: absolute;
       inset: -35%;
       background:
-        radial-gradient(640px circle at 25% 20%,rgba(56,189,248,.10),transparent 60%),
-        radial-gradient(760px circle at 85% 70%,rgba(168,85,247,.09),transparent 62%);
+        radial-gradient(640px circle at 25% 20%,rgba(153,122,141,.10),transparent 60%),
+        radial-gradient(760px circle at 85% 70%,rgba(196,146,167,.09),transparent 62%);
       opacity: .9;
       pointer-events: none;
     }
@@ -376,7 +376,7 @@
     .mini:hover {
       transform: translateY(-3px);
       background: rgba(255,255,255,.07);
-      border-color: rgba(56,189,248,.22);
+      border-color: rgba(153,122,141,.22);
     }
 
     .mini h3 {
@@ -463,8 +463,8 @@
       position: absolute;
       inset: -40%;
       background:
-        radial-gradient(620px circle at 30% 20%,rgba(56,189,248,.10),transparent 60%),
-        radial-gradient(760px circle at 80% 70%,rgba(168,85,247,.08),transparent 62%);
+        radial-gradient(620px circle at 30% 20%,rgba(153,122,141,.10),transparent 60%),
+        radial-gradient(760px circle at 80% 70%,rgba(196,146,167,.08),transparent 62%);
       opacity: .95;
       pointer-events: none;
     }
@@ -481,7 +481,7 @@
       display: block;
       margin: 14px auto 12px;
       border: 3px solid rgba(255,255,255,.18);
-      box-shadow: 0 0 44px rgba(56,189,248,.18);
+      box-shadow: 0 0 44px rgba(153,122,141,.18);
     }
 
     .cap {
@@ -543,7 +543,7 @@
 
     footer {
       border-top: 1px solid rgba(255,255,255,.08);
-      background: rgba(5,8,23,.55);
+      background: rgba(17,15,19,.55);
       backdrop-filter: blur(12px);
     }
 
@@ -574,7 +574,7 @@
 
     .footerLinks a:hover {
       color: white;
-      border-bottom-color: rgba(56,189,248,.45);
+      border-bottom-color: rgba(153,122,141,.45);
     }
 
     /* Responsive layout */

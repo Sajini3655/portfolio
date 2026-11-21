@@ -14,13 +14,13 @@
 
   <style>
     :root {
-      --bg: #050817;
+      --bg: #110f13;
       --fg: rgba(255,255,255,.92);
       --muted: rgba(255,255,255,.65);
       --stroke: rgba(255,255,255,.12);
       --panel: rgba(0,0,0,.26);
-      --accent: #38bdf8;
-      --accent2: #a855f7;
+      --accent: #997a8d;
+      --accent2: #c492a7;
       --ease: cubic-bezier(.16,1,.3,1);
       --shadow: 0 24px 100px rgba(0,0,0,.45);
     }
@@ -37,7 +37,7 @@
       margin: 0;
       font-family: Inter, system-ui, -apple-system,
         BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: linear-gradient(180deg,#050817,#060a14);
+      background: linear-gradient(180deg,#110f13,#0b090d);
       color: var(--fg);
       overflow-x: hidden;
     }
@@ -60,7 +60,7 @@
       top: 0;
       z-index: 30;
       backdrop-filter: blur(14px);
-      background: rgba(5,8,23,.72);
+      background: rgba(17,15,19,.72);
       border-bottom: 1px solid rgba(255,255,255,.06);
     }
 
@@ -91,7 +91,7 @@
           transparent 55%
         ),
         linear-gradient(135deg,var(--accent),var(--accent2));
-      box-shadow: 0 0 28px rgba(56,189,248,.14);
+      box-shadow: 0 0 28px rgba(153,122,141,.14);
     }
 
     nav a {
@@ -140,7 +140,7 @@
     .menuBtn:hover {
       transform: translateY(-1px);
       background: rgba(255,255,255,.08);
-      border-color: rgba(56,189,248,.22);
+      border-color: rgba(153,122,141,.22);
     }
 
     .menuBtn svg {
@@ -172,7 +172,7 @@
       width: min(360px,calc(100vw - 28px));
       border-radius: 20px;
       border: 1px solid rgba(255,255,255,.12);
-      background: rgba(5,8,23,.88);
+      background: rgba(17,15,19,.88);
       box-shadow: 0 24px 100px rgba(0,0,0,.55);
       z-index: 70;
       transform: translateY(-8px) scale(.98);
@@ -219,7 +219,7 @@
 
     .closeBtn:hover {
       background: rgba(255,255,255,.08);
-      border-color: rgba(168,85,247,.22);
+      border-color: rgba(196,146,167,.22);
     }
 
     .closeBtn svg {
@@ -255,13 +255,13 @@
     .drawerNav a:hover {
       transform: translateY(-1px);
       background: rgba(255,255,255,.07);
-      border-color: rgba(56,189,248,.22);
+      border-color: rgba(153,122,141,.22);
       color: white;
     }
 
     .drawerNav a.active {
-      border-color: rgba(56,189,248,.40);
-      background: rgba(56,189,248,.12);
+      border-color: rgba(153,122,141,.40);
+      background: rgba(153,122,141,.12);
       color: white;
     }
 
@@ -301,12 +301,12 @@
       background:
         radial-gradient(
           900px 520px at 22% 18%,
-          rgba(56,189,248,.10),
+          rgba(153,122,141,.10),
           transparent 62%
         ),
         radial-gradient(
           980px 600px at 86% 22%,
-          rgba(168,85,247,.10),
+          rgba(196,146,167,.10),
           transparent 65%
         ),
         linear-gradient(
@@ -356,8 +356,8 @@
       width: 8px;
       height: 8px;
       border-radius: 999px;
-      background: rgba(56,189,248,.95);
-      box-shadow: 0 0 18px rgba(56,189,248,.45);
+      background: rgba(153,122,141,.95);
+      box-shadow: 0 0 18px rgba(153,122,141,.45);
     }
 
     h1 {
@@ -459,14 +459,14 @@
     }
 
     .btn.primary {
-      background: rgba(56,189,248,.16);
-      border-color: rgba(56,189,248,.40);
+      background: rgba(153,122,141,.16);
+      border-color: rgba(153,122,141,.40);
       box-shadow: var(--shadow);
     }
 
     .btn.primary:hover {
-      background: rgba(56,189,248,.20);
-      border-color: rgba(56,189,248,.55);
+      background: rgba(153,122,141,.20);
+      border-color: rgba(153,122,141,.55);
     }
 
     /* Profile */
@@ -488,12 +488,12 @@
       background:
         radial-gradient(
           520px circle at 30% 20%,
-          rgba(56,189,248,.14),
+          rgba(153,122,141,.14),
           transparent 60%
         ),
         radial-gradient(
           680px circle at 80% 70%,
-          rgba(168,85,247,.12),
+          rgba(196,146,167,.12),
           transparent 62%
         );
       pointer-events: none;
@@ -589,7 +589,7 @@
     .card:hover {
       transform: translateY(-3px);
       background: rgba(255,255,255,.06);
-      border-color: rgba(56,189,248,.22);
+      border-color: rgba(153,122,141,.22);
     }
 
     .card h3 {
@@ -627,8 +627,8 @@
 
     .chip:hover {
       transform: translateY(-2px);
-      border-color: rgba(56,189,248,.28);
-      background: rgba(56,189,248,.08);
+      border-color: rgba(153,122,141,.28);
+      background: rgba(153,122,141,.08);
     }
 
     /* Featured projects */
@@ -659,16 +659,16 @@
 
     .proj:hover {
       transform: translateY(-3px);
-      border-color: rgba(168,85,247,.22);
+      border-color: rgba(196,146,167,.22);
       background: rgba(255,255,255,.06);
     }
 
     .proj.featured {
-      border-color: rgba(56,189,248,.25);
+      border-color: rgba(153,122,141,.25);
       background: linear-gradient(
         145deg,
-        rgba(56,189,248,.07),
-        rgba(168,85,247,.05)
+        rgba(153,122,141,.07),
+        rgba(196,146,167,.05)
       );
     }
 
@@ -707,14 +707,14 @@
     .projLink {
       display: inline-block;
       margin-top: 12px;
-      color: rgba(56,189,248,.92);
+      color: rgba(153,122,141,.92);
       font-size: 12px;
-      border-bottom: 1px solid rgba(56,189,248,.25);
+      border-bottom: 1px solid rgba(153,122,141,.25);
       padding-bottom: 2px;
     }
 
     .projLink:hover {
-      border-bottom-color: rgba(56,189,248,.55);
+      border-bottom-color: rgba(153,122,141,.55);
     }
 
     /* Cursor glow */
@@ -727,8 +727,8 @@
       transform: translate(-50%,-50%);
       background: radial-gradient(
         circle at center,
-        rgba(56,189,248,.10),
-        rgba(168,85,247,.06),
+        rgba(153,122,141,.10),
+        rgba(196,146,167,.06),
         transparent 60%
       );
       filter: blur(2px);
@@ -743,7 +743,7 @@
 
     footer {
       border-top: 1px solid rgba(255,255,255,.08);
-      background: rgba(5,8,23,.55);
+      background: rgba(17,15,19,.55);
       backdrop-filter: blur(12px);
     }
 
@@ -774,7 +774,7 @@
 
     .footerLinks a:hover {
       color: white;
-      border-bottom-color: rgba(56,189,248,.45);
+      border-bottom-color: rgba(153,122,141,.45);
     }
 
     @media (max-width: 980px) {
@@ -1442,9 +1442,9 @@
 
       const palette = [
         [255, 255, 255],
-        [120, 211, 252],
-        [167, 139, 250],
-        [56, 189, 248]
+        [228, 206, 217],
+        [153, 122, 141],
+        [196, 146, 167]
       ];
 
       function randomBetween(min, max) {
@@ -1542,12 +1542,12 @@
 
         blueGlow.addColorStop(
           0,
-          "rgba(56,189,248,0.10)"
+          "rgba(153,122,141,0.10)"
         );
 
         blueGlow.addColorStop(
           .40,
-          "rgba(168,85,247,0.06)"
+          "rgba(196,146,167,0.06)"
         );
 
         blueGlow.addColorStop(
@@ -1569,12 +1569,12 @@
 
         purpleGlow.addColorStop(
           0,
-          "rgba(168,85,247,0.08)"
+          "rgba(196,146,167,0.08)"
         );
 
         purpleGlow.addColorStop(
           .45,
-          "rgba(56,189,248,0.05)"
+          "rgba(153,122,141,0.05)"
         );
 
         purpleGlow.addColorStop(
@@ -1670,12 +1670,12 @@
 
           gradient.addColorStop(
             .4,
-            "rgba(56,189,248,0.22)"
+            "rgba(153,122,141,0.22)"
           );
 
           gradient.addColorStop(
             1,
-            "rgba(168,85,247,0)"
+            "rgba(196,146,167,0)"
           );
 
           ctx.strokeStyle = gradient;
